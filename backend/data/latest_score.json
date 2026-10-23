@@ -81,20 +81,20 @@
   "jd": {
     "target_title": "Senior Python Developer",
     "must_have_skills": [
-      "PostgreSQL",
-      "REST APIs",
       "Python",
       "Django",
-      "Docker",
-      "SQL",
+      "PostgreSQL",
       "AWS",
-      "Git"
+      "Docker",
+      "REST APIs",
+      "Git",
+      "SQL"
     ],
     "preferred_skills": [
       "Kubernetes",
       "Celery",
-      "CI/CD",
-      "Redis"
+      "Redis",
+      "CI/CD"
     ],
     "required_years_experience": 5,
     "required_degree_level": null,
@@ -123,11 +123,11 @@
         "SQL"
       ],
       "missing_must_have": [
-        "PostgreSQL",
-        "REST APIs",
         "Django",
-        "Docker",
+        "PostgreSQL",
         "AWS",
+        "Docker",
+        "REST APIs",
         "Git"
       ],
       "matched_preferred": [],

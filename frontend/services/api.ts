@@ -911,6 +911,115 @@ export interface NYCLocalLaw144AuditReport {
   flagged_groups: string[];
 }
 
+const CLIENT_JD_LEXICON: string[] = [
+  "Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "Go", "Rust", "SQL", "NoSQL", "GraphQL",
+  "React", "Next.js", "Vue.js", "Angular", "Node.js", "Django", "FastAPI", "Flask", "Spring Boot", ".NET",
+  "PostgreSQL", "MySQL", "MongoDB", "Redis", "Snowflake", "BigQuery", "Redshift", "Databricks", "Spark",
+  "Kafka", "Airflow", "dbt", "ETL", "Data Warehousing", "Data Modeling", "Data Engineering", "Data Analysis",
+  "Tableau", "Power BI", "Looker", "Amplitude", "Mixpanel", "Google Analytics 4", "GA4", "Machine Learning",
+  "Deep Learning", "NLP", "Generative AI", "LLMs", "RAG", "LangChain", "PyTorch", "TensorFlow", "Scikit-learn",
+  "Pandas", "NumPy", "A/B testing", "Experimentation", "Statistical Modeling", "AWS", "GCP", "Azure",
+  "Docker", "Kubernetes", "Terraform", "CI/CD", "GitHub Actions", "Jenkins", "Linux", "Microservices",
+  "REST APIs", "gRPC", "Git", "Product Management", "Product Strategy", "Product Roadmapping",
+  "Product Analytics", "User Research", "Go-to-Market Strategy", "Agile", "Scrum", "Kanban", "Lean",
+  "Six Sigma", "Project Management", "Program Management", "Stakeholder Management", "Cross-Functional Collaboration",
+  "OKRs", "KPIs", "Jira", "Confluence", "Figma", "UI/UX Design", "Digital Marketing", "Growth Marketing",
+  "Performance Marketing", "Content Marketing", "Content Strategy", "Content Calendars", "Creative Briefs",
+  "Copywriting", "Demand Generation", "Email Marketing", "Marketing Automation", "CRM", "SEO", "SEM",
+  "Paid Search", "Paid Social", "Google Ads", "Meta Ads Manager", "Conversion Rate Optimization",
+  "Mailchimp", "Klaviyo", "HubSpot", "Salesforce", "WordPress", "Shopify", "WooCommerce", "Semrush",
+  "Financial Modeling", "Financial Analysis", "FP&A", "Budgeting", "Forecasting", "Budget & Spend Tracking",
+  "Quantitative Finance", "Risk Management", "Accounting", "GAAP", "Microsoft Excel", "Advanced Excel",
+  "Pivot Tables", "VBA", "PowerPoint", "SAP", "Workday", "Business Analytics", "Business Operations",
+  "Process Redesign", "Process Improvement", "Supply Chain Management", "Logistics", "Procurement",
+];
+
+function extractJDClientSide(rawText: string, fallbackTitle?: string): JDRequirementInput {
+  const text = rawText.trim();
+  const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+
+  let targetTitle = "";
+  const labelRe = /^(?:job\s+title|title|position|role|opening)\s*[:\-–—]\s*(.+)$/i;
+  const roleKwRe = /\b(engineer|developer|manager|analyst|coordinator|specialist|director|architect|designer|lead|scientist|consultant|intern|associate|strategist|officer|administrator|researcher|accountant|planner|executive)\b/i;
+
+  for (const ln of lines.slice(0, 10)) {
+    const m = ln.match(labelRe);
+    if (m) {
+      targetTitle = m[1].trim();
+      break;
+    }
+  }
+  if (!targetTitle) {
+    for (const ln of lines.slice(0, 8)) {
+      const cleaned = ln.replace(/^[#*\-•\s]+/, "").trim();
+      if (cleaned.length >= 3 && cleaned.length <= 75 && roleKwRe.test(cleaned) && !cleaned.endsWith(".")) {
+        targetTitle = cleaned.split(/\s+(?:\||—|–|-)\s+/)[0].trim();
+        break;
+      }
+    }
+  }
+  if (!targetTitle) {
+    targetTitle = fallbackTitle && fallbackTitle !== "Senior Python Developer" ? fallbackTitle : (lines[0]?.slice(0, 60) || "Target Role");
+  }
+
+  const prefSplit = text.split(/\b(?:preferred\s+qualifications?|nice\s+to\s+have(?:s)?|bonus\s+(?:points?|skills?)|preferred\s+skills?|desired\s+qualifications?)\b/i);
+  const mustBlob = prefSplit[0] || text;
+  const prefBlob = prefSplit.slice(1).join("\n");
+
+  const extractFromBlob = (blob: string): string[] => {
+    if (!blob.trim()) return [];
+    const found: string[] = [];
+    const seen = new Set<string>();
+    const add = (s: string) => {
+      const clean = s.replace(/^[\s•●◦\-*–—:;,()\[\]]+|[\s•●◦\-*–—:;,()\[\].]+$/g, "").trim();
+      if (!clean || clean.length < 2 || clean.length > 40) return;
+      const low = clean.toLowerCase();
+      if (seen.has(low)) return;
+      seen.add(low);
+      found.push(clean);
+    };
+
+    for (const item of CLIENT_JD_LEXICON) {
+      const escaped = item.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const re = new RegExp(`(?<![a-z0-9])${escaped}(?![a-z0-9])`, "i");
+      if (re.test(blob)) {
+        add(item);
+      }
+    }
+
+    const cueRe = /(?:experience|proficiency|expertise|knowledge|familiarity|skilled|background)\s+(?:in|with|of|using)\s+([A-Za-z0-9#+/.\-&,\s]{3,80}?)(?:[.;\n]|$)/gi;
+    let m: RegExpExecArray | null;
+    while ((m = cueRe.exec(blob)) !== null) {
+      for (const part of m[1].split(/,|;|\band\b|\bor\b|\//i)) {
+        const p = part.trim();
+        if (p.split(/\s+/).length <= 3) add(p);
+      }
+    }
+    return found;
+  };
+
+  let mustSkills = extractFromBlob(mustBlob);
+  let prefSkills = extractFromBlob(prefBlob).filter(
+    (s) => !mustSkills.some((m) => m.toLowerCase() === s.toLowerCase())
+  );
+
+  if (prefSkills.length === 0 && mustSkills.length > 7) {
+    const splitIdx = Math.max(5, Math.floor(mustSkills.length * 0.72));
+    prefSkills = mustSkills.slice(splitIdx);
+    mustSkills = mustSkills.slice(0, splitIdx);
+  }
+
+  const ym = text.match(/\b(\d{1,2})\+?\s*(?:to\s*\d+\s*|\-\s*\d+\s*)?years?\b/i);
+  const reqYears = ym ? parseInt(ym[1], 10) : 3;
+
+  return {
+    target_title: targetTitle,
+    must_have_skills: mustSkills.slice(0, 12),
+    preferred_skills: prefSkills.slice(0, 8),
+    required_years_experience: reqYears,
+  };
+}
+
 export async function parseJDFromText(
   rawText: string,
   fallbackTitle?: string
@@ -927,7 +1036,7 @@ export async function parseJDFromText(
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return (await res.json()) as JDRequirementInput;
   } catch {
-    return DEFAULT_BENCHMARK_JD;
+    return extractJDClientSide(rawText, fallbackTitle);
   }
 }
 

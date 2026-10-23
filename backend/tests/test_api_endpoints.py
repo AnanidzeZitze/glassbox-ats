@@ -102,7 +102,29 @@ def test_parse_jd_and_compute_score_v1_endpoints() -> None:
     parsed_jd = jd_resp.json()
     assert parsed_jd["target_title"] == "Senior Python Developer"
     assert "Python" in parsed_jd["must_have_skills"]
+    assert "Kubernetes" in parsed_jd["preferred_skills"]
     assert parsed_jd["required_years_experience"] == 5
+
+    # Verify arbitrary non-engineering JD extraction (no default Python fallback)
+    mkt_resp = client.post(
+        "/api/v1/parse-jd",
+        json={
+            "raw_jd_text": (
+                "Growth Marketing & Analytics Manager\n"
+                "We are looking for a Growth Marketing & Analytics Manager with 4+ years of experience in "
+                "HubSpot, Klaviyo, Google Analytics 4, SEO, and Financial Modeling.\n"
+                "Nice to have: Looker, Shopify, and A/B testing."
+            )
+        },
+    )
+    assert mkt_resp.status_code == 200
+    mkt_jd = mkt_resp.json()
+    assert mkt_jd["target_title"] == "Growth Marketing & Analytics Manager"
+    assert "HubSpot" in mkt_jd["must_have_skills"]
+    assert "Klaviyo" in mkt_jd["must_have_skills"]
+    assert "Python" not in mkt_jd["must_have_skills"]
+    assert "Looker" in mkt_jd["preferred_skills"]
+    assert mkt_jd["required_years_experience"] == 4
 
     fixture = build_sarah_chen_canonical_fixture()
     score_resp = client.post(

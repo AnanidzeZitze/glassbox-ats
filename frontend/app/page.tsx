@@ -227,10 +227,7 @@ export default function GlassBoxStudioPage() {
     if (!rawJdText.trim()) return;
     setIsParsingJd(true);
     try {
-      const parsed = await parseJDFromText(
-        rawJdText,
-        jd.target_title || "Target Role"
-      );
+      const parsed = await parseJDFromText(rawJdText, undefined);
       setJd(parsed);
       setMustHaveInput(parsed.must_have_skills.join(", "));
       setPreferredInput(parsed.preferred_skills.join(", "));

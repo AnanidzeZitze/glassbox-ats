@@ -58,10 +58,7 @@ MAX_UPLOAD_SIZE_BYTES = int(os.getenv("MAX_UPLOAD_SIZE_BYTES", str(10 * 1024 * 1
 RATE_LIMIT_REQUESTS_PER_MINUTE = int(os.getenv("RATE_LIMIT_RPM", "120"))
 ALLOWED_ORIGINS = [
     origin.strip()
-    for origin in os.getenv(
-        "ALLOWED_ORIGINS",
-        "http://localhost:3000,http://127.0.0.1:3000",
-    ).split(",")
+    for origin in os.getenv("ALLOWED_ORIGINS", "*").split(",")
     if origin.strip()
 ]
 
@@ -73,8 +70,9 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS if "*" not in ALLOWED_ORIGINS else ["*"],
-    allow_credentials=True,
+    allow_origins=["*"] if "*" in ALLOWED_ORIGINS else ALLOWED_ORIGINS,
+    allow_origin_regex=r".*",
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["X-Request-ID", "X-Process-Time-Ms"],
@@ -658,40 +656,150 @@ class ParseJDRequest(BaseModel):
     fallback_title: Optional[str] = None
 
 
+JD_EXTENDED_SKILL_LEXICON: List[str] = [
+    # Programming & Web
+    "Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "Go", "Golang", "Rust", "Ruby", "PHP",
+    "Swift", "Kotlin", "Scala", "R", "MATLAB", "SQL", "NoSQL", "GraphQL", "HTML", "CSS", "SASS",
+    "React", "Next.js", "Vue.js", "Angular", "Svelte", "Node.js", "Express.js", "Django", "FastAPI",
+    "Flask", "Spring Boot", ".NET", "ASP.NET", "Ruby on Rails", "Laravel", "Tailwind CSS", "Redux",
+    # Data, Analytics & AI/ML
+    "PostgreSQL", "MySQL", "MongoDB", "Redis", "Snowflake", "BigQuery", "Redshift", "Databricks",
+    "ClickHouse", "Oracle", "SQL Server", "DynamoDB", "Cassandra", "Elasticsearch", "Neo4j",
+    "Apache Spark", "PySpark", "Kafka", "Airflow", "dbt", "ETL", "ELT", "Data Warehousing",
+    "Data Modeling", "Data Pipelines", "Data Engineering", "Data Analysis", "Data Visualization",
+    "Business Intelligence", "Tableau", "Power BI", "Looker", "Metabase", "Superset", "QuickSight",
+    "Amplitude", "Mixpanel", "Segment", "Heap", "Google Analytics 4", "GA4", "Google Tag Manager",
+    "Machine Learning", "Deep Learning", "Natural Language Processing", "NLP", "Computer Vision",
+    "Generative AI", "LLMs", "Large Language Models", "RAG", "Prompt Engineering", "LangChain",
+    "LlamaIndex", "PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "Pandas", "NumPy", "SciPy",
+    "MLOps", "MLflow", "Kubeflow", "Weights & Biases", "Hugging Face", "OpenAI API", "Vector Databases",
+    "Pinecone", "Weaviate", "pgvector", "Milvus", "Statistical Modeling", "Hypothesis Testing",
+    "A/B testing", "Experimentation", "Time Series Forecasting", "Operations Research", "Optimization",
+    # Cloud, DevOps & Security
+    "AWS", "Amazon Web Services", "GCP", "Google Cloud Platform", "Azure", "Docker", "Kubernetes",
+    "Terraform", "Ansible", "Pulumi", "CloudFormation", "Jenkins", "GitHub Actions", "GitLab CI",
+    "CircleCI", "CI/CD", "Linux", "Unix", "Bash", "Shell Scripting", "Nginx", "Apache",
+    "Microservices", "microservices architecture", "Serverless", "AWS Lambda", "EC2", "S3", "RDS",
+    "REST APIs", "gRPC", "WebSockets", "OAuth", "JWT", "SSO", "IAM", "SOC 2", "ISO 27001",
+    "HIPAA", "GDPR", "Penetration Testing", "Vulnerability Management", "SIEM", "Splunk",
+    "Datadog", "Prometheus", "Grafana", "New Relic", "Sentry", "OpenTelemetry", "Git",
+    # Product, Project & Agile
+    "Product Management", "Product Strategy", "Product Roadmapping", "Product Analytics",
+    "Product Discovery", "User Research", "Customer Discovery", "Go-to-Market Strategy", "GTM",
+    "PRDs", "Product Requirements", "User Stories", "Backlog Grooming", "Sprint Planning",
+    "Agile", "Scrum", "Kanban", "SAFe", "Lean", "Six Sigma", "Project Management",
+    "Program Management", "Change Management", "Risk Management", "Vendor Management",
+    "Stakeholder Management", "Cross-Functional Collaboration", "Executive Communication",
+    "OKRs", "KPIs", "Jira", "Confluence", "Linear", "Asana", "Monday.com", "Trello", "Notion",
+    "Smartsheet", "MS Project", "Miro", "Figma", "FigJam", "Wireframing", "Prototyping",
+    "UI/UX Design", "Design Systems", "Usability Testing", "WCAG", "Accessibility",
+    # Marketing, Growth, E-Commerce & Sales
+    "Digital Marketing", "Growth Marketing", "Performance Marketing", "Content Marketing",
+    "Content Strategy", "Content Calendars", "Creative Briefs", "Copywriting", "Brand Management",
+    "Product Marketing", "Demand Generation", "Lead Generation", "Account-Based Marketing", "ABM",
+    "Email Marketing", "Lifecycle Marketing", "Marketing Automation", "CRM", "SEO", "SEM",
+    "Paid Search", "Paid Social", "PPC", "Google Ads", "Meta Ads Manager", "LinkedIn Ads",
+    "TikTok Ads", "Programmatic Advertising", "Conversion Rate Optimization", "CRO",
+    "Customer Acquisition", "Retention Strategy", "Churn Reduction", "LTV", "CAC", "ROAS",
+    "Mailchimp", "Klaviyo", "Braze", "Iterable", "Marketo", "Pardot", "HubSpot", "Salesforce",
+    "Zoho CRM", "Pipedrive", "Outreach", "Salesloft", "Gong", "Zendesk", "Intercom",
+    "WordPress", "Webflow", "Shopify", "WooCommerce", "Magento", "BigCommerce", "Amazon Seller Central",
+    "Semrush", "Ahrefs", "Moz", "Google Search Console", "Hootsuite", "Sprout Social",
+    "Canva", "Adobe Creative Suite", "Photoshop", "Illustrator", "InDesign", "Premiere Pro",
+    # Finance, Strategy, Operations & Supply Chain
+    "Financial Modeling", "Financial Analysis", "FP&A", "Budgeting", "Forecasting",
+    "Budget & Spend Tracking", "Variance Analysis", "Valuation", "DCF", "M&A", "Due Diligence",
+    "Quantitative Finance", "Algorithmic Trading", "Portfolio Management", "Risk Analytics",
+    "Accounting", "GAAP", "IFRS", "General Ledger", "Accounts Payable", "Accounts Receivable",
+    "Audit", "Tax Compliance", "SOX", "Bloomberg Terminal", "Capital IQ", "FactSet",
+    "Microsoft Excel", "Advanced Excel", "Pivot Tables", "VLOOKUP", "XLOOKUP", "VBA", "Macros",
+    "PowerPoint", "Google Sheets", "SAP", "Oracle NetSuite", "Workday", "QuickBooks", "Xero",
+    "Business Analytics", "Business Operations", "Strategy & Operations", "Process Redesign",
+    "Process Improvement", "Supply Chain Management", "Logistics", "Procurement",
+    "Inventory Management", "Demand Planning", "S&OP", "ERP", "WMS", "TMS",
+    # Engineering, Hardware & Healthcare
+    "AutoCAD", "SolidWorks", "CATIA", "ANSYS", "LabVIEW", "PLC", "SCADA", "Embedded Systems",
+    "Firmware", "PCB Design", "RTOS", "ARM Cortex", "Verilog", "VHDL", "FPGA",
+    "Clinical Trials", "FDA Regulations", "GMP", "GLP", "EMR", "EHR", "Epic", "Bioinformatics",
+]
+
+JD_STOP_PHRASES = {
+    "a", "an", "the", "and", "or", "in", "on", "at", "to", "for", "with", "of", "by", "from",
+    "our", "your", "their", "this", "that", "these", "those", "we", "you", "they", "who",
+    "fast-paced environment", "team player", "self-starter", "strong work ethic", "other duties",
+    "related field", "equivalent practical experience", "similar role", "minimum qualifications",
+    "preferred qualifications", "about the role", "about us", "what you will do", "what you'll do",
+    "equal opportunity employer", "competitive salary", "health insurance", "paid time off",
+}
+
+
 @app.post("/api/v1/parse-jd", response_model=JDRequirementInput)
 def api_v1_parse_jd(req: ParseJDRequest) -> JDRequirementInput:
-    """Deterministically extract Target Role Title, Must-Have Skills, and Preferred Skills from raw JD text."""
+    """Deterministically extract Target Role Title, Must-Have Skills, Preferred Skills, and Years from raw JD text."""
     import re
     from backend.services.nlp_pipeline import LIGHTCAST_ESCO_TAXONOMY
 
     text = (req.raw_jd_text or req.raw_text or "").strip()
+    clean_fallback = (
+        req.fallback_title.strip()
+        if req.fallback_title and req.fallback_title.strip() not in ("", "Target Role", "Senior Python Developer")
+        else ""
+    )
+
     if not text:
         return JDRequirementInput(
-            target_title=req.fallback_title or "Senior Python Developer",
-            must_have_skills=["Python", "Django", "PostgreSQL", "AWS", "Docker", "REST APIs", "Git", "CI/CD"],
-            preferred_skills=["Kubernetes", "Celery", "Redis", "microservices architecture"],
+            target_title=clean_fallback or "Target Role",
+            must_have_skills=[],
+            preferred_skills=[],
+            required_years_experience=3,
         )
 
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
-    # 1. Detect Target Job Title from explicit prefix ("Job Title:", "Role:") or first short heading line
-    target_title = req.fallback_title or "Target Role"
-    title_label_re = re.compile(r"^(?:job\s+title|title|position|role)\s*[:\-–—]\s*(.+)$", re.IGNORECASE)
-    role_keyword_re = re.compile(
-        r"\b(engineer|developer|manager|analyst|coordinator|specialist|director|architect|designer|lead|scientist|consultant|intern)\b",
+
+    # 1. Detect Target Job Title from explicit prefix, prose pattern, or first short heading line
+    target_title = clean_fallback or ""
+    title_label_re = re.compile(
+        r"^(?:job\s+title|title|position|role|opening)\s*[:\-–—]\s*(.+)$",
         re.IGNORECASE,
     )
-    for ln in lines[:8]:
-        m_lbl = title_label_re.match(ln)
-        if m_lbl:
-            target_title = m_lbl.group(1).strip()
-            break
-        if len(ln) <= 70 and role_keyword_re.search(ln) and not ln.endswith("."):
-            target_title = re.sub(r"^[#*\-•\s]+", "", ln).strip()
-            break
+    prose_title_re = re.compile(
+        r"(?:looking\s+for|seeking|hiring|recruit(?:ing)?)\s+(?:a|an|our\s+next)\s+"
+        r"(?:experienced\s+|passionate\s+|talented\s+|driven\s+)?"
+        r"([A-Z][A-Za-z0-9/&,\-\s]{2,48}?)"
+        r"(?:\s+to\s+join|\s+who\s+|\s+with\s+|\s+in\s+|\s+at\s+|[.,;!]|$)"
+    )
+    role_keyword_re = re.compile(
+        r"\b(engineer|developer|manager|analyst|coordinator|specialist|director|architect|"
+        r"designer|lead|scientist|consultant|intern|associate|strategist|officer|administrator|"
+        r"researcher|producer|editor|accountant|planner|representative|executive|technician)\b",
+        re.IGNORECASE,
+    )
+
+    if not target_title:
+        for ln in lines[:12]:
+            m_lbl = title_label_re.match(ln)
+            if m_lbl:
+                target_title = m_lbl.group(1).strip(" -–—|•*#")
+                break
+        if not target_title:
+            m_prose = prose_title_re.search(text)
+            if m_prose and role_keyword_re.search(m_prose.group(1)):
+                target_title = m_prose.group(1).strip(" -–—|•*#")
+        if not target_title:
+            for ln in lines[:8]:
+                cleaned_ln = re.sub(r"^[#*\-•\s]+", "", ln).strip()
+                if 3 <= len(cleaned_ln) <= 75 and role_keyword_re.search(cleaned_ln) and not cleaned_ln.endswith("."):
+                    # Strip trailing location/company after pipe or dash if present
+                    target_title = re.split(r"\s+(?:\||—|–|-)\s+", cleaned_ln)[0].strip()
+                    break
+        if not target_title and lines:
+            first_clean = re.sub(r"^[#*\-•\s]+", "", lines[0]).strip()
+            target_title = first_clean[:60] if len(first_clean) <= 60 else "Target Role"
 
     # 2. Split text into Must-Have vs Preferred sections if present
     pref_split = re.split(
-        r"\b(?:preferred\s+qualifications?|nice\s+to\s+have|bonus\s+skills?|preferred\s+skills?|desired\s+qualifications?)\b",
+        r"\b(?:preferred\s+qualifications?|nice\s+to\s+have(?:s)?|bonus\s+(?:points?|skills?|qualifications?)|"
+        r"preferred\s+skills?|desired\s+(?:skills?|qualifications?)|what\s+makes\s+you\s+stand\s+out)\s*[:\-–—]?",
         text,
         maxsplit=1,
         flags=re.IGNORECASE,
@@ -699,38 +807,120 @@ def api_v1_parse_jd(req: ParseJDRequest) -> JDRequirementInput:
     must_section = pref_split[0]
     pref_section = pref_split[1] if len(pref_split) > 1 else ""
 
+    # Build unified lookup map: lowercase -> display name
+    skill_lookup: Dict[str, str] = {}
+    for k, (_, cname, _, _, _, _) in LIGHTCAST_ESCO_TAXONOMY.items():
+        if len(k) > 2 or k in ("py", "go", "r", "c#"):
+            display = cname.split("(")[0].strip() if "(" in cname and k != "seo" else cname
+            skill_lookup[k.lower()] = display
+    for item in JD_EXTENDED_SKILL_LEXICON:
+        skill_lookup.setdefault(item.lower(), item)
+
+    sorted_keys = sorted(skill_lookup.keys(), key=len, reverse=True)
+
     def _extract_skills_from_blob(blob: str) -> List[str]:
+        if not blob.strip():
+            return []
         found: List[str] = []
-        seen_ids: set[str] = set()
+        seen_lower: set[str] = set()
         blob_lower = blob.lower()
-        for key in sorted(LIGHTCAST_ESCO_TAXONOMY.keys(), key=len, reverse=True):
-            if len(key) <= 2 and key != "py":
+
+        def _add_skill(candidate: str) -> None:
+            c_clean = re.sub(r"^[\s•●◦\-*–—:;,()\[\]]+|[\s•●◦\-*–—:;,()\[\].]+$", "", candidate).strip()
+            c_clean = re.sub(r"^(?:and|or|including|such as|like|e\.g\.|i\.e\.|with|in|of|for)\s+", "", c_clean, flags=re.IGNORECASE).strip()
+            if not c_clean or len(c_clean) < 2 or len(c_clean) > 42:
+                return
+            c_low = c_clean.lower()
+            if c_low in JD_STOP_PHRASES or c_low in seen_lower:
+                return
+            if re.match(r"^\d+(\.\d+)?%?$", c_clean) or re.search(r"\b(?:years?|months?|degree|bachelor|master|phd|salary|benefits|qualifications)\b", c_low):
+                return
+            if len(c_clean.split()) > 4:
+                return
+            seen_lower.add(c_low)
+            found.append(c_clean)
+
+        # Layer A: Match against curated taxonomy + extended industry lexicon (preserving order of appearance in JD)
+        matches_with_pos: List[tuple[int, str]] = []
+        for key in sorted_keys:
+            if len(key) <= 1 and key not in ("r",):
                 continue
             pattern = rf"(?<![a-z0-9]){re.escape(key)}(?![a-z0-9])"
-            if re.search(pattern, blob_lower):
-                cid, cname, _, _, _, _ = LIGHTCAST_ESCO_TAXONOMY[key]
-                if cid not in seen_ids:
-                    seen_ids.add(cid)
-                    display = cname.split("(")[0].strip() if "(" in cname and key != "seo" else cname
-                    if display not in found:
-                        found.append(display)
+            m = re.search(pattern, blob_lower)
+            if m:
+                matches_with_pos.append((m.start(), skill_lookup[key]))
+        matches_with_pos.sort(key=lambda x: x[0])
+        for _, disp in matches_with_pos:
+            _add_skill(disp)
+
+        # Layer B: Extract contextual phrases following requirement cues in the JD
+        cue_patterns = [
+            r"(?:experience|proficiency|expertise|fluency|competency|background|skilled|fluent|knowledge|familiarity)\s+(?:in|with|of|using)\s+([^\n.;]{3,90}?)(?:[.;\n]|$|\s+(?:is\s+a\s+plus|preferred|required|to\s+build|to\s+drive|to\s+support|and\s+ability))",
+            r"(?:such\s+as|including|e\.g\.,?|like|tools?\s+like|technologies\s+like|platforms?\s+like)\s*:?\s*([^\n.;)]{3,80}?)(?:[.;)\n]|$)",
+            r"(?:strong|deep|solid|proven|hands-on|demonstrated|working)\s+(?:understanding|knowledge|command|grasp|skills?|experience)\s+(?:of|in|with)\s+([^\n.;]{3,80}?)(?:[.;\n]|$)",
+            r"\b([A-Za-z][A-Za-z0-9#+/.\-&]{1,22}(?:\s+[A-Za-z][A-Za-z0-9#+/.\-&]{1,22}){0,2})\s+skills\b",
+        ]
+        for pat in cue_patterns:
+            for m in re.finditer(pat, blob, flags=re.IGNORECASE):
+                phrase_chunk = m.group(1)
+                for part in re.split(r",|;|\band\b|\bor\b|/", phrase_chunk):
+                    part_clean = part.strip()
+                    if part_clean.lower() in skill_lookup:
+                        _add_skill(skill_lookup[part_clean.lower()])
+                    elif 1 <= len(part_clean.split()) <= 3:
+                        _add_skill(part_clean)
+
+        # Layer C: Short explicit skill bullet lines or "Skills: X, Y, Z" lines in the JD
+        for line in blob.splitlines():
+            ln_clean = re.sub(r"^[\s•●◦\-*–—\d.)]+", "", line).strip()
+            if not ln_clean:
+                continue
+            m_list_hdr = re.match(
+                r"^(?:skills?|technical\s+skills?|core\s+skills?|tools?|tech\s+stack|technologies|qualifications|requirements|must\s+have(?:s)?)\s*[:\-–—]\s*(.+)$",
+                ln_clean,
+                flags=re.IGNORECASE,
+            )
+            if m_list_hdr and "," in m_list_hdr.group(1):
+                for item in re.split(r",|;|\|", m_list_hdr.group(1)):
+                    item_s = item.strip()
+                    _add_skill(skill_lookup.get(item_s.lower(), item_s))
+                continue
+
+            if "," in ln_clean and len(ln_clean) <= 100:
+                parts = [p.strip() for p in ln_clean.split(",") if p.strip()]
+                if len(parts) >= 3 and all(len(p.split()) <= 4 for p in parts):
+                    for p in parts:
+                        _add_skill(skill_lookup.get(p.lower(), p))
+
         return found
 
     must_skills = _extract_skills_from_blob(must_section)
-    pref_skills = [s for s in _extract_skills_from_blob(pref_section) if s not in must_skills]
+    pref_skills = [s for s in _extract_skills_from_blob(pref_section) if s.lower() not in {m.lower() for m in must_skills}]
 
-    if not pref_skills and len(must_skills) > 6:
-        split_idx = max(4, int(len(must_skills) * 0.7))
+    # Also check inline "is a plus" / "is preferred" / "nice to have" within a single sentence in must_section
+    inline_pref_re = re.compile(
+        r"([^\n.;]{3,70}?)\s+(?:is\s+a\s+(?:big\s+|strong\s+)?plus|is\s+preferred|nice\s+to\s+have)\b",
+        re.IGNORECASE,
+    )
+    for m_ip in inline_pref_re.finditer(must_section):
+        chunk_skills = _extract_skills_from_blob(m_ip.group(1))
+        for cs in chunk_skills:
+            if cs not in pref_skills:
+                pref_skills.append(cs)
+                must_skills = [ms for ms in must_skills if ms.lower() != cs.lower()]
+
+    if not pref_skills and len(must_skills) > 7:
+        split_idx = max(5, int(len(must_skills) * 0.72))
         pref_skills = must_skills[split_idx:]
         must_skills = must_skills[:split_idx]
 
-    years_match = re.search(r"\b(\d{1,2})\+?\s*(?:to\s*\d+\s*)?years?\b", text, re.IGNORECASE)
-    req_years = int(years_match.group(1)) if years_match else None
+    years_match = re.search(r"\b(\d{1,2})\+?\s*(?:to\s*\d+\s*|\-\s*\d+\s*)?years?\b", text, re.IGNORECASE)
+    req_years = int(years_match.group(1)) if years_match else 3
 
     return JDRequirementInput(
-        target_title=target_title,
-        must_have_skills=must_skills[:10],
-        preferred_skills=pref_skills[:6],
+        target_title=target_title or "Target Role",
+        must_have_skills=must_skills[:12],
+        preferred_skills=pref_skills[:8],
         required_years_experience=req_years,
     )
 

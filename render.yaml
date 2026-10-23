@@ -1,4 +1,4 @@
-# Render.com Blueprint — Glass-Box ATS Simulator & Optimization Studio
+# Render.com Full-Stack Blueprint — Glass-Box ATS Simulator & Optimization Studio
 services:
   - type: web
     name: glassbox-ats-backend
@@ -13,3 +13,15 @@ services:
       - key: RATE_LIMIT_RPM
         value: "120"
     healthCheckPath: /api/v1/health
+
+  - type: web
+    name: glassbox-ats-frontend
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start -- -p $PORT
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NEXT_PUBLIC_API_BASE_URL
+        value: https://glassbox-ats-backend.onrender.com/api/v1

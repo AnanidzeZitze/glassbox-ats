@@ -1,0 +1,46 @@
+[
+  {
+    "id": "app-1",
+    "company": "Stripe",
+    "role": "Senior Python Developer",
+    "platform": "GREENHOUSE",
+    "ats_score": 88.5,
+    "jd_match_pct": 84.0,
+    "stage": "INTERVIEW",
+    "date_applied": "2025-02-14",
+    "notes": "Sovren parser verified 100% section completeness; passed technical screen."
+  },
+  {
+    "id": "app-2",
+    "company": "Databricks",
+    "role": "Staff Backend Engineer (Python/Spark)",
+    "platform": "LEVER",
+    "ats_score": 85.75,
+    "jd_match_pct": 81.5,
+    "stage": "SCREENING",
+    "date_applied": "2025-02-18",
+    "notes": "Lever semantic neighbor match (+0.5) on container orchestration."
+  },
+  {
+    "id": "app-3",
+    "company": "Snowflake",
+    "role": "Senior Distributed Systems Engineer",
+    "platform": "WORKDAY",
+    "ats_score": 82.0,
+    "jd_match_pct": 78.0,
+    "stage": "APPLIED",
+    "date_applied": "2025-02-20",
+    "notes": "Exported single-column Calibri 11pt DOCX with zero XML tables."
+  },
+  {
+    "id": "app-4",
+    "company": "Anthropic",
+    "role": "Member of Technical Staff, Infrastructure",
+    "platform": "GREENHOUSE",
+    "ats_score": 91.0,
+    "jd_match_pct": 85.0,
+    "stage": "OFFER",
+    "date_applied": "2025-01-29",
+    "notes": "Passed all 30 audit parameters and 4/4 knockout gates."
+  }
+]

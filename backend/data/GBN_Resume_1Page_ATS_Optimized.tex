@@ -1,0 +1,107 @@
+\documentclass[10pt,letterpaper]{article}
+\pagestyle{empty}
+
+% ---------- STRICT ATS-SAFE PACKAGES & GEOMETRY ----------
+% 1.0in top & bottom margins ensure y0 >= 72pt and y1 <= 720pt (Zero Stream A/B header/footer clipping)
+\usepackage[top=1.02in,bottom=1.02in,left=0.45in,right=0.45in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=1.02]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{0.91}
+
+\setlist[itemize]{%
+  noitemsep,
+  topsep=0pt,
+  partopsep=0pt,
+  leftmargin=11pt,
+  itemindent=0pt,
+  labelsep=4pt,
+  label=-
+}
+
+\AtBeginEnvironment{itemize}{\RaggedRight}
+\AtEndEnvironment{itemize}{\vspace{1pt}}
+
+% Section headings at \Large (~14.6pt -> strictly within 14-16pt range)
+\newcommand{\sectiontitle}[1]{%
+  \vspace{2pt}
+  {\Large \textbf{#1}}\\[-3pt]
+  \rule{\linewidth}{0.7pt}\\[1pt]
+}
+
+% Single-line pipe-delimited job header (Zero \hfill wide horizontal gaps -> 0 interleaved lines)
+\newcommand{\job}[4]{%
+  \textbf{#1} \;|\; \textbf{#2} \;|\; #3 \;|\; #4\par%
+}
+
+\begin{document}
+
+% =========================
+%         HEADER
+% =========================
+{\Large \textbf{GAGAN BHASKAR NAIK}}\\[1pt]
+Austin, TX \;|\; (774) 290-3032 \;|\; gagan.97@gmail.com \;|\; linkedin.com/in/gbn97 \;|\; gaganbn.in \;|\; US Work Auth: F-1 STEM OPT
+
+% =========================
+%  PROFESSIONAL SUMMARY
+% =========================
+\sectiontitle{Professional Summary}
+\textbf{Marketing Coordinator (Project Management, Campaigns \& Reporting) | MBA (STEM, Business Analytics)} with 4+ years keeping marketing operations organized across e-commerce, B2B, and non-profit teams. Skilled in Project Management, Content Calendars, Google Analytics 4, SQL, and Advanced Excel to drive measurable pipeline and revenue growth. Led a 5-person team with copy guidelines, pre-launch review checklists, and weekly Key Performance Indicator (KPI) reporting while scaling monthly budgets from \$5K to \$20K. Cut intake processing time 40\% across 80+ applicants via Process Redesign and grew monthly unit sales from 200 to 1,500 across Amazon and Flipkart.
+
+% =========================
+%        SKILLS
+% =========================
+\sectiontitle{Skills}
+\textbf{Project Management \& Operations}: Project Management, Process Redesign, Budget \& Spend Tracking, project trackers, calendars and deliverables, deadlines and approvals, vendor coordination, documentation\\
+\textbf{Campaign \& Content Support}: Content Calendars, Creative Briefs, Search Engine Optimization (SEO), social content (Instagram, Facebook, LinkedIn), campaign copy, pre-launch review checklists, Mailchimp\\
+\textbf{Reporting \& Analytics}: Key Performance Indicator (KPI) reporting, Advertising Cost of Sales (ACOS) optimization, Advanced Excel, SQL, Google Analytics 4, Salesforce, e-commerce (Amazon, Flipkart)
+
+% =========================
+%        EXPERIENCE
+% =========================
+\sectiontitle{Professional Experience}
+
+\job{Marketing Operations Analyst}{Grimes King Foundation Inc.}{Boston, MA}{Aug 2025 -- Present}
+\begin{itemize}
+  \item Increased program sign-ups by \textbf{35\%} in Q1 by mapping the full acquisition funnel (organic search to email nurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting stage copy.
+  \item Grew program registrations by \textbf{40\%} and engagement by \textbf{50\%} by tracking website, email, and outreach performance in Google Analytics 4 against weekly Key Performance Indicators (KPIs) for stakeholders.
+  \item Cut intake processing time by \textbf{40\%} across \textbf{80+ applicants} by executing a Process Redesign from a manual paper workflow into an automated digital system, freeing staff hours for direct outreach.
+\end{itemize}
+
+\job{Graduate Business Analytics \& Marketing Associate}{Babson College}{Wellesley, MA}{Sep 2023 -- May 2025}
+\begin{itemize}
+  \item Built predictive customer segmentation and attribution models in SQL and Advanced Excel across \textbf{10,000+ records}, improving target campaign conversion efficiency by \textbf{28\%} in graduate consulting sprints.
+  \item Managed Project Management trackers, Content Calendars, and Creative Briefs for \textbf{6 cross-functional team deliverables}, achieving \textbf{100\%} on-time milestone completion across 4 academic semesters.
+  \item Audited digital acquisition funnels and Search Engine Optimization (SEO) performance for partner brands, delivering actionable KPI dashboards that lifted organic landing page engagement by \textbf{32\%}.
+\end{itemize}
+
+\job{Marketing Lead (E-commerce \& Amazon)}{Moksha Creations}{Bengaluru, India}{Feb 2022 -- Aug 2023}
+\begin{itemize}
+  \item Cut Amazon Sponsored Products cost per order by \textbf{28\%} (Advertising Cost of Sales (ACOS) from \textbf{35\% to 25\%}) and lifted click-through rate (CTR) \textbf{24\%} by consolidating 16 campaigns into 6 as budget scaled from \textbf{\$5K to \$20K}.
+  \item Lifted the hero ASIN unit session percentage from \textbf{1.2\% to 3.4\%} (\textbf{2.8x}) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content.
+  \item Grew monthly unit sales from \textbf{200 to 1,500} (\textbf{7.5x}) and social engagement by \textbf{230\%} across Amazon and Flipkart by running Meta Ads Manager campaigns, Search Engine Optimization (SEO) updates, and Mailchimp flows (\textbf{40\%} open rate).
+\end{itemize}
+
+\job{Growth Analyst}{Petropath Fluids India Pvt. Ltd.}{Bengaluru, India}{Jan 2021 -- Jan 2022}
+\begin{itemize}
+  \item Improved MQL-to-SQL conversion by \textbf{34\%} by building a channel-level attribution model across \textbf{15+ B2B campaigns} (Google Ads, Meta, LinkedIn, email) and reallocating spend to top-converting channels.
+  \item Generated \textbf{\$3M+} in annual sales pipeline at a \textbf{35\% average open rate} and \textbf{12\% CTR} by tracking and reporting performance across \textbf{10+ email campaigns} for sales and marketing leadership.
+  \item Analyzed lead source conversion across deal stages using SQL to join Customer Relationship Management (CRM) touchpoints with campaign tables in Salesforce across \textbf{15+ B2B campaigns}.
+\end{itemize}
+
+% =========================
+%        EDUCATION
+% =========================
+\sectiontitle{Education}
+\textbf{Master of Business Administration (MBA) in Business Analytics, STEM} \;|\; Babson College \;|\; May 2025\\
+\textbf{Bachelor of Engineering in Industrial Engineering and Management} \;|\; Technical University of Applied Sciences TH-WS \;|\; Dec 2020\\
+\textbf{Certifications:} Google AI Professional Certificate
+\end{document}

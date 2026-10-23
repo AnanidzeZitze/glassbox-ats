@@ -1,0 +1,167 @@
+\documentclass[11pt,letterpaper]{article}
+\pagestyle{empty}
+\newcommand{\skillbreak}{\\}
+
+% ---------- BASIC PACKAGES ----------
+% 1.05in top and bottom margins guarantee zero clipping inside the 72pt (1.0in) header/footer zone
+\usepackage[top=1.05in,bottom=1.05in,left=0.55in,right=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black
+}
+\usepackage{enumitem}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\setlist[itemize]{%
+  noitemsep,
+  topsep=1pt,
+  leftmargin=*,
+  itemindent=0pt,
+  labelsep=4pt
+}
+
+\AtBeginEnvironment{itemize}{\RaggedRight}
+\AtEndEnvironment{itemize}{\vspace{1pt}}
+
+% In 11pt article, \large is 14.4pt (inside the 14pt-16pt ATS heading range)
+\newcommand{\sectiontitle}[1]{%
+  \vspace{3pt}
+  \rule{\linewidth}{1.0pt}\\[-12pt]
+  \begin{center}
+    {\large \textbf{#1}}\\[-5pt]
+  \end{center}
+  \vspace{-3pt}
+}
+
+% Single-line pipe-delimited role header prevents >15pt XY-Cut++ column interleaving
+\newcommand{\job}[4]{%
+  \textbf{#1} \;|\; \textbf{#2} \;|\; #3 \;|\; \textbf{#4}\par%
+  \vspace{1pt}%
+}
+
+\begin{document}
+
+% =========================
+%         HEADER
+% =========================
+\begin{center}
+{\large \textbf{GAGAN BHASKAR NAIK}}\\[2pt]
+Austin, TX \;|\;
+774-290-3032 \;|\;
+\href{mailto:gagan.97@gmail.com}{gagan.97@gmail.com} \;|\;
+\href{https://www.linkedin.com/in/gaganbnaik}{linkedin.com/in/gaganbnaik} \;|\;
+\href{https://gaganbn.in}{gaganbn.in}\\
+Authorized to work in the US: F-1 OPT (STEM extension eligible through 2028)
+\end{center}
+\vspace{-4pt}
+
+% =========================
+%  PROFESSIONAL SUMMARY
+% =========================
+\sectiontitle{Professional Summary}
+Marketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years organizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS. Led a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting while scaling monthly marketing budgets from \$5K to \$20K and growing monthly unit sales from 200 to 1,500. Automated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing time by 40\% across 80+ applicants.
+
+% =========================
+%        SKILLS
+% =========================
+\sectiontitle{Skills}
+\textbf{Technical Skills}: SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma, REST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics, Google Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress
+
+% =========================
+%        EXPERIENCE
+% =========================
+\sectiontitle{Professional Experience}
+
+\job{Marketing Operations Analyst}
+{Grimes King Foundation Inc.}
+{Boston, Massachusetts}
+{May 2025 -- Present}
+\begin{itemize}
+  \item Increased program sign-ups by \textbf{35\%} in Q1 by mapping the full acquisition funnel (organic search to email nurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each stage.
+  \item Grew program registrations by \textbf{40\%} and engagement by \textbf{50\%} by tracking website, email, and outreach performance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stakeholders.
+  \item Cut intake processing time by \textbf{40\%} across \textbf{80+ applicants} by redesigning a manual, paper-based process into a digital, automated workflow using Python, PostgreSQL, and REST APIs.
+\end{itemize}
+
+\job{Graduate Marketing \& Analytics Consultant}
+{Babson College}
+{Wellesley, Massachusetts}
+{Sep 2023 -- May 2025}
+\begin{itemize}
+  \item Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across \textbf{12+ campaign datasets}, reducing weekly reporting latency by \textbf{45\%}.
+  \item Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track conversion metrics across \textbf{5 partner brand accounts}.
+  \item Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting qualified lead conversion by \textbf{28\%} over \textbf{4 academic quarters}.
+\end{itemize}
+
+\job{Marketing Lead (E-commerce \& Amazon)}
+{Moksha Creations}
+{Bengaluru, India}
+{Feb 2022 -- Aug 2023}
+\begin{itemize}
+  \item Cut Amazon Sponsored Products cost per order by \textbf{28\%} (ACOS from \textbf{35\% to 25\%}) and lifted CTR \textbf{24\%} by consolidating 14--16 campaigns into 5--6 in two rounds over two weeks, as the monthly marketing budget scaled from \textbf{\$5K to \$20K}.
+  \item Lifted the hero ASIN's unit session percentage from \textbf{1.2\% to 3.4\%} (\textbf{2.8x}) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip.
+  \item Grew monthly unit sales from \textbf{200 to 1,500} (\textbf{7.5x}) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.
+  \item Grew engagement by \textbf{230\%} by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand's social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.
+  \item Built the company's first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching \textbf{40\%} open rates on the replenishment flow.
+  \item Grew organic search clicks from under 50 to \textbf{500} per month in 4--5 months by publishing 12 Search Engine Optimization (SEO) articles.
+\end{itemize}
+
+\job{Growth Analyst}
+{Petropath Fluids India Pvt. Ltd.}
+{Bengaluru, India}
+{Jan 2021 -- Jan 2022}
+\begin{itemize}
+  \item Improved MQL-to-SQL conversion by \textbf{34\%} by building a channel-level attribution model across \textbf{15+ B2B campaigns} (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.
+  \item Generated \textbf{\$3M+} in annual sales pipeline at a \textbf{35\% average open rate} and \textbf{12\% CTR} by tracking and optimizing performance across \textbf{10+ email campaigns} for sales and marketing teams.
+  \item Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across \textbf{15+ B2B campaigns}, lifting pipeline visibility by \textbf{30\%}.
+\end{itemize}
+
+\job{Marketing \& SEO Analytics Intern (Amazon)}
+{GAO Tek Inc.}
+{NYC, New York}
+{Oct 2019 -- Dec 2020}
+\begin{itemize}
+  \item Grew organic search traffic by \textbf{35\%} by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a \textbf{500+ product catalog}.
+  \item Improved click-through rates by \textbf{18\%} by writing and iteratively testing Google Shopping and Amazon Sponsored Products ad headlines and analyzing results to identify top-performing copy.
+  \item Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across \textbf{500+ SKUs}, reducing manual reporting time by \textbf{25\%}.
+\end{itemize}
+
+% =========================
+%         PROJECTS
+% =========================
+\sectiontitle{Projects}
+
+\job{Marketing Blog: AI-Assisted Publishing Pipeline}
+{Personal Project, gbnmarketing.blogspot.com}
+{Austin, TX}
+{Apr 2026 -- Present}
+\begin{itemize}
+  \item Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing article per day with automated pre-publication quality gates.
+\end{itemize}
+
+\job{Maxion: AI Social \& Video Ad Creative Tool}
+{Personal Project}
+{Austin, TX}
+{Jun 2026 -- Jul 2026}
+\begin{itemize}
+  \item Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-performing ad prompts into a style library and orchestrating multiple AI providers.
+\end{itemize}
+
+% =========================
+%        EDUCATION
+% =========================
+\sectiontitle{Education}
+\textbf{MBA, STEM in Business Analytics} \;|\; \textbf{Babson College} \;|\; Wellesley, MA \;|\; \textbf{Sep 2023 -- May 2025}\\
+\textbf{B.E. in Industrial Engineering and Management} \;|\; \textbf{Technical University of Applied Sciences TH-WS} \;|\; \textbf{Oct 2016 -- Dec 2020}
+\end{document}

@@ -1,0 +1,468 @@
+{
+  "resume": {
+    "full_name": "Sarah Chen",
+    "first_name": "Sarah",
+    "last_name": "Chen",
+    "headline": "Senior Product Manager",
+    "email": "sarah.chen@example.com",
+    "phone": "(415) 555-0142",
+    "phone_e164": "+14155550142",
+    "linkedin_url": "https://linkedin.com/in/sarahchen",
+    "address": {
+      "city": "San Francisco",
+      "region": "CA",
+      "country": "US",
+      "full_location_raw": null,
+      "has_street_address": false
+    },
+    "country_full": "United States",
+    "summary": null,
+    "employments": [
+      {
+        "title": "Senior Product Manager",
+        "company": "Zendex Inc.",
+        "start_date_raw": "Mar 2022",
+        "end_date_raw": "Present",
+        "start_year": 2022,
+        "start_month": 3,
+        "end_year": null,
+        "end_month": null,
+        "is_current": true,
+        "bullets": [
+          "Led roadmap for enterprise analytics suite, $8M ARR in year one",
+          "Managed team of 4 PMs and 18 engineers across 3 time zones",
+          "Shipped 14 major releases with 99.2% on-time delivery"
+        ]
+      }
+    ],
+    "educations": [
+      {
+        "degree": "M.B.A.",
+        "major": null,
+        "school": "Stanford Graduate School of Business",
+        "end_year": 2019
+      },
+      {
+        "degree": "B.S.",
+        "major": "Computer Science",
+        "school": "UC Berkeley",
+        "end_year": 2015
+      }
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Tableau",
+      "Jira",
+      "Confluence",
+      "Figma",
+      "A/B testing",
+      "product analytics",
+      "stakeholder management",
+      "OKRs"
+    ],
+    "normalized_skills": [],
+    "certifications": [],
+    "projects": [],
+    "mandatory_sections_present": {
+      "Contact Information": true,
+      "Work Experience": true,
+      "Education": true,
+      "Skills": true,
+      "Employment Dates": true
+    },
+    "detected_section_headers": {},
+    "section_boundary_failures": [],
+    "phantom_token_hazards": [],
+    "mixed_date_formats_detected": false,
+    "detected_date_formats": [],
+    "extraction_result": null
+  },
+  "jd": {
+    "target_title": "Senior Python Developer",
+    "must_have_skills": [
+      "PostgreSQL",
+      "REST APIs",
+      "Python",
+      "Django",
+      "Docker",
+      "SQL",
+      "AWS",
+      "Git"
+    ],
+    "preferred_skills": [
+      "Kubernetes",
+      "Celery",
+      "CI/CD",
+      "Redis"
+    ],
+    "required_years_experience": 5,
+    "required_degree_level": null,
+    "target_industry": null
+  },
+  "platform": "WORKDAY",
+  "score_response": {
+    "score_breakdown": {
+      "platform": "WORKDAY",
+      "manual_scorecard_mode": false,
+      "must_have_match_rate": 0.25,
+      "preferred_match_rate": 0.0,
+      "keyword_match_pct": 0.175,
+      "placement_ratio": 0.1667,
+      "section_completeness_ratio": 1.0,
+      "parse_success_ratio": 1.0,
+      "relevance_ratio": 0.7,
+      "keyword_match_weighted": 8.75,
+      "placement_weighted": 1.6667,
+      "sections_weighted": 20.0,
+      "parse_success_weighted": 15.0,
+      "relevance_weighted": 3.5,
+      "total_score": 48.92,
+      "matched_must_have": [
+        "Python",
+        "SQL"
+      ],
+      "missing_must_have": [
+        "PostgreSQL",
+        "REST APIs",
+        "Django",
+        "Docker",
+        "AWS",
+        "Git"
+      ],
+      "matched_preferred": [],
+      "semantic_neighbor_matches": []
+    },
+    "audit_report": {
+      "total_parameters": 30,
+      "passed_count": 21,
+      "warn_count": 0,
+      "fail_count": 9,
+      "overall_audit_score": 70.0,
+      "parameters": [
+        {
+          "param_id": 1,
+          "name": "Single-column layout",
+          "category": "Layout & Formatting",
+          "status": "PASS",
+          "passed": true,
+          "message": "Zero multi-column X-coordinate interleaving detected.",
+          "metric_value": 0
+        },
+        {
+          "param_id": 2,
+          "name": "Zero tables or floating text boxes",
+          "category": "Layout & Formatting",
+          "status": "PASS",
+          "passed": true,
+          "message": "No XML tables or floating text boxes found.",
+          "metric_value": false
+        },
+        {
+          "param_id": 3,
+          "name": "Approved file format",
+          "category": "Layout & Formatting",
+          "status": "PASS",
+          "passed": true,
+          "message": "Native text-layer PDF or DOCX verified.",
+          "metric_value": "pdf"
+        },
+        {
+          "param_id": 4,
+          "name": "Contact info in main document body",
+          "category": "Contact Information",
+          "status": "PASS",
+          "passed": true,
+          "message": "Contact information is safely inside the main document body.",
+          "metric_value": true
+        },
+        {
+          "param_id": 5,
+          "name": "Professional email format",
+          "category": "Contact Information",
+          "status": "PASS",
+          "passed": true,
+          "message": "Professional email verified (sarah.chen@example.com).",
+          "metric_value": "sarah.chen@example.com"
+        },
+        {
+          "param_id": 6,
+          "name": "Phone number present and parseable",
+          "category": "Contact Information",
+          "status": "PASS",
+          "passed": true,
+          "message": "Phone number parsed ((415) 555-0142).",
+          "metric_value": "(415) 555-0142"
+        },
+        {
+          "param_id": 7,
+          "name": "Customized LinkedIn URL present",
+          "category": "Contact Information",
+          "status": "PASS",
+          "passed": true,
+          "message": "Customized LinkedIn URL verified (https://linkedin.com/in/sarahchen).",
+          "metric_value": "https://linkedin.com/in/sarahchen"
+        },
+        {
+          "param_id": 8,
+          "name": "Location formatted strictly as City, State",
+          "category": "Contact Information",
+          "status": "PASS",
+          "passed": true,
+          "message": "Location formatted as San Francisco, CA.",
+          "metric_value": "San Francisco, CA"
+        },
+        {
+          "param_id": 9,
+          "name": "Zero embedded photos or PII",
+          "category": "Compliance & Hygiene",
+          "status": "PASS",
+          "passed": true,
+          "message": "Zero embedded photos, DOB, marital status, or nationality terms.",
+          "metric_value": true
+        },
+        {
+          "param_id": 10,
+          "name": "Web-safe font family",
+          "category": "Typography",
+          "status": "PASS",
+          "passed": true,
+          "message": "Approved web-safe fonts verified (Calibri).",
+          "metric_value": [
+            "Calibri"
+          ]
+        },
+        {
+          "param_id": 11,
+          "name": "Standard body (10-12pt) and heading (14-16pt) font sizes",
+          "category": "Typography",
+          "status": "PASS",
+          "passed": true,
+          "message": "Font sizes within 10-12pt body and 14-16pt heading ranges.",
+          "metric_value": {
+            "body": [
+              11.0
+            ],
+            "headings": [
+              14.0
+            ]
+          }
+        },
+        {
+          "param_id": 12,
+          "name": "Standard bullet glyphs only",
+          "category": "Typography",
+          "status": "PASS",
+          "passed": true,
+          "message": "All bullet points use standard ATS-safe glyphs.",
+          "metric_value": 0
+        },
+        {
+          "param_id": 13,
+          "name": "Standard Summary section header",
+          "category": "Professional Summary",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Missing or non-standard Summary section header.",
+          "metric_value": ""
+        },
+        {
+          "param_id": 14,
+          "name": "Summary contains exact target job title",
+          "category": "Professional Summary",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Summary is missing exact target job title 'Senior Python Developer'.",
+          "metric_value": "Senior Python Developer"
+        },
+        {
+          "param_id": 15,
+          "name": "Summary contains 2-3 core must-have JD skills",
+          "category": "Professional Summary",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Summary only mentions 0 must-have JD skills (minimum 2 required).",
+          "metric_value": 0
+        },
+        {
+          "param_id": 16,
+          "name": "Summary length between 3 and 5 sentences",
+          "category": "Professional Summary",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Summary has 0 sentences (expected 3 to 5).",
+          "metric_value": 0
+        },
+        {
+          "param_id": 17,
+          "name": "Zero first-person pronouns",
+          "category": "Content Tone",
+          "status": "PASS",
+          "passed": true,
+          "message": "Zero first-person pronouns found in Summary and Experience.",
+          "metric_value": 0
+        },
+        {
+          "param_id": 18,
+          "name": "Dedicated Skills section with standard header",
+          "category": "Skills Section",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Missing or non-standard Skills section header.",
+          "metric_value": ""
+        },
+        {
+          "param_id": 19,
+          "name": "Both spelled-out terms and acronyms included",
+          "category": "Skills Section",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Include both spelled-out terms and acronyms (e.g., 'Search Engine Optimization (SEO)').",
+          "metric_value": false
+        },
+        {
+          "param_id": 20,
+          "name": "Hard skills and tools prioritized over soft skills",
+          "category": "Skills Section",
+          "status": "PASS",
+          "passed": true,
+          "message": "Hard skills/tools (9) outnumber soft skills (1).",
+          "metric_value": {
+            "hard_and_tools": 9,
+            "soft": 1
+          }
+        },
+        {
+          "param_id": 21,
+          "name": "Standard Work Experience section header",
+          "category": "Work Experience",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Non-standard or missing Work Experience header.",
+          "metric_value": ""
+        },
+        {
+          "param_id": 22,
+          "name": "Reverse chronological order verified",
+          "category": "Work Experience",
+          "status": "PASS",
+          "passed": true,
+          "message": "All roles are ordered in reverse chronological sequence.",
+          "metric_value": true
+        },
+        {
+          "param_id": 23,
+          "name": "Distinct job title, company, and dates on every role",
+          "category": "Work Experience",
+          "status": "PASS",
+          "passed": true,
+          "message": "Every role has a parseable job title, company name, and start/end date.",
+          "metric_value": true
+        },
+        {
+          "param_id": 24,
+          "name": "Consistent date format across all entries",
+          "category": "Work Experience",
+          "status": "PASS",
+          "passed": true,
+          "message": "Consistent date formatting verified across all entries.",
+          "metric_value": []
+        },
+        {
+          "param_id": 25,
+          "name": "Clean employment timeline without unexplained gaps or invalid date ranges",
+          "category": "Work Experience",
+          "status": "PASS",
+          "passed": true,
+          "message": "Zero unexplained employment gaps (>6 months) or invalid date ranges.",
+          "metric_value": true
+        },
+        {
+          "param_id": 26,
+          "name": "Bullet density between 3 and 6 bullets per role",
+          "category": "Work Experience",
+          "status": "PASS",
+          "passed": true,
+          "message": "All roles contain 3 to 6 bullets ([3]).",
+          "metric_value": [
+            3
+          ]
+        },
+        {
+          "param_id": 27,
+          "name": "Action-verb initiation (>= 90% of bullets)",
+          "category": "Impact & Bullet Quality",
+          "status": "PASS",
+          "passed": true,
+          "message": "100.0% of bullets start with a strong action verb.",
+          "metric_value": 1.0
+        },
+        {
+          "param_id": 28,
+          "name": "Quantified impact (>= 50% of bullets contain metrics)",
+          "category": "Impact & Bullet Quality",
+          "status": "PASS",
+          "passed": true,
+          "message": "100.0% of bullets include quantified metrics.",
+          "metric_value": 1.0
+        },
+        {
+          "param_id": 29,
+          "name": "Contextual keyword embedding in experience bullets",
+          "category": "Keyword Optimization",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Core JD keywords only appear in isolated Skills list, not inside experience bullets.",
+          "metric_value": []
+        },
+        {
+          "param_id": 30,
+          "name": "Anti-stuffing guardrail (75% - 85% target zone, < 90% cap)",
+          "category": "Keyword Optimization",
+          "status": "FAIL",
+          "passed": false,
+          "message": "Keyword stuffing warning or out-of-band match rate (16.7%, max single keyword frequency=1).",
+          "metric_value": {
+            "overall_match_rate": 0.1667,
+            "max_keyword_frequency": 1
+          }
+        }
+      ]
+    },
+    "passed_all_knockouts": true,
+    "knockout_checks": [
+      {
+        "id": "work_auth",
+        "label": "US Work Authorization",
+        "required_value": "Authorized without sponsorship",
+        "candidate_value": "Verified Authorized",
+        "passed": true,
+        "disqualifier_reason": null
+      },
+      {
+        "id": "clearance",
+        "label": "Security Clearance",
+        "required_value": "None",
+        "candidate_value": "None",
+        "passed": true,
+        "disqualifier_reason": null
+      },
+      {
+        "id": "onsite_days",
+        "label": "Hybrid / Onsite Attendance",
+        "required_value": "2 days/wk onsite",
+        "candidate_value": "Up to 3 days/wk",
+        "passed": true,
+        "disqualifier_reason": null
+      },
+      {
+        "id": "degree_tier",
+        "label": "Minimum Education Tier",
+        "required_value": "Bachelor's",
+        "candidate_value": "Master's",
+        "passed": true,
+        "disqualifier_reason": null
+      }
+    ]
+  }
+}

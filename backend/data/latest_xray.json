@@ -1,0 +1,807 @@
+{
+  "filename": "exported_sarah_chen.docx",
+  "extraction": {
+    "file_format": "docx",
+    "ocr_triggered": false,
+    "ocr_enabled_by_profile": true,
+    "confidence_multiplier": 1.0,
+    "is_unreadable_or_encrypted": false,
+    "linear_stream_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+    "layout_sorted_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+    "dropped_header_footer_text": [],
+    "interleaved_lines": [],
+    "blocks": [
+      {
+        "x0": 72.0,
+        "y0": 72.0,
+        "x1": 540.0,
+        "y1": 86.0,
+        "text": "Sarah Chen",
+        "block_no": 0,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 15.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 88.0,
+        "x1": 540.0,
+        "y1": 102.0,
+        "text": "San Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen",
+        "block_no": 1,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 104.0,
+        "x1": 540.0,
+        "y1": 118.0,
+        "text": "Work Experience",
+        "block_no": 2,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 14.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 120.0,
+        "x1": 540.0,
+        "y1": 134.0,
+        "text": "Senior Product Manager | Zendex Inc. | 03/2022 - Present",
+        "block_no": 3,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 136.0,
+        "x1": 540.0,
+        "y1": 150.0,
+        "text": "- Led roadmap for enterprise analytics suite, $8M ARR in year one",
+        "block_no": 4,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 152.0,
+        "x1": 540.0,
+        "y1": 166.0,
+        "text": "- Managed team of 4 PMs and 18 engineers across 3 time zones",
+        "block_no": 5,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 168.0,
+        "x1": 540.0,
+        "y1": 182.0,
+        "text": "- Shipped 14 major releases with 99.2% on-time delivery",
+        "block_no": 6,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 184.0,
+        "x1": 540.0,
+        "y1": 198.0,
+        "text": "Education",
+        "block_no": 7,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 14.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 200.0,
+        "x1": 540.0,
+        "y1": 214.0,
+        "text": "M.B.A. | Stanford Graduate School of Business | 2019",
+        "block_no": 8,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 216.0,
+        "x1": 540.0,
+        "y1": 230.0,
+        "text": "B.S. in Computer Science | UC Berkeley | 2015",
+        "block_no": 9,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 232.0,
+        "x1": 540.0,
+        "y1": 246.0,
+        "text": "Skills",
+        "block_no": 10,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 14.0
+      },
+      {
+        "x0": 72.0,
+        "y0": 248.0,
+        "x1": 540.0,
+        "y1": 262.0,
+        "text": "SQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+        "block_no": 11,
+        "page_no": 0,
+        "font_name": "Calibri",
+        "font_size": 11.0
+      }
+    ],
+    "docx_audit": {
+      "has_tables": false,
+      "table_count": 0,
+      "has_text_boxes": false,
+      "text_box_count": 0,
+      "header_footer_text": [],
+      "unapproved_fonts": [],
+      "approved_fonts": [
+        "Calibri"
+      ],
+      "body_font_sizes_pt": [
+        11.0
+      ],
+      "heading_font_sizes_pt": [
+        15.0,
+        14.0,
+        14.0,
+        14.0
+      ],
+      "has_embedded_images": false
+    },
+    "detected_fonts": [
+      "Calibri"
+    ],
+    "body_font_sizes_pt": [
+      11.0
+    ],
+    "heading_font_sizes_pt": [
+      15.0,
+      14.0,
+      14.0,
+      14.0
+    ],
+    "has_tables_or_textboxes": false,
+    "has_embedded_images": false
+  },
+  "canonical": {
+    "full_name": "Sarah Chen",
+    "first_name": "Sarah",
+    "last_name": "Chen",
+    "headline": "Senior Product Manager",
+    "email": "sarah.chen@example.com",
+    "phone": "(415) 555-0142",
+    "phone_e164": "+14155550142",
+    "linkedin_url": "https://linkedin.com/in/sarahchen",
+    "address": {
+      "city": "San Francisco",
+      "region": "CA",
+      "country": "US",
+      "full_location_raw": "San Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen",
+      "has_street_address": false
+    },
+    "country_full": "United States",
+    "summary": null,
+    "employments": [
+      {
+        "title": "Senior Product Manager",
+        "company": "Zendex Inc.",
+        "start_date_raw": "03/2022",
+        "end_date_raw": "Present",
+        "start_year": 2022,
+        "start_month": 3,
+        "end_year": null,
+        "end_month": null,
+        "is_current": true,
+        "bullets": [
+          "Led roadmap for enterprise analytics suite, $8M ARR in year one",
+          "Managed team of 4 PMs and 18 engineers across 3 time zones",
+          "Shipped 14 major releases with 99.2% on-time delivery"
+        ]
+      }
+    ],
+    "educations": [
+      {
+        "degree": "M.B.A.",
+        "major": null,
+        "school": "Stanford Graduate School of Business",
+        "end_year": 2019
+      },
+      {
+        "degree": "B.S.",
+        "major": "Computer Science",
+        "school": "UC Berkeley",
+        "end_year": 2015
+      }
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Tableau",
+      "Jira",
+      "Confluence",
+      "Figma",
+      "A/B testing",
+      "product analytics",
+      "stakeholder management",
+      "OKRs"
+    ],
+    "normalized_skills": [
+      {
+        "raw_text": "SQL",
+        "canonical_id": "SKILL_ID_403",
+        "canonical_name": "SQL",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "Database & Query Languages",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Python",
+        "canonical_id": "SKILL_ID_402",
+        "canonical_name": "Python",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "Programming Languages",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Tableau",
+        "canonical_id": "SKILL_ID_507",
+        "canonical_name": "Tableau",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Business Intelligence",
+        "hierarchy_subcategory": "Data Visualization",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Jira",
+        "canonical_id": "SKILL_ID_508",
+        "canonical_name": "Jira",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Project Management",
+        "hierarchy_subcategory": "Issue Tracking",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Confluence",
+        "canonical_id": "SKILL_ID_509",
+        "canonical_name": "Confluence",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Collaboration",
+        "hierarchy_subcategory": "Documentation Tools",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Figma",
+        "canonical_id": "SKILL_ID_510",
+        "canonical_name": "Figma",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Design",
+        "hierarchy_subcategory": "UI/UX Tools",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "A/B testing",
+        "canonical_id": "SKILL_ID_409",
+        "canonical_name": "A/B testing",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Analysis",
+        "hierarchy_subcategory": "Experimentation",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      },
+      {
+        "raw_text": "product analytics",
+        "canonical_id": "SKILL_ID_410",
+        "canonical_name": "product analytics",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Business",
+        "hierarchy_subcategory": "Product Management",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      },
+      {
+        "raw_text": "stakeholder management",
+        "canonical_id": "SKILL_ID_701",
+        "canonical_name": "stakeholder management",
+        "category": "SOFT_SKILL",
+        "weight": 0.5,
+        "hierarchy_category": "Interpersonal",
+        "hierarchy_subcategory": "Leadership",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      },
+      {
+        "raw_text": "OKRs",
+        "canonical_id": "SKILL_ID_411",
+        "canonical_name": "OKRs",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Business",
+        "hierarchy_subcategory": "Strategic Planning",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      }
+    ],
+    "certifications": [],
+    "projects": [],
+    "mandatory_sections_present": {
+      "Contact Information": true,
+      "Work Experience": true,
+      "Education": true,
+      "Skills": true,
+      "Employment Dates": true
+    },
+    "detected_section_headers": {
+      "Work Experience": "Work Experience",
+      "Education": "Education",
+      "Skills": "Skills"
+    },
+    "section_boundary_failures": [],
+    "phantom_token_hazards": [],
+    "mixed_date_formats_detected": false,
+    "detected_date_formats": [
+      "MM_SLASH_YYYY"
+    ],
+    "extraction_result": {
+      "file_format": "docx",
+      "ocr_triggered": false,
+      "ocr_enabled_by_profile": true,
+      "confidence_multiplier": 1.0,
+      "is_unreadable_or_encrypted": false,
+      "linear_stream_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+      "layout_sorted_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+      "dropped_header_footer_text": [],
+      "interleaved_lines": [],
+      "blocks": [
+        {
+          "x0": 72.0,
+          "y0": 72.0,
+          "x1": 540.0,
+          "y1": 86.0,
+          "text": "Sarah Chen",
+          "block_no": 0,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 15.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 88.0,
+          "x1": 540.0,
+          "y1": 102.0,
+          "text": "San Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen",
+          "block_no": 1,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 104.0,
+          "x1": 540.0,
+          "y1": 118.0,
+          "text": "Work Experience",
+          "block_no": 2,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 14.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 120.0,
+          "x1": 540.0,
+          "y1": 134.0,
+          "text": "Senior Product Manager | Zendex Inc. | 03/2022 - Present",
+          "block_no": 3,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 136.0,
+          "x1": 540.0,
+          "y1": 150.0,
+          "text": "- Led roadmap for enterprise analytics suite, $8M ARR in year one",
+          "block_no": 4,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 152.0,
+          "x1": 540.0,
+          "y1": 166.0,
+          "text": "- Managed team of 4 PMs and 18 engineers across 3 time zones",
+          "block_no": 5,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 168.0,
+          "x1": 540.0,
+          "y1": 182.0,
+          "text": "- Shipped 14 major releases with 99.2% on-time delivery",
+          "block_no": 6,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 184.0,
+          "x1": 540.0,
+          "y1": 198.0,
+          "text": "Education",
+          "block_no": 7,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 14.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 200.0,
+          "x1": 540.0,
+          "y1": 214.0,
+          "text": "M.B.A. | Stanford Graduate School of Business | 2019",
+          "block_no": 8,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 216.0,
+          "x1": 540.0,
+          "y1": 230.0,
+          "text": "B.S. in Computer Science | UC Berkeley | 2015",
+          "block_no": 9,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 232.0,
+          "x1": 540.0,
+          "y1": 246.0,
+          "text": "Skills",
+          "block_no": 10,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 14.0
+        },
+        {
+          "x0": 72.0,
+          "y0": 248.0,
+          "x1": 540.0,
+          "y1": 262.0,
+          "text": "SQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+          "block_no": 11,
+          "page_no": 0,
+          "font_name": "Calibri",
+          "font_size": 11.0
+        }
+      ],
+      "docx_audit": {
+        "has_tables": false,
+        "table_count": 0,
+        "has_text_boxes": false,
+        "text_box_count": 0,
+        "header_footer_text": [],
+        "unapproved_fonts": [],
+        "approved_fonts": [
+          "Calibri"
+        ],
+        "body_font_sizes_pt": [
+          11.0
+        ],
+        "heading_font_sizes_pt": [
+          15.0,
+          14.0,
+          14.0,
+          14.0
+        ],
+        "has_embedded_images": false
+      },
+      "detected_fonts": [
+        "Calibri"
+      ],
+      "body_font_sizes_pt": [
+        11.0
+      ],
+      "heading_font_sizes_pt": [
+        15.0,
+        14.0,
+        14.0,
+        14.0
+      ],
+      "has_tables_or_textboxes": false,
+      "has_embedded_images": false
+    }
+  },
+  "emulators": {
+    "WORKDAY": {
+      "name": "Sarah Chen",
+      "email": "sarah.chen@example.com",
+      "phone": "(415) 555-0142",
+      "country": "United States",
+      "experience": [
+        {
+          "jobTitle": "Senior Product Manager",
+          "company": "Zendex Inc.",
+          "startDate": "2022-03-01",
+          "endDate": null,
+          "currentlyWorkHere": true,
+          "description": "Led roadmap for enterprise analytics suite, $8M ARR in year one. Managed team of 4 PMs and 18 engineers across 3 time zones. Shipped 14 major releases with 99.2% on-time delivery."
+        }
+      ],
+      "education": [
+        {
+          "degreeLevel": "Master's",
+          "schoolName": "Stanford Graduate School of Business",
+          "graduationYear": 2019
+        },
+        {
+          "degreeLevel": "Bachelor's",
+          "schoolName": "UC Berkeley",
+          "graduationYear": 2015
+        }
+      ],
+      "skills": [
+        "SQL",
+        "Python",
+        "Tableau",
+        "Jira",
+        "Confluence",
+        "Figma"
+      ]
+    },
+    "GREENHOUSE": {
+      "first_name": "Sarah",
+      "last_name": "Chen",
+      "email_addresses": [
+        "sarah.chen@example.com"
+      ],
+      "phone_numbers": [
+        {
+          "value": "+14155550142",
+          "type": "mobile"
+        }
+      ],
+      "addresses": [
+        {
+          "city": "San Francisco",
+          "region": "CA",
+          "country": "US"
+        }
+      ],
+      "employments": [
+        {
+          "title": "Senior Product Manager",
+          "company_name": "Zendex Inc.",
+          "start_month": 3,
+          "start_year": 2022,
+          "end_month": null,
+          "end_year": null,
+          "is_current": true,
+          "description_bullets": [
+            "Led roadmap for enterprise analytics suite, $8M ARR in year one",
+            "Managed team of 4 PMs and 18 engineers across 3 time zones",
+            "Shipped 14 major releases with 99.2% on-time delivery"
+          ]
+        }
+      ],
+      "educations": [
+        {
+          "degree": "M.B.A.",
+          "school": "Stanford Graduate School of Business",
+          "end_year": 2019
+        },
+        {
+          "degree": "B.S.",
+          "major": "Computer Science",
+          "school": "UC Berkeley",
+          "end_year": 2015
+        }
+      ],
+      "skills": [
+        "SQL",
+        "Python",
+        "Tableau",
+        "Jira",
+        "Confluence",
+        "Figma",
+        "A/B testing",
+        "product analytics",
+        "stakeholder management",
+        "OKRs"
+      ]
+    },
+    "LEVER": {
+      "name": "Sarah Chen",
+      "contact": {
+        "email": "sarah.chen@example.com",
+        "phone": "(415) 555-0142",
+        "links": [
+          "https://linkedin.com/in/sarahchen"
+        ]
+      },
+      "headline": "Senior Product Manager",
+      "positions": [
+        {
+          "title": "Senior Product Manager",
+          "org": "Zendex Inc.",
+          "start": "2022-03",
+          "end": "Present",
+          "summary": "Led roadmap for enterprise analytics suite, $8M ARR in year one\nManaged team of 4 PMs and 18 engineers across 3 time zones\nShipped 14 major releases with 99.2% on-time delivery"
+        }
+      ],
+      "schools": [
+        {
+          "name": "Stanford Graduate School of Business",
+          "degree": "M.B.A.",
+          "end": "2019"
+        },
+        {
+          "name": "UC Berkeley",
+          "degree": "B.S. Computer Science",
+          "end": "2015"
+        }
+      ],
+      "tags": [
+        "SQL",
+        "Python",
+        "Tableau",
+        "Jira"
+      ]
+    },
+    "TALEO": {
+      "candidateProfile": {
+        "fullName": "Sarah Chen",
+        "primaryEmail": "sarah.chen@example.com",
+        "primaryPhone": "(415) 555-0142",
+        "asciiStrictMode": true
+      },
+      "workHistory": [
+        {
+          "positionTitle": "Senior Product Manager",
+          "employerName": "Zendex Inc.",
+          "startDate": "2022-03",
+          "endDate": "Present",
+          "rawTextBlock": "Led roadmap for enterprise analytics suite, $8M ARR in year one | Managed team of 4 PMs and 18 engineers across 3 time zones | Shipped 14 major releases with 99.2% on-time delivery"
+        }
+      ],
+      "exactMatchedTokens": [
+        "SQL",
+        "Python",
+        "Tableau",
+        "Jira",
+        "Confluence",
+        "Figma"
+      ]
+    },
+    "ICIMS": {
+      "applicant": {
+        "firstName": "Sarah",
+        "lastName": "Chen",
+        "email": "sarah.chen@example.com",
+        "phone": "+14155550142",
+        "location": "San Francisco, CA"
+      },
+      "roles": [
+        {
+          "title": "Senior Product Manager",
+          "company_name": "Zendex Inc.",
+          "start_month": 3,
+          "start_year": 2022,
+          "end_month": null,
+          "end_year": null,
+          "is_current": true,
+          "description_bullets": [
+            "Led roadmap for enterprise analytics suite, $8M ARR in year one",
+            "Managed team of 4 PMs and 18 engineers across 3 time zones",
+            "Shipped 14 major releases with 99.2% on-time delivery"
+          ]
+        }
+      ],
+      "booleanSkillClusters": [
+        {
+          "skill": "SQL",
+          "categoryWeight": 2.0
+        },
+        {
+          "skill": "Python",
+          "categoryWeight": 2.0
+        },
+        {
+          "skill": "Tableau",
+          "categoryWeight": 2.0
+        },
+        {
+          "skill": "Jira",
+          "categoryWeight": 2.0
+        },
+        {
+          "skill": "Confluence",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Figma",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "A/B testing",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "product analytics",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "stakeholder management",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "OKRs",
+          "categoryWeight": 1.5
+        }
+      ]
+    }
+  }
+}

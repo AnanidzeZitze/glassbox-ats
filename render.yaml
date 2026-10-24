@@ -3,6 +3,7 @@ services:
   - type: web
     name: glassbox-ats-backend
     runtime: docker
+    plan: free
     dockerfilePath: ./backend/Dockerfile
     dockerContext: .
     envVars:
@@ -17,6 +18,7 @@ services:
   - type: web
     name: glassbox-ats-frontend
     runtime: node
+    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     startCommand: npm run start -- -p $PORT

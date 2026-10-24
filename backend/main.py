@@ -935,14 +935,14 @@ def api_v1_export_pdf(resume: CanonicalResume) -> Response:
     doc = fitz.open()
     page = doc.new_page(width=612, height=792)  # US Letter
     margin_x = 54.0   # 0.75 inch left/right margin
-    y = 92.0          # Top baseline at 92pt (ensures top_y0 >= 76pt, safely below 72pt 1-inch clipping zone)
-    max_y = 708.0     # Ensures bottom_y1 <= 718pt, safely above 720pt (792 - 72pt) bottom clipping zone
+    y = 54.0          # Top baseline at 54pt (ensures top_y0 >= 42pt, safely inside 36pt / 0.5in safe margin)
+    max_y = 744.0     # Ensures bottom_y1 <= 750pt, safely above 756pt (792 - 36pt) bottom clipping zone
 
     def ensure_space(needed: float) -> None:
         nonlocal page, y
         if y + needed > max_y:
             page = doc.new_page(width=612, height=792)
-            y = 92.0
+            y = 54.0
 
     # Header: Candidate Name (15pt Helvetica-Bold)
     page.insert_text((margin_x, y), resume.full_name, fontsize=15.0, fontname="hebo")

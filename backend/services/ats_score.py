@@ -516,7 +516,7 @@ def audit_resume_content(
         ext.file_format if ext else "pdf",
     )
 
-    # 4. Contact info located in main document body (not in top/bottom 1-inch header/footer)
+    # 4. Contact info located in main document body (not in top/bottom 0.5-inch header/footer)
     hf_text = " ".join(ext.dropped_header_footer_text) if ext else ""
     contact_in_hf = bool(
         "@" in hf_text or re.search(r"\d{3}[\s.-]?\d{3}[\s.-]?\d{4}", hf_text)
@@ -528,7 +528,7 @@ def audit_resume_content(
         not contact_in_hf,
         "Contact information is safely inside the main document body."
         if not contact_in_hf
-        else "Contact info found inside top/bottom 1-inch header/footer clipping zone.",
+        else "Contact info found inside top/bottom 0.5-inch (36pt) header/footer clipping zone.",
         not contact_in_hf,
     )
 

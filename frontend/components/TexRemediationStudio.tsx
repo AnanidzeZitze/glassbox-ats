@@ -378,7 +378,7 @@ export default function TexRemediationStudio({
                 <div className="flex items-center gap-2">
                   <Eye className="w-4 h-4 text-indigo-400" />
                   <h3 className="text-sm font-semibold text-white">
-                    Live Compiled PDF Preview (1-Inch Safe Margins, Single-Column PyMuPDF Render)
+                    Live Compiled PDF Preview (0.5-Inch Safe Margins, Single-Column PyMuPDF Render)
                   </h3>
                 </div>
                 <button
@@ -405,7 +405,7 @@ export default function TexRemediationStudio({
               <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
                 <h3 className="text-xs font-mono font-semibold text-cyan-300 flex items-center gap-2">
                   <Code2 className="w-4 h-4 text-cyan-400" />
-                  ATS-Compliant LaTeX Code (Zero Tables, Clean Delimiters, 1-Inch Margins)
+                  ATS-Compliant LaTeX Code (Zero Tables, Clean Delimiters, 0.5-Inch Margins)
                 </h3>
                 <button
                   onClick={handleCopyTex}

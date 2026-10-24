@@ -197,7 +197,7 @@ def generate_clean_ats_latex(resume: CanonicalResume) -> str:
 
     latex_lines = [
         r"\documentclass[10pt,letterpaper]{article}",
-        r"\usepackage[top=1.0in,bottom=1.0in,left=0.75in,right=0.75in]{geometry}",
+        r"\usepackage[margin=0.5in]{geometry}",
         r"\usepackage{hyperref}",
         r"\usepackage{enumitem}",
         r"\usepackage{titlesec}",

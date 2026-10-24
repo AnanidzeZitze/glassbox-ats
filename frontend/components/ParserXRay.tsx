@@ -56,7 +56,7 @@ const PLATFORMS: {
     label: "Taleo",
     engineProfile: "Strict Verbatim Legacy",
     quirkSummary:
-      "55% verbatim keyword weight, zero semantic neighbor credit, strips headers/footers within 1-inch margins.",
+      "55% verbatim keyword weight, zero semantic neighbor credit, clips headers/footers in extreme 0.5-inch (36pt) margins.",
   },
   {
     id: "ICIMS",
@@ -194,11 +194,11 @@ export default function ParserXRay({
         <div className="flex-1 bg-slate-950 border border-slate-800 rounded-xl p-4 overflow-y-auto max-h-[500px]">
           {streamTab === "BBOX" && (
             <div className="space-y-3">
-              {/* Top 1.0-inch Header Clipping Zone Indicator */}
+              {/* Top 0.5-inch Header Clipping Zone Indicator */}
               <div className="border border-dashed border-rose-500/40 bg-rose-950/20 rounded-lg p-2.5 flex items-center justify-between">
                 <span className="text-[11px] font-mono text-rose-300 flex items-center gap-1.5">
                   <Scissors className="w-3.5 h-3.5" />
-                  TOP 1.0-INCH HEADER CLIPPING ZONE (y0 &lt; 72pt)
+                  TOP 0.5-INCH HEADER CLIPPING ZONE (y0 &lt; 36pt)
                 </span>
                 <span className="text-[11px] font-mono text-rose-400">
                   {droppedCount > 0 ? `${droppedCount} items dropped` : "0 contact leaks"}
@@ -208,7 +208,7 @@ export default function ParserXRay({
               {/* Spatial Blocks List */}
               <div className="space-y-2">
                 {extraction.blocks.map((blk) => {
-                  const isClipped = blk.y0 < 72;
+                  const isClipped = blk.y0 < 36;
                   const isRightColumn = blk.x0 >= 300;
                   return (
                     <div
@@ -236,13 +236,13 @@ export default function ParserXRay({
                 })}
               </div>
 
-              {/* Bottom 1.0-inch Footer Clipping Zone Indicator */}
+              {/* Bottom 0.5-inch Footer Clipping Zone Indicator */}
               <div className="border border-dashed border-rose-500/40 bg-rose-950/20 rounded-lg p-2.5 flex items-center justify-between">
                 <span className="text-[11px] font-mono text-rose-300 flex items-center gap-1.5">
                   <Scissors className="w-3.5 h-3.5" />
-                  BOTTOM 1.0-INCH FOOTER CLIPPING ZONE (y1 &gt; page_height - 72pt)
+                  BOTTOM 0.5-INCH FOOTER CLIPPING ZONE (y1 &gt; page_height - 36pt)
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">Greenhouse / Taleo Blind Zone</span>
+                <span className="text-[11px] font-mono text-slate-400">Taleo / Workday Blind Zone</span>
               </div>
             </div>
           )}

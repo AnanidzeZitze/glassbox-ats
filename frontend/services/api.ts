@@ -505,8 +505,8 @@ export const TWO_COLUMN_HAZARD_XRAY_FIXTURE: ParseXRayResponse = {
   extraction: {
     ...SARAH_CHEN_XRAY_FIXTURE.extraction,
     dropped_header_footer_text: [
-      "sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen (Clipped at y0 = 38pt < 72pt Top Margin)",
-      "Page 1 of 1 — Portfolio Resume (Clipped at y1 = 762pt > 720pt Bottom Margin)",
+      "sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen (Clipped at y0 = 24pt < 36pt Top Margin)",
+      "Page 1 of 1 — Portfolio Resume (Clipped at y1 = 762pt > 756pt Bottom Margin)",
     ],
     interleaved_lines: [
       {

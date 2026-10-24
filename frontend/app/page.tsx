@@ -1049,7 +1049,7 @@ export default function GlassBoxStudioPage() {
             </span>
           </div>
           <div className="flex items-center gap-4 font-mono">
-            <span>Stream A: pdfminer.six (72pt Clip)</span>
+            <span>Stream A: pdfminer.six (36pt / 0.5in Clip)</span>
             <span>•</span>
             <span>Stream B: PyMuPDF XY-Cut++</span>
             <span>•</span>

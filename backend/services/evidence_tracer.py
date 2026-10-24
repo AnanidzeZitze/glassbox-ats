@@ -147,7 +147,7 @@ def trace_taleo_oracle_ingestion(resume: CanonicalResume, extraction: Optional[E
             "hazard_detected": margin_violation,
             "dropped_line_count": len(dropped_headers),
             "dropped_lines": dropped_headers[:5],
-            "rule": "Glyphs with y0 < 72pt (top 1.0 inch) or y1 > 720pt (bottom 1.0 inch) stripped automatically.",
+            "rule": "0.5 inch (36pt) margins are acceptable; glyphs with y0 < 36pt (or legacy 72pt Taleo zone) risk clipping.",
         },
         "semantic_tolerance": 0.0,
         "reverse_engineering_notes": (

@@ -41,7 +41,7 @@ ATS_SAFE_FONTS = {
     "timesnewroman",
 }
 
-HEADER_FOOTER_MARGIN_PT = 72.0  # 1.0 inch = 72pt
+HEADER_FOOTER_MARGIN_PT = 36.0  # 0.5 inch = 36pt (0.5 in margins are acceptable; < 0.5in is clipped)
 OCR_MIN_CHAR_THRESHOLD = 50
 OCR_CONFIDENCE_MULTIPLIER = 0.85
 KEY_VALUE_MAX_GAP_PT = 35.0
@@ -123,9 +123,8 @@ def extract_linear_stream(
 ) -> Tuple[str, List[str]]:
     """Extract naive left-to-right, top-to-bottom horizontal stream using pdfminer.six.
 
-    Clips any text inside the top 1.0 inch (`y0 < 72pt` from page top) and bottom
-    1.0 inch (`y1 > page_height - 72pt`) per Section 2.2 of ANTIGRAVITY_CONTEXT.md,
-    logging clipped text in `dropped_header_footer_text`.
+    Clips any text inside the extreme top margin (`y0 < 36pt` / 0.5 inch from page top) and bottom
+    (`y1 > page_height - 36pt`) where 0.5 in margins are acceptable, logging clipped text in `dropped_header_footer_text`.
     """
     dropped_header_footer_text: List[str] = []
     collected_lines: List[Tuple[int, float, float, str]] = []

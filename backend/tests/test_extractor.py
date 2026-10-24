@@ -26,8 +26,8 @@ def _create_single_column_pdf_with_header_footer() -> bytes:
     doc = fitz.open()
     page = doc.new_page(width=612, height=792)  # 8.5 x 11 inches
 
-    # Header inside top 1 inch (y = 40pt < 72pt)
-    page.insert_text((72, 40), "sarah.chen@example.com | (415) 555-0142", fontsize=10, fontname="helv")
+    # Header inside top 0.5 inch (y = 20pt < 36pt)
+    page.insert_text((72, 20), "sarah.chen@example.com | (415) 555-0142", fontsize=10, fontname="helv")
 
     # Main body content (y between 100pt and 650pt)
     page.insert_text((72, 110), "Sarah Chen", fontsize=15, fontname="helv")

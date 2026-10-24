@@ -109,16 +109,16 @@ def detect_latex_hazards(tex_source: str) -> List[Dict[str, Any]]:
                 )
             )
 
-        # 5. Margin Hazard in geometry
+        # 5. Margin Hazard in geometry (< 0.5 in is dangerous; 0.5 in is acceptable)
         m_geom = re.search(r"\\usepackage\[(.*?)\]\{geometry\}", clean_ln)
         if m_geom:
             geom_args = m_geom.group(1).lower()
-            if any(k in geom_args for k in ("0.3in", "0.4in", "0.5in", "0.2in", "margin=0.5", "margin=0.25")):
+            if any(k in geom_args for k in ("0.2in", "0.25in", "0.3in", "0.35in", "0.4in", "margin=0.2", "margin=0.3", "margin=0.4")):
                 hazards.append(
                     LatexATSHazard(
-                        "SUB_INCH_MARGIN",
+                        "SUB_HALF_INCH_MARGIN",
                         "CRITICAL",
-                        f"Aggressive margins ('{m_geom.group(1)}'). Margins under 0.75in risk dropping contact information into Taleo's 1-inch (72pt) clipping zone.",
+                        f"Overly aggressive margins ('{m_geom.group(1)}'). Margins under 0.5in risk dropping contact information into ATS clipping zones.",
                         idx,
                     )
                 )

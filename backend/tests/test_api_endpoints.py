@@ -187,3 +187,141 @@ def test_tailor_bullets_and_kanban_applications_crud() -> None:
     del_resp = client.delete("/api/v1/applications/test-app-999")
     assert del_resp.status_code == 200
     assert del_resp.json()["deleted"] is True
+
+
+def test_uploaded_real_pdf_resume_end_to_end_zero_presets() -> None:
+    # 1. Parse custom JD
+    jd_resp = client.post(
+        "/api/v1/parse-jd",
+        json={
+            "raw_jd_text": (
+                "Role: Product & Program Operations Manager\n"
+                "Responsibilities:\n"
+                "- Lead cross-functional product operations, KPI dashboards, and Jira/Confluence workflows.\n"
+                "- Partner with stakeholders on SQL data analysis, Python automation, and roadmap execution.\n"
+                "Preferred Qualifications:\n"
+                "- Experience with Tableau, Agile, Scrum, and Lean Six Sigma."
+            )
+        },
+    )
+    assert jd_resp.status_code == 200
+    jd_data = jd_resp.json()
+    assert "Senior Python Developer" not in jd_data["target_title"]
+    assert "Jira" in jd_data["must_have_skills"]
+    assert "SQL" in jd_data["must_have_skills"]
+    assert "Tableau" in jd_data["preferred_skills"]
+
+    # 2. Upload real PDF resume (GBN_Resume_ATS_Optimized.pdf)
+    with open("backend/data/GBN_Resume_ATS_Optimized.pdf", "rb") as f:
+        xray_resp = client.post(
+            "/api/v1/parse-xray",
+            files={"file": ("GBN_Resume_ATS_Optimized.pdf", f.read(), "application/pdf")},
+        )
+    assert xray_resp.status_code == 200
+    xray_data = xray_resp.json()
+    canon = xray_data["canonical"]
+    assert "Sarah Chen" not in canon["full_name"]
+    assert canon["email"] != "sarah.chen@example.com"
+    assert len(canon["employments"]) >= 3
+    for emp in canon["employments"]:
+        assert emp["company"] != "Zendex Inc."
+
+    # 3. Compute ATS Score & 30-Point Audit for the uploaded resume and custom JD
+    score_resp = client.post(
+        "/api/v1/compute-score",
+        json={
+            "platform": "WORKDAY",
+            "resume": canon,
+            "extraction": xray_data["extraction"],
+            "jd": jd_data,
+        },
+    )
+    assert score_resp.status_code == 200
+    score_data = score_resp.json()
+    assert score_data["audit_report"]["total_parameters"] == 30
+    for param in score_data["audit_report"]["parameters"]:
+        assert "sarah.chen@example.com" not in param["message"]
+
+    # 4. Tailor bullets for the uploaded resume and custom JD
+    tailor_resp = client.post(
+        "/api/v1/tailor-bullets",
+        json={"resume": canon, "jd": jd_data},
+    )
+    assert tailor_resp.status_code == 200
+    tailor_data = tailor_resp.json()
+    assert len(tailor_data["diffs"]) > 0
+    for diff in tailor_data["diffs"]:
+        assert "Sarah Chen" not in tailor_data["latex_source"]
+    assert "sarah.chen@example.com" not in tailor_data["latex_source"]
+
+
+def test_tex_remediation_and_evidence_tracer_endpoints() -> None:
+    # 1. Sample LaTeX resume with hazards (multicol, tabular, fontawesome)
+    sample_tex = r"""
+    \documentclass[10pt]{article}
+    \usepackage{geometry}
+    \usepackage{fontawesome5}
+    \usepackage{multicol}
+    \begin{document}
+    \author{Alex Rivera}
+    \section{Experience}
+    \textbf{Senior Cloud Architect} | CloudOps Inc. \hfill 2021 -- Present
+    \begin{itemize}
+        \item Directed cloud migration on AWS infrastructure using Terraform and Docker.
+    \end{itemize}
+    \section{Education}
+    \textbf{B.S. Computer Science} | MIT \hfill 2020
+    \section{Skills}
+    Python, AWS, Docker, Terraform
+    \end{document}
+    """
+
+    # Test /api/v1/parse-tex
+    tex_resp = client.post("/api/v1/parse-tex", json={"raw_tex": sample_tex})
+    assert tex_resp.status_code == 200
+    tex_data = tex_resp.json()
+    assert tex_data["canonical"]["full_name"] == "Alex Rivera"
+    assert "Python" in tex_data["canonical"]["skills"]
+    assert any(h["hazard_type"] == "MULTICOLUMN_PACKAGE" for h in tex_data["hazards"])
+    assert any(h["hazard_type"] == "ICON_PACKAGE" for h in tex_data["hazards"])
+
+    # Test /api/v1/evidence-trace
+    ev_resp = client.post("/api/v1/evidence-trace", json={"resume": tex_data["canonical"]})
+    assert ev_resp.status_code == 200
+    ev_data = ev_resp.json()
+    assert "workday" in ev_data
+    assert "greenhouse" in ev_data
+    assert "lever" in ev_data
+    assert "taleo" in ev_data
+    assert "icims" in ev_data
+
+    # Test /api/v1/remediate-tex-md
+    sample_md = """# Alex Rivera - Master Background Profile
+    ## Work History
+    At CloudOps Inc., I led the migration of 40+ microservices to Kubernetes and orchestrated Kafka event streams.
+    Additionally, I authored automated CI/CD deployment pipelines with GitHub Actions.
+    """
+    sample_jd = (
+        "Job Title: Lead Cloud Infrastructure Engineer\n"
+        "Must Have: AWS, Kubernetes, Terraform, Docker, Kafka\n"
+        "Preferred: GitHub Actions"
+    )
+
+    rem_resp = client.post(
+        "/api/v1/remediate-tex-md",
+        json={
+            "resume_tex": sample_tex,
+            "master_profile_md": sample_md,
+            "raw_jd_text": sample_jd,
+            "platform": "WORKDAY",
+        },
+    )
+    assert rem_resp.status_code == 200
+    rem_data = rem_resp.json()
+    assert rem_data["remediated_score"] >= rem_data["baseline_score"]
+    assert "Kubernetes" in rem_data["newly_added_skills"] or "Kafka" in rem_data["newly_added_skills"]
+    assert len(rem_data["diffs"]) > 0
+    assert r"\documentclass[10pt,letterpaper]{article}" in rem_data["updated_tex"]
+    assert "geometry" in rem_data["updated_tex"]
+
+

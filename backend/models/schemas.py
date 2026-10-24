@@ -509,3 +509,50 @@ class ValidatedResume(BaseModel):
                             )
 
         return self
+
+
+# ============================================================================
+# Module 7: Reverse-Engineering & LaTeX Remediation Schemas
+# ============================================================================
+
+class ParseTexRequest(BaseModel):
+    raw_tex: str
+
+
+class ParseTexResponse(BaseModel):
+    canonical: CanonicalResume
+    hazards: List[Dict[str, Any]]
+
+
+class TailorBulletDiffItem(BaseModel):
+    diff_id: str
+    role_title: str
+    company: str
+    start_date: str = ""
+    end_date: str = "Present"
+    original_bullet: str
+    tailored_bullet: str
+    injected_keywords: List[str] = Field(default_factory=list)
+    action_verb_verified: bool = True
+    quantified_metric_preserved: str = ""
+    hallucination_guard_passed: bool = True
+
+
+class RemediateTexRequest(BaseModel):
+    resume_tex: str
+    master_profile_md: str
+    raw_jd_text: str
+    platform: ATSPlatform = "WORKDAY"
+
+
+class RemediateTexResponse(BaseModel):
+    baseline_score: float
+    remediated_score: float
+    target_platform: ATSPlatform
+    updated_tex: str
+    diffs: List[TailorBulletDiffItem]
+    newly_added_skills: List[str]
+    hazards_detected: List[Dict[str, Any]]
+    evidence_trace: Dict[str, Any]
+    updated_canonical: CanonicalResume
+

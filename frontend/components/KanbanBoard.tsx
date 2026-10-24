@@ -28,52 +28,7 @@ export interface KanbanApplicationCard {
 
 const STAGES: KanbanStage[] = ["Applied", "Screening", "Interview", "Offer"];
 
-const INITIAL_CARDS: KanbanApplicationCard[] = [
-  {
-    id: "app-1",
-    roleTitle: "Senior Python Developer",
-    company: "CloudScale Systems",
-    platform: "WORKDAY",
-    atsScore: 82.0,
-    jdMatchPct: 80.0,
-    stage: "Interview",
-    appliedDate: "2026-10-18",
-    resumeVersion: "sarah_chen_workday_v2.docx",
-  },
-  {
-    id: "app-2",
-    roleTitle: "Senior Backend Engineer",
-    company: "LinearFlow AI",
-    platform: "LEVER",
-    atsScore: 85.75,
-    jdMatchPct: 83.5,
-    stage: "Screening",
-    appliedDate: "2026-10-20",
-    resumeVersion: "sarah_chen_lever_v1.pdf",
-  },
-  {
-    id: "app-3",
-    roleTitle: "Staff Product Manager, Data",
-    company: "Stripe",
-    platform: "GREENHOUSE",
-    atsScore: 91.0,
-    jdMatchPct: 84.0,
-    stage: "Offer",
-    appliedDate: "2026-10-12",
-    resumeVersion: "sarah_chen_greenhouse_safe.tex",
-  },
-  {
-    id: "app-4",
-    roleTitle: "Principal Platform Engineer",
-    company: "Oracle Cloud",
-    platform: "TALEO",
-    atsScore: 79.5,
-    jdMatchPct: 78.0,
-    stage: "Applied",
-    appliedDate: "2026-10-22",
-    resumeVersion: "sarah_chen_taleo_ascii.docx",
-  },
-];
+const INITIAL_CARDS: KanbanApplicationCard[] = [];
 
 interface KanbanBoardProps {
   currentScore: number | null;
@@ -82,11 +37,11 @@ interface KanbanBoardProps {
   currentRoleTitle: string;
 }
 
-const STORAGE_KEY = "glassbox_ats_kanban_cards_v1";
+const STORAGE_KEY = "glassbox_ats_kanban_cards_v2";
 
 export default function KanbanBoard({
   currentScore,
-  currentJdMatchPct = 81.0,
+  currentJdMatchPct = 0.0,
   currentPlatform,
   currentRoleTitle,
 }: KanbanBoardProps) {

@@ -116,12 +116,13 @@ export default function TailoringStudio({
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     } catch {
-      // Offline clean single-column Word-compatible document download
+      const locStr = resume.address
+        ? [resume.address.city, resume.address.region].filter(Boolean).join(", ")
+        : null;
+      const contactParts = [resume.email, resume.phone, resume.linkedin_url, locStr].filter(Boolean);
       const lines = [
         resume.full_name.toUpperCase(),
-        `${resume.email || "sarah.chen@example.com"} | ${resume.phone || "(415) 555-0142"} | ${
-          resume.linkedin_url || "https://linkedin.com/in/sarahchen"
-        }`,
+        contactParts.join(" | "),
         "",
         "PROFESSIONAL SUMMARY",
         resume.summary || "",

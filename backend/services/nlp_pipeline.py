@@ -142,6 +142,16 @@ NON_STANDARD_CREATIVE_HEADERS: Dict[str, str] = {
 }
 
 
+def classify_section_header(raw_header: str) -> Optional[str]:
+    """Classify a section header candidate into a canonical ATS section name."""
+    cand = re.sub(r"[:\-–—_#*]+$", "", raw_header).strip().lower()
+    if cand in WHITELISTED_STANDARD_HEADERS:
+        return WHITELISTED_STANDARD_HEADERS[cand]
+    if cand in NON_STANDARD_CREATIVE_HEADERS:
+        return NON_STANDARD_CREATIVE_HEADERS[cand]
+    return None
+
+
 def segment_sections(
     sanitized_text: str,
 ) -> Tuple[Dict[str, List[str]], Dict[str, str], List[SectionBoundaryFailure]]:
@@ -490,21 +500,71 @@ def _parse_single_date(date_str: str) -> Tuple[Optional[int], Optional[int], boo
     return None, None, False
 
 
+_LOCATION_LOOKING_RE = re.compile(
+    r"^(?:[A-Z][a-zA-Z\s.]+,\s*(?:[A-Z]{2}|[A-Z][a-zA-Z\s]+)|Remote|Hybrid)$"
+)
+_COMPANY_HINT_RE = re.compile(
+    r"\b(?:inc\.?|llc|ltd\.?|pvt\.?|corp(?:oration)?|company|co\.|foundation|university|"
+    r"college|institute|school|systems|technologies|labs?|group|partners|bank|hospital|studio|agency)\b",
+    re.IGNORECASE,
+)
+
+
+def _split_role_header_parts(header_chunks: List[str]) -> Tuple[str, str]:
+    """Given 1 to 3 non-date header strings for a role, identify (title, company) and ignore pure location strings."""
+    tokens: List[str] = []
+    for chunk in header_chunks:
+        for part in re.split(r"\s*\|\s*", chunk):
+            p = part.strip(" ,-–—()")
+            if not p:
+                continue
+            if _LOCATION_LOOKING_RE.match(p):
+                continue
+            if p not in tokens:
+                tokens.append(p)
+
+    if not tokens:
+        raw_first = header_chunks[0].split("|")[0].strip() if header_chunks else "Role"
+        return raw_first, "Organization"
+    if len(tokens) == 1:
+        # Try splitting on ' at ' or ' - ' or ','
+        sub = [s.strip() for s in re.split(r"\s+(?:at|@|—|–|-)\s+", tokens[0]) if s.strip()]
+        if len(sub) >= 2:
+            return sub[0], sub[1]
+        return tokens[0], "Organization"
+
+    # If the first token looks like a company and the second does not, swap or keep standard Title | Company order
+    t0, t1 = tokens[0], tokens[1]
+    role_word_re = re.compile(
+        r"\b(engineer|developer|manager|analyst|coordinator|specialist|director|architect|"
+        r"designer|lead|scientist|consultant|intern|associate|president|vp|head|founder|officer|assistant|researcher)\b",
+        re.IGNORECASE,
+    )
+    if _COMPANY_HINT_RE.search(t0) and role_word_re.search(t1) and not role_word_re.search(t0):
+        return t1, t0
+    return t0, t1
+
+
 def _parse_employments_from_lines(lines: List[str]) -> List[ParsedEmployment]:
     """Parse work experience lines into structured ParsedEmployment objects.
 
-    Supports both:
+    Supports:
     - Single-line headers: `Senior Product Manager | Zendex Inc. | Mar 2022 - Present`
-    - Two-line headers (standard LaTeX `\\job` / Word templates):
+    - Two-line headers:
         Line 1: `Marketing Operations Analyst | Boston, Massachusetts`
         Line 2: `Grimes King Foundation Inc. | Aug 2025 -- Present`
+    - Multi-block `\\hfill` headers split by Stream B into 3-4 consecutive short lines:
+        Line 1: `Marketing Operations Analyst`
+        Line 2: `Boston, Massachusetts`
+        Line 3: `Grimes King Foundation Inc.`
+        Line 4: `Aug 2025 -- Present`
     """
     employments: List[ParsedEmployment] = []
     current_emp: Optional[ParsedEmployment] = None
 
     date_span_re = re.compile(
-        rf"((?:{MONTH_NAMES}\.?\s+\d{{4}})|(?:\d{{1,2}}/\d{{4}})|(?:\d{{4}}-\d{{2}}))\s*[-–—to]+\s*"
-        rf"((?:{MONTH_NAMES}\.?\s+\d{{4}})|(?:\d{{1,2}}/\d{{4}})|(?:\d{{4}}-\d{{2}})|Present|Current)",
+        rf"((?:{MONTH_NAMES}\.?\s+\d{{4}})|(?:\d{{1,2}}/\d{{4}})|(?:\d{{4}}-\d{{2}})|(?:\b(?:19|20)\d{{2}}\b))\s*[-–—to]+\s*"
+        rf"((?:{MONTH_NAMES}\.?\s+\d{{4}})|(?:\d{{1,2}}/\d{{4}})|(?:\d{{4}}-\d{{2}})|(?:\b(?:19|20)\d{{2}}\b)|Present|Current)",
         re.IGNORECASE,
     )
 
@@ -512,63 +572,33 @@ def _parse_employments_from_lines(lines: List[str]) -> List[ParsedEmployment]:
     idx = 0
     n = len(cleaned_lines)
 
+    def _is_bullet(s: str) -> bool:
+        return bool(s) and s[0] in WHITELISTED_BULLET_CHARS
+
+    def _is_short_header_line(s: str) -> bool:
+        return (not _is_bullet(s)) and len(s) <= 85 and not s.endswith(".")
+
     while idx < n:
         stripped = cleaned_lines[idx]
 
-        # 1. Check if bullet line
-        if stripped[0] in WHITELISTED_BULLET_CHARS:
+        # 1. Bullet line
+        if _is_bullet(stripped):
             bullet_text = stripped[1:].strip()
             if current_emp is not None and bullet_text:
                 current_emp.bullets.append(bullet_text)
             idx += 1
             continue
 
-        # 2. Check if this non-bullet line is Line 1 of a Two-Line Role Header (where idx+1 has the date span)
+        # 2. Look ahead up to 3 lines for a date span across short non-bullet header lines
         m_date_curr = date_span_re.search(stripped)
-        m_date_next = date_span_re.search(cleaned_lines[idx + 1]) if (idx + 1 < n and cleaned_lines[idx + 1][0] not in WHITELISTED_BULLET_CHARS) else None
-
-        if not m_date_curr and m_date_next:
-            next_line = cleaned_lines[idx + 1]
-            start_raw, end_raw = m_date_next.group(1), m_date_next.group(2)
-            s_year, s_month, _ = _parse_single_date(start_raw)
-            e_year, e_month, is_curr = _parse_single_date(end_raw)
-
-            line1_parts = [p.strip() for p in stripped.split("|") if p.strip()]
-            title = line1_parts[0] if line1_parts else stripped
-
-            line2_prefix = next_line[: m_date_next.start()].strip(" |,-–—()")
-            line2_parts = [p.strip() for p in line2_prefix.split("|") if p.strip()]
-            company = line2_parts[0] if line2_parts else (line1_parts[1] if len(line1_parts) > 1 else "Company")
-
-            current_emp = ParsedEmployment(
-                title=title,
-                company=company,
-                start_date_raw=start_raw,
-                end_date_raw=end_raw,
-                start_year=s_year or 2020,
-                start_month=s_month or 1,
-                end_year=e_year,
-                end_month=e_month,
-                is_current=is_curr,
-                bullets=[],
-            )
-            employments.append(current_emp)
-            idx += 2
-            continue
-
-        # 3. Single-line role header containing a date span
         if m_date_curr:
             start_raw, end_raw = m_date_curr.group(1), m_date_curr.group(2)
             s_year, s_month, _ = _parse_single_date(start_raw)
             e_year, e_month, is_curr = _parse_single_date(end_raw)
 
             prefix = stripped[: m_date_curr.start()].strip(" |,-–—()")
-            if "|" in prefix:
-                parts = [p.strip() for p in prefix.split("|") if p.strip()]
-            else:
-                parts = [p.strip() for p in re.split(r"\s*[|,@–—-]\s*", prefix) if p.strip()]
-            title = parts[0] if parts else "Software Engineer"
-            company = parts[1] if len(parts) > 1 else "Company"
+            header_chunks = [prefix] if prefix else []
+            title, company = _split_role_header_parts(header_chunks)
 
             current_emp = ParsedEmployment(
                 title=title,
@@ -586,13 +616,55 @@ def _parse_employments_from_lines(lines: List[str]) -> List[ParsedEmployment]:
             idx += 1
             continue
 
-        # 4. Secondary line or wrapped bullet continuation
+        if _is_short_header_line(stripped):
+            date_offset: Optional[int] = None
+            m_date_found: Optional[re.Match[str]] = None
+            for offset in (1, 2, 3):
+                if idx + offset >= n:
+                    break
+                cand_line = cleaned_lines[idx + offset]
+                if not _is_short_header_line(cand_line):
+                    break
+                m_cand = date_span_re.search(cand_line)
+                if m_cand:
+                    date_offset = offset
+                    m_date_found = m_cand
+                    break
+
+            if date_offset is not None and m_date_found is not None:
+                start_raw, end_raw = m_date_found.group(1), m_date_found.group(2)
+                s_year, s_month, _ = _parse_single_date(start_raw)
+                e_year, e_month, is_curr = _parse_single_date(end_raw)
+
+                header_chunks = [cleaned_lines[idx + k] for k in range(date_offset)]
+                date_line_prefix = cleaned_lines[idx + date_offset][: m_date_found.start()].strip(" |,-–—()")
+                if date_line_prefix:
+                    header_chunks.append(date_line_prefix)
+
+                title, company = _split_role_header_parts(header_chunks)
+                current_emp = ParsedEmployment(
+                    title=title,
+                    company=company,
+                    start_date_raw=start_raw,
+                    end_date_raw=end_raw,
+                    start_year=s_year or 2020,
+                    start_month=s_month or 1,
+                    end_year=e_year,
+                    end_month=e_month,
+                    is_current=is_curr,
+                    bullets=[],
+                )
+                employments.append(current_emp)
+                idx += date_offset + 1
+                continue
+
+        # 3. Secondary line or wrapped bullet continuation
         if current_emp is not None and not current_emp.bullets and "|" in stripped:
-            parts = [p.strip() for p in stripped.split("|") if p.strip()]
-            if parts:
+            parts = [p.strip() for p in stripped.split("|") if p.strip() and not _LOCATION_LOOKING_RE.match(p.strip())]
+            if parts and current_emp.company in ("Company", "Organization"):
                 current_emp.company = parts[0]
         elif current_emp is not None:
-            if current_emp.bullets:
+            if current_emp.bullets and not current_emp.bullets[-1].endswith("."):
                 current_emp.bullets[-1] = f"{current_emp.bullets[-1]} {stripped}"
             else:
                 current_emp.bullets.append(stripped)
@@ -602,55 +674,63 @@ def _parse_employments_from_lines(lines: List[str]) -> List[ParsedEmployment]:
 
 
 def _parse_educations_from_lines(lines: List[str]) -> List[ParsedEducation]:
-    """Parse education lines into ParsedEducation records (supporting single-line and two-line blocks)."""
+    """Parse education lines into ParsedEducation records (supporting 1-line, 2-line, and 4-block hfill entries)."""
     educations: List[ParsedEducation] = []
     cleaned_lines: List[str] = []
     for line in lines:
         stripped = line.strip().lstrip("•●◦-* ").strip()
         if not stripped:
             continue
-        if re.match(r"^(relevant coursework|coursework|gpa|honors|activities)\s*:", stripped, re.IGNORECASE):
+        if re.match(r"^(relevant coursework|coursework|gpa|honors|activities|dean's list)\s*:", stripped, re.IGNORECASE):
             continue
         cleaned_lines.append(stripped)
 
     idx = 0
     n = len(cleaned_lines)
     degree_keywords_re = re.compile(
-        r"\b(b\.?s\.?|m\.?s\.?|b\.?a\.?|m\.?b\.?a\.?|ph\.?d\.?|bachelor|master|associate|diploma)\b",
+        r"\b(b\.?s\.?|m\.?s\.?|b\.?a\.?|m\.?b\.?a\.?|ph\.?d\.?|bachelor(?:'s)?|master(?:'s)?|associate(?:'s)?|doctorate|diploma)\b",
         re.IGNORECASE,
     )
+    school_keywords_re = re.compile(
+        r"\b(university|college|institute|school|academy|polytechnic)\b",
+        re.IGNORECASE,
+    )
+    year_re = re.compile(r"\b(19\d{2}|20\d{2})\b")
 
     while idx < n:
         curr = cleaned_lines[idx]
-        nxt = cleaned_lines[idx + 1] if idx + 1 < n else None
+        curr_years = year_re.findall(curr)
 
-        # Detect Two-Line Education Block: Line 1 is School | Location (no year), Line 2 has Degree + Year
-        curr_years = re.findall(r"\b(19\d{2}|20\d{2})\b", curr)
-        nxt_years = re.findall(r"\b(19\d{2}|20\d{2})\b", nxt) if nxt else []
-
-        if not curr_years and nxt and (nxt_years or degree_keywords_re.search(nxt)):
-            school_part = curr.split("|")[0].strip()
-            end_year = int(nxt_years[-1]) if nxt_years else 2020
-            deg_line = re.sub(
-                rf"[,|()\s-]*(?:{MONTH_NAMES}\.?\s+)?(19\d{{2}}|20\d{{2}})[,|()\s-]*",
-                " ",
-                nxt,
+        # Case 1: Single line already contains both a year and either pipes or degree/school
+        if curr_years and ("|" in curr or degree_keywords_re.search(curr) or school_keywords_re.search(curr)):
+            end_year = int(curr_years[-1])
+            without_year = re.sub(
+                rf"[,|()\s-]*(?:{MONTH_NAMES}\.?\s+)?(19\d{{2}}|20\d{{2}})(?:\s*[-–—to]+\s*(?:{MONTH_NAMES}\.?\s+)?(?:19\d{{2}}|20\d{{2}}|Present))?[,|()\s-]*",
+                " | ",
+                curr,
                 flags=re.IGNORECASE,
-            ).strip(" |-–—")
-            degree = deg_line
+            ).strip(" |")
+            parts = [
+                p.strip()
+                for p in re.split(r"\s*\|\s*", without_year)
+                if p.strip() and not _LOCATION_LOOKING_RE.match(p.strip())
+            ]
+            if len(parts) == 1:
+                parts = [p.strip() for p in re.split(r"\s*[—–-]\s*", parts[0]) if p.strip()]
+
+            degree_part = parts[0] if parts else curr
+            school_part = parts[1] if len(parts) > 1 else "University"
+            if school_keywords_re.search(degree_part) and not degree_keywords_re.search(degree_part) and len(parts) > 1:
+                degree_part, school_part = parts[1], parts[0]
+
+            degree = degree_part
             major: Optional[str] = None
-            if " in " in deg_line:
-                d_split = deg_line.split(" in ", 1)
-                degree = d_split[0].strip()
-                major = d_split[1].strip()
-            elif " - " in deg_line:
-                d_split = deg_line.split(" - ", 1)
-                degree = d_split[0].strip()
-                major = d_split[1].strip()
-            elif "," in deg_line:
-                d_split = deg_line.split(",", 1)
-                degree = d_split[0].strip()
-                major = d_split[1].strip()
+            if " in " in degree_part:
+                d_split = degree_part.split(" in ", 1)
+                degree, major = d_split[0].strip(), d_split[1].strip()
+            elif "," in degree_part and not school_keywords_re.search(degree_part):
+                d_split = degree_part.split(",", 1)
+                degree, major = d_split[0].strip(), d_split[1].strip()
 
             educations.append(
                 ParsedEducation(
@@ -660,37 +740,73 @@ def _parse_educations_from_lines(lines: List[str]) -> List[ParsedEducation]:
                     end_year=end_year,
                 )
             )
-            idx += 2
+            idx += 1
             continue
 
-        # Single-line education entry
-        end_year = int(curr_years[-1]) if curr_years else 2020
-        without_year = re.sub(r"[,|()\s-]*(19\d{2}|20\d{2})[,|()\s-]*", " | ", curr).strip(" |")
-        parts = [p.strip() for p in re.split(r"\s*[|—–-]\s*", without_year) if p.strip()]
+        # Case 2: Multi-line / hfill Education block (collect up to 4 lines until we hit a line with a graduation year)
+        block_lines = [curr]
+        consumed = 1
+        found_years = list(curr_years)
+        while consumed < 4 and (idx + consumed) < n:
+            nxt_ln = cleaned_lines[idx + consumed]
+            # Stop if next line starts a brand new School after we already saw a degree or year
+            if found_years:
+                break
+            block_lines.append(nxt_ln)
+            yr_matches = year_re.findall(nxt_ln)
+            if yr_matches:
+                found_years.extend(yr_matches)
+                consumed += 1
+                break
+            consumed += 1
 
-        degree_part = parts[0] if parts else curr
-        school_part = parts[1] if len(parts) > 1 else "University"
+        end_year = int(found_years[-1]) if found_years else 2020
+        school_val = "University"
+        degree_raw = ""
 
-        degree = degree_part
+        for bl in block_lines:
+            bl_no_yr = re.sub(
+                rf"[,|()\s-]*(?:{MONTH_NAMES}\.?\s+)?(19\d{{2}}|20\d{{2}})(?:\s*[-–—to]+\s*(?:{MONTH_NAMES}\.?\s+)?(?:19\d{{2}}|20\d{{2}}|Present))?[,|()\s-]*",
+                " ",
+                bl,
+                flags=re.IGNORECASE,
+            ).strip(" |-–—")
+            if not bl_no_yr or _LOCATION_LOOKING_RE.match(bl_no_yr):
+                continue
+            for seg in [s.strip() for s in bl_no_yr.split("|") if s.strip()]:
+                if _LOCATION_LOOKING_RE.match(seg):
+                    continue
+                if degree_keywords_re.search(seg):
+                    degree_raw = seg
+                elif school_keywords_re.search(seg) or school_val == "University":
+                    school_val = seg
+                elif not degree_raw:
+                    degree_raw = seg
+
+        if not degree_raw:
+            degree_raw = block_lines[0].split("|")[0].strip()
+
+        degree = degree_raw
         major = None
-        if " in " in degree_part:
-            d_split = degree_part.split(" in ", 1)
-            degree = d_split[0].strip()
-            major = d_split[1].strip()
-        elif "," in degree_part:
-            d_split = degree_part.split(",", 1)
-            degree = d_split[0].strip()
-            major = d_split[1].strip()
+        if " in " in degree_raw:
+            d_split = degree_raw.split(" in ", 1)
+            degree, major = d_split[0].strip(), d_split[1].strip()
+        elif " - " in degree_raw:
+            d_split = degree_raw.split(" - ", 1)
+            degree, major = d_split[0].strip(), d_split[1].strip()
+        elif "," in degree_raw:
+            d_split = degree_raw.split(",", 1)
+            degree, major = d_split[0].strip(), d_split[1].strip()
 
         educations.append(
             ParsedEducation(
                 degree=degree,
                 major=major,
-                school=school_part,
+                school=school_val,
                 end_year=end_year,
             )
         )
-        idx += 1
+        idx += consumed
 
     return educations
 
@@ -722,12 +838,30 @@ def parse_resume_text(
         else:
             linkedin_url = raw_li
 
-    # Extract candidate name and address from Contact Information lines
-    contact_lines = section_lines.get("Contact Information", [])
+    # Extract candidate name, address, and any headerless opening summary from Contact Information lines
+    raw_contact_lines = section_lines.get("Contact Information", [])
+    contact_lines: List[str] = []
+    implicit_summary_lines: List[str] = []
+
+    for idx_c, c_ln in enumerate(raw_contact_lines):
+        if idx_c == 0:
+            contact_lines.append(c_ln)
+            continue
+        has_contact_signal = bool(
+            EMAIL_REGEX.search(c_ln)
+            or PHONE_REGEX.search(c_ln)
+            or LINKEDIN_REGEX.search(c_ln)
+            or "|" in c_ln
+            or len(c_ln) <= 55
+        )
+        if has_contact_signal and not implicit_summary_lines:
+            contact_lines.append(c_ln)
+        else:
+            implicit_summary_lines.append(c_ln)
+
     full_name = "Candidate Name"
     if contact_lines:
         first_line = contact_lines[0].strip()
-        # Strip title if attached with pipe
         full_name = first_line.split("|")[0].strip()
 
     name_tokens = full_name.split()
@@ -740,7 +874,13 @@ def parse_resume_text(
         r"\b\d+\s+[A-Za-z0-9\s]+(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Drive|Dr|Lane|Ln)\b",
         re.IGNORECASE,
     )
-    city_state_regex = re.compile(r"\b([A-Z][a-zA-Z\s.]+),\s*([A-Z]{2})\b")
+    city_state_regex = re.compile(
+        r"\b([A-Z][a-zA-Z\s.]+),\s*([A-Z]{2}|Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|"
+        r"Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|"
+        r"Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New Hampshire|New Jersey|"
+        r"New Mexico|New York|North Carolina|North Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|"
+        r"South Carolina|South Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming)\b"
+    )
     for c_line in contact_lines:
         has_street = bool(street_regex.search(c_line))
         m_cs = city_state_regex.search(c_line)
@@ -754,8 +894,8 @@ def parse_resume_text(
             )
             break
 
-    # Parse Summary
-    summary_lines = section_lines.get("Professional Summary", [])
+    # Parse Summary (explicit Professional Summary section or implicit opening summary block)
+    summary_lines = section_lines.get("Professional Summary", []) or implicit_summary_lines
     summary = " ".join(summary_lines).strip() if summary_lines else None
 
     # Parse Work Experience
@@ -768,13 +908,23 @@ def parse_resume_text(
     # Parse Skills
     skills_raw_list: List[str] = []
     for s_line in section_lines.get("Skills", []):
-        # Strip optional category label like "Technical Skills: "
         if ":" in s_line:
             s_line = s_line.split(":", 1)[1]
         for token in re.split(r"[,;|•●◦]+", s_line):
-            clean_tok = token.strip().lstrip("-* ").strip()
+            clean_tok = token.strip().lstrip("-* ").strip().rstrip(".")
             if clean_tok and clean_tok not in skills_raw_list:
                 skills_raw_list.append(clean_tok)
+
+    # Also detect taxonomy skills present in the resume text if Skills section was unmapped or sparse
+    if len(skills_raw_list) < 3:
+        text_lower = sanitized_text.lower()
+        for key, (_, cname, _, _, _, _) in LIGHTCAST_ESCO_TAXONOMY.items():
+            if len(key) <= 2 and key != "py":
+                continue
+            if re.search(rf"(?<![a-z0-9]){re.escape(key)}(?![a-z0-9])", text_lower):
+                disp = cname.split("(")[0].strip() if "(" in cname and key != "seo" else cname
+                if disp not in skills_raw_list:
+                    skills_raw_list.append(disp)
 
     normalized_skills: List[NormalizedSkill] = []
     for sk in skills_raw_list:

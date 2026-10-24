@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
+  Code2,
   Cpu,
   Eye,
   FileText,
@@ -26,6 +27,7 @@ import ParserXRay from "@/components/ParserXRay";
 import DiagnosticDashboard from "@/components/DiagnosticDashboard";
 import TailoringStudio from "@/components/TailoringStudio";
 import KanbanBoard from "@/components/KanbanBoard";
+import TexRemediationStudio from "@/components/TexRemediationStudio";
 import {
   ATSPlatform,
   ComputeScoreResponse,
@@ -45,7 +47,7 @@ import {
   parseResumeXRay,
 } from "@/services/api";
 
-type StudioView = "XRAY" | "DIAGNOSTIC" | "TAILOR" | "KANBAN";
+type StudioView = "XRAY" | "DIAGNOSTIC" | "TAILOR" | "TEX_REMEDIATE" | "KANBAN";
 
 const EMPTY_JD: JDRequirementInput = {
   target_title: "",
@@ -75,8 +77,13 @@ const WORKFLOW_STEPS: {
     title: "Diff Editor & Safe Export",
   },
   {
-    id: "KANBAN",
+    id: "TEX_REMEDIATE",
     step: "04",
+    title: "LaTeX & Context Remediator",
+  },
+  {
+    id: "KANBAN",
+    step: "05",
     title: "Application Pipeline",
   },
 ];
@@ -117,6 +124,7 @@ export default function GlassBoxStudioPage() {
     if (!xrayData) {
       setScoreData(null);
       setTailorData(null);
+      setRrfResults([]);
       return;
     }
 
@@ -128,41 +136,56 @@ export default function GlassBoxStudioPage() {
         extraction_result: currentXRay.extraction,
       };
 
-      const [computedScore, rrfRankings, tailored] = await Promise.all([
+      const [computedScore, tailored] = await Promise.all([
         computeATSScore({
           resume: canonicalWithExt,
           jd,
           platform: selectedPlatform,
           knockout: knockoutRules,
         }),
-        runHybridRRFSearch(
-          [
-            {
-              candidate_id: "cand_a",
-              candidate_name: "Candidate A (Keyword Stuffer)",
-              bm25_rank: 1,
-              ann_rank: 50,
-            },
-            {
-              candidate_id: "cand_b",
-              candidate_name: "Candidate B (Consensus Match)",
-              bm25_rank: 3,
-              ann_rank: 3,
-            },
-            {
-              candidate_id: "cand_c",
-              candidate_name: "Candidate C (Semantic Outlier)",
-              bm25_rank: 10,
-              ann_rank: 1,
-            },
-          ],
-          60
-        ),
         tailorExperienceBullets({
           resume: canonicalWithExt,
           jd,
         }),
       ]);
+
+      // Derive the uploaded candidate's BM25 lexical rank and pgvector ANN semantic rank from their actual JD score
+      const kwMatch = computedScore.score_breakdown.keyword_match_pct;
+      const semScore =
+        computedScore.score_breakdown.relevance_ratio * 0.6 +
+        computedScore.score_breakdown.placement_ratio * 0.4;
+      const userBm25Rank = Math.max(1, Math.round((1 - kwMatch) * 15) + 1);
+      const userAnnRank = Math.max(1, Math.round((1 - semScore) * 15) + 1);
+
+      const rrfRankings = await runHybridRRFSearch(
+        [
+          {
+            candidate_id: "uploaded_candidate",
+            candidate_name: `${currentXRay.canonical.full_name} (Your Resume)`,
+            bm25_rank: userBm25Rank,
+            ann_rank: userAnnRank,
+          },
+          {
+            candidate_id: "pool_stuffer",
+            candidate_name: "Pool Keyword-Stuffer Baseline",
+            bm25_rank: 1,
+            ann_rank: 45,
+          },
+          {
+            candidate_id: "pool_semantic",
+            candidate_name: "Pool Semantic-Only Baseline",
+            bm25_rank: 14,
+            ann_rank: 2,
+          },
+          {
+            candidate_id: "pool_median",
+            candidate_name: "Pool Median Applicant",
+            bm25_rank: 6,
+            ann_rank: 6,
+          },
+        ],
+        60
+      );
 
       if (!active) return;
       setScoreData(computedScore);
@@ -193,6 +216,7 @@ export default function GlassBoxStudioPage() {
     setPreferredInput("");
     setScoreData(null);
     setTailorData(null);
+    setRrfResults([]);
     setLaunchpadError(null);
     setIsJdDrawerOpen(false);
     setActiveView("XRAY");
@@ -259,10 +283,7 @@ export default function GlassBoxStudioPage() {
       };
 
       if (rawJdText.trim() && activeJd.must_have_skills.length === 0) {
-        activeJd = await parseJDFromText(
-          rawJdText,
-          activeJd.target_title || undefined
-        );
+        activeJd = await parseJDFromText(rawJdText, undefined);
         setMustHaveInput(activeJd.must_have_skills.join(", "));
         setPreferredInput(activeJd.preferred_skills.join(", "));
       }
@@ -275,6 +296,28 @@ export default function GlassBoxStudioPage() {
 
       // 2. Upload and run Dual-Stream X-Ray ingestion on the resume
       const parsedXRay = await parseResumeXRay(stagedFile, true);
+
+      // 3. Derive candidate degree tier from parsed educations for Knockout Gate
+      const degTexts = parsedXRay.canonical.educations
+        .map((e) => `${e.degree} ${e.major || ""}`.toLowerCase())
+        .join(" ");
+      let detectedTier = "Bachelor's";
+      if (/\b(ph\.?d|doctorate)\b/.test(degTexts)) {
+        detectedTier = "Doctorate";
+      } else if (/\b(m\.?s\.?|m\.?a\.?|m\.?b\.?a\.?|master)\b/.test(degTexts)) {
+        detectedTier = "Master's";
+      } else if (/\b(b\.?s\.?|b\.?a\.?|b\.?e\.?|b\.?tech|bachelor)\b/.test(degTexts)) {
+        detectedTier = "Bachelor's";
+      } else if (/\b(associate)\b/.test(degTexts)) {
+        detectedTier = "Associate's";
+      }
+
+      setKnockoutRules((prev) => ({
+        ...prev,
+        candidate_degree_tier: detectedTier,
+        required_degree_tier: activeJd.required_degree_level || "Bachelor's",
+      }));
+
       setXRayData(parsedXRay);
       setActiveView("DIAGNOSTIC");
     } catch (err) {
@@ -488,6 +531,8 @@ export default function GlassBoxStudioPage() {
                       ? Activity
                       : item.id === "TAILOR"
                       ? GitCompare
+                      : item.id === "TEX_REMEDIATE"
+                      ? Code2
                       : Kanban;
 
                   return (
@@ -660,7 +705,7 @@ export default function GlassBoxStudioPage() {
 
       {/* Main Studio Workspace */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
-        {!xrayData ? (
+        {!xrayData && activeView !== "TEX_REMEDIATE" ? (
           /* ==================================================================
              CLEAN EMPTY-STATE LAUNCHPAD: 1. Feed JD + 2. Upload Resume PDF
              ================================================================== */
@@ -941,7 +986,7 @@ export default function GlassBoxStudioPage() {
              ACTIVE 4-TAB STUDIO WORKSPACE
              ================================================================== */
           <>
-            {activeView === "XRAY" && (
+            {activeView === "XRAY" && xrayData && (
               <ParserXRay
                 xrayData={xrayData}
                 selectedPlatform={selectedPlatform}
@@ -957,16 +1002,24 @@ export default function GlassBoxStudioPage() {
                 knockoutRules={knockoutRules}
                 onUpdateKnockoutRules={setKnockoutRules}
                 rrfResults={rrfResults}
+                onNavigateToRemediation={() => setActiveView("TEX_REMEDIATE")}
               />
             )}
 
-            {activeView === "TAILOR" && tailorData && (
+            {activeView === "TAILOR" && tailorData && xrayData && (
               <TailoringStudio
                 resume={xrayData.canonical}
                 jd={jd}
                 tailorData={tailorData}
                 onApproveBullet={handleApproveBullet}
                 onRegenerateTailoring={handleRegenerateTailoring}
+              />
+            )}
+
+            {activeView === "TEX_REMEDIATE" && (
+              <TexRemediationStudio
+                initialJdText={rawJdText}
+                selectedPlatform={selectedPlatform}
               />
             )}
 

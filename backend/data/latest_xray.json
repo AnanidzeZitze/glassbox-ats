@@ -1,246 +1,1134 @@
 {
-  "filename": "exported_sarah_chen.docx",
+  "filename": "GBN_Resume_ATS_Optimized.pdf",
   "extraction": {
-    "file_format": "docx",
+    "file_format": "pdf",
     "ocr_triggered": false,
-    "ocr_enabled_by_profile": true,
+    "ocr_enabled_by_profile": false,
     "confidence_multiplier": 1.0,
     "is_unreadable_or_encrypted": false,
-    "linear_stream_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
-    "layout_sorted_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+    "linear_stream_text": "GAGAN BHASKAR NAIK\nAustin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in\nAuthorized to work in the US: F-1 OPT (STEM extension eligible through 2028)\nProfessional Summary\nMarketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years\norganizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS.\nLed a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting\nwhile scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500.\nAutomated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing\ntime by 40% across 80+ applicants.\nSkills\nTechnical Skills: SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma,\nREST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics,\nGoogle Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress\nProfessional Experience\nMarketing Operations Analyst | Grimes King Foundation Inc. | Boston, Massachusetts | May 2025 \u2013\nPresent\n\u2022 Increased program sign-ups by 35% in Q1 by mapping the full acquisition funnel (organic search to email\nnurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each\nstage.\n\u2022 Grew program registrations by 40% and engagement by 50% by tracking website, email, and outreach per-\nformance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stake-\nholders.\n\u2022 Cut intake processing time by 40% across 80+ applicants by redesigning a manual, paper-based process\ninto a digital, automated workflow using Python, PostgreSQL, and REST APIs.\nGraduate Marketing & Analytics Consultant | Babson College | Wellesley, Massachusetts | Sep 2023 \u2013\nMay 2025\n\u2022 Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across\n12+ campaign datasets, reducing weekly reporting latency by 45%.\n\u2022 Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track\nconversion metrics across 5 partner brand accounts.\n\u2022 Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting quali-\nfied lead conversion by 28% over 4 academic quarters.\nMarketing Lead (E-commerce & Amazon) | Moksha Creations | Bengaluru, India | Feb 2022 \u2013 Aug 2023\n\u2022 Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25%) and lifted CTR 24% by\nconsolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget\nscaled from $5K to $20K.\n\u2022 Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% (2.8x) in 8 weeks by iteratively testing\nmain image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day\ndip.\n\u2022 Grew monthly unit sales from 200 to 1,500 (7.5x) across Amazon, Flipkart, and the company site, running\npaid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.\n\u2022 Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and\nmanaging the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.\n\u2022 Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase)\nin Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.\n\u2022 Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine\nOptimization (SEO) articles.\nGrowth Analyst | Petropath Fluids India Pvt. Ltd. | Bengaluru, India | Jan 2021 \u2013 Jan 2022\n\u2022 Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B\ncampaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.\n\u2022 Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti-\nmizing performance across 10+ email campaigns for sales and marketing teams.\n\u2022 Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce\nacross 15+ B2B campaigns, lifting pipeline visibility by 30%.\nMarketing & SEO Analytics Intern (Amazon) | GAO Tek Inc. | NYC, New York | Oct 2019 \u2013 Dec 2020\n\u2022 Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting\nAmazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata-\nlog.\n\u2022 Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon-\nsored Products ad headlines and analyzing results to identify top-performing copy.\n\u2022 Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs, reduc-\ning manual reporting time by 25%.\nProjects\nMarketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |\nAustin, TX | Apr 2026 \u2013 Present\n\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing\narticle per day with automated pre-publication quality gates.\nMaxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026\n\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-\nperforming ad prompts into a style library and orchestrating multiple AI providers.\nEducation\nMBA, STEM in Business Analytics | Babson College | Wellesley, MA | Sep 2023 \u2013 May 2025\nB.E. in Industrial Engineering and Management | Technical University of Applied Sciences TH-WS | Oct\n2016 \u2013 Dec 2020",
+    "layout_sorted_text": "GAGAN BHASKAR NAIK\nAustin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in (https://www.linkedin.com/in/gaganbnaik)\nAuthorized to work in the US: F-1 OPT (STEM extension eligible through 2028)\nProfessional Summary\nMarketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years\norganizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS.\nLed a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting\nwhile scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500.\nAutomated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing\ntime by 40% across 80+ applicants.\nSkills\nTechnical Skills : SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma,\nREST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics,\nGoogle Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress\nProfessional Experience\nMarketing Operations Analyst | Grimes King Foundation Inc. | Boston, Massachusetts | May 2025 \u2013\nPresent\n\u2022 Increased program sign-ups by 35% in Q1 by mapping the full acquisition funnel (organic search to email\nnurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each\nstage.\n\u2022 Grew program registrations by 40% and engagement by 50% by tracking website, email, and outreach per-\nformance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stake-\nholders.\n\u2022 Cut intake processing time by 40% across 80+ applicants by redesigning a manual, paper-based process\ninto a digital, automated workflow using Python, PostgreSQL, and REST APIs.\nGraduate Marketing & Analytics Consultant | Babson College | Wellesley, Massachusetts | Sep 2023 \u2013\nMay 2025\n\u2022 Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across\n12+ campaign datasets , reducing weekly reporting latency by 45% .\n\u2022 Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track\nconversion metrics across 5 partner brand accounts .\n\u2022 Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting quali-\nfied lead conversion by 28% over 4 academic quarters .\nMarketing Lead (E-commerce & Amazon) | Moksha Creations | Bengaluru, India | Feb 2022 \u2013 Aug 2023\n\u2022 Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by\nconsolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget\nscaled from $5K to $20K .\n\u2022 Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing\nmain image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day\ndip.\n\u2022 Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running\npaid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.\n\u2022 Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and\nmanaging the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.\n\u2022 Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase)\nin Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.\n\u2022 Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine\nOptimization (SEO) articles.\nGrowth Analyst | Petropath Fluids India Pvt. Ltd. | Bengaluru, India | Jan 2021 \u2013 Jan 2022\n\u2022 Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B\ncampaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.\n\u2022 Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti-\nmizing performance across 10+ email campaigns for sales and marketing teams.\n\u2022 Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce\nacross 15+ B2B campaigns , lifting pipeline visibility by 30% .\nMarketing & SEO Analytics Intern (Amazon) | GAO Tek Inc. | NYC, New York | Oct 2019 \u2013 Dec 2020\n\u2022 Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting\nAmazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata-\nlog .\n\u2022 Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon-\nsored Products ad headlines and analyzing results to identify top-performing copy.\n\u2022 Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc-\ning manual reporting time by 25% .\nProjects\nMarketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |\nAustin, TX | Apr 2026 \u2013 Present\n\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing\narticle per day with automated pre-publication quality gates.\nMaxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026\n\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-\nperforming ad prompts into a style library and orchestrating multiple AI providers.\nEducation\nMBA, STEM in Business Analytics | Babson College | Wellesley, MA | Sep 2023 \u2013 May 2025\nB.E. in Industrial Engineering and Management | Technical University of Applied Sciences TH-WS | Oct\n2016 \u2013 Dec 2020",
     "dropped_header_footer_text": [],
     "interleaved_lines": [],
     "blocks": [
       {
-        "x0": 72.0,
-        "y0": 72.0,
-        "x1": 540.0,
-        "y1": 86.0,
-        "text": "Sarah Chen",
+        "x0": 236.4510040283203,
+        "y0": 77.9273681640625,
+        "x1": 375.9801330566406,
+        "y1": 89.1532974243164,
+        "text": "GAGAN BHASKAR NAIK",
         "block_no": 0,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 15.0
+        "font_name": "Helvetica",
+        "font_size": 12.0
       },
       {
-        "x0": 72.0,
-        "y0": 88.0,
-        "x1": 540.0,
-        "y1": 102.0,
-        "text": "San Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen",
+        "x0": 71.14399719238281,
+        "y0": 94.33373260498047,
+        "x1": 540.4970092773438,
+        "y1": 104.42465209960938,
+        "text": "Austin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in (https://www.linkedin.com/in/gaganbnaik)",
         "block_no": 1,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 11.0
+        "font_name": "Helvetica",
+        "font_size": 10.9
       },
       {
-        "x0": 72.0,
-        "y0": 104.0,
-        "x1": 540.0,
-        "y1": 118.0,
-        "text": "Work Experience",
+        "x0": 116.21699523925781,
+        "y0": 107.88274383544922,
+        "x1": 496.1589660644531,
+        "y1": 117.97366333007812,
+        "text": "Authorized to work in the US: F-1 OPT (STEM extension eligible through 2028)",
         "block_no": 2,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 14.0
+        "font_name": "Helvetica",
+        "font_size": 10.9
       },
       {
-        "x0": 72.0,
-        "y0": 120.0,
-        "x1": 540.0,
-        "y1": 134.0,
-        "text": "Senior Product Manager | Zendex Inc. | 03/2022 - Present",
+        "x0": 241.50900268554688,
+        "y0": 155.6363525390625,
+        "x1": 370.82843017578125,
+        "y1": 166.86228942871094,
+        "text": "Professional Summary",
         "block_no": 3,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 11.0
+        "font_name": "Helvetica",
+        "font_size": 12.0
       },
       {
-        "x0": 72.0,
-        "y0": 136.0,
-        "x1": 540.0,
-        "y1": 150.0,
-        "text": "- Led roadmap for enterprise analytics suite, $8M ARR in year one",
+        "x0": 39.599998474121094,
+        "y0": 176.0277099609375,
+        "x1": 572.3964233398438,
+        "y1": 186.11862182617188,
+        "text": "Marketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years",
         "block_no": 4,
         "page_no": 0,
-        "font_name": "Calibri",
+        "font_name": "Helvetica",
         "font_size": 11.0
       },
       {
-        "x0": 72.0,
-        "y0": 152.0,
-        "x1": 540.0,
-        "y1": 166.0,
-        "text": "- Managed team of 4 PMs and 18 engineers across 3 time zones",
+        "x0": 39.599998474121094,
+        "y0": 189.57672119140625,
+        "x1": 574.5328369140625,
+        "y1": 199.66763305664062,
+        "text": "organizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS.",
         "block_no": 5,
         "page_no": 0,
-        "font_name": "Calibri",
+        "font_name": "Helvetica",
         "font_size": 11.0
       },
       {
-        "x0": 72.0,
-        "y0": 168.0,
-        "x1": 540.0,
-        "y1": 182.0,
-        "text": "- Shipped 14 major releases with 99.2% on-time delivery",
+        "x0": 39.599998474121094,
+        "y0": 203.125732421875,
+        "x1": 572.3984985351562,
+        "y1": 213.21664428710938,
+        "text": "Led a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting",
         "block_no": 6,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 11.0
+        "font_name": "Helvetica",
+        "font_size": 10.9
       },
       {
-        "x0": 72.0,
-        "y0": 184.0,
-        "x1": 540.0,
-        "y1": 198.0,
-        "text": "Education",
+        "x0": 39.207000732421875,
+        "y0": 216.67474365234375,
+        "x1": 574.525146484375,
+        "y1": 226.76565551757812,
+        "text": "while scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500.",
         "block_no": 7,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 14.0
+        "font_name": "Helvetica",
+        "font_size": 11.0
       },
       {
-        "x0": 72.0,
-        "y0": 200.0,
-        "x1": 540.0,
-        "y1": 214.0,
-        "text": "M.B.A. | Stanford Graduate School of Business | 2019",
+        "x0": 39.2400016784668,
+        "y0": 230.2237548828125,
+        "x1": 572.3978881835938,
+        "y1": 240.31466674804688,
+        "text": "Automated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing",
         "block_no": 8,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 11.0
+        "font_name": "Helvetica",
+        "font_size": 10.8
       },
       {
-        "x0": 72.0,
-        "y0": 216.0,
-        "x1": 540.0,
-        "y1": 230.0,
-        "text": "B.S. in Computer Science | UC Berkeley | 2015",
+        "x0": 39.599998474121094,
+        "y0": 243.77374267578125,
+        "x1": 211.1128387451172,
+        "y1": 253.86465454101562,
+        "text": "time by 40% across 80+ applicants.",
         "block_no": 9,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 11.0
+        "font_name": "Helvetica",
+        "font_size": 10.9
       },
       {
-        "x0": 72.0,
-        "y0": 232.0,
-        "x1": 540.0,
-        "y1": 246.0,
+        "x0": 290.3810119628906,
+        "y0": 283.55633544921875,
+        "x1": 321.6199645996094,
+        "y1": 294.7822570800781,
         "text": "Skills",
         "block_no": 10,
         "page_no": 0,
-        "font_name": "Calibri",
-        "font_size": 14.0
+        "font_name": "Helvetica",
+        "font_size": 12.0
       },
       {
-        "x0": 72.0,
-        "y0": 248.0,
-        "x1": 540.0,
-        "y1": 262.0,
-        "text": "SQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+        "x0": 39.262001037597656,
+        "y0": 303.838623046875,
+        "x1": 573.9149169921875,
+        "y1": 314.082275390625,
+        "text": "Technical Skills : SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma,",
         "block_no": 11,
         "page_no": 0,
-        "font_name": "Calibri",
+        "font_name": "Helvetica",
+        "font_size": 10.8
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 317.4967346191406,
+        "x1": 573.9214477539062,
+        "y1": 327.587646484375,
+        "text": "REST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics,",
+        "block_no": 12,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.8
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 331.04571533203125,
+        "x1": 350.6293029785156,
+        "y1": 341.1366271972656,
+        "text": "Google Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress",
+        "block_no": 13,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 236.7449951171875,
+        "y0": 370.829345703125,
+        "x1": 375.25799560546875,
+        "y1": 382.0552673339844,
+        "text": "Professional Experience",
+        "block_no": 14,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 12.0
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 391.11163330078125,
+        "x1": 573.6092529296875,
+        "y1": 401.35528564453125,
+        "text": "Marketing Operations Analyst | Grimes King Foundation Inc. | Boston, Massachusetts | May 2025 \u2013",
+        "block_no": 15,
+        "page_no": 0,
+        "font_name": "Helvetica",
         "font_size": 11.0
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 404.6606140136719,
+        "x1": 79.61457824707031,
+        "y1": 414.9042663574219,
+        "text": "Present",
+        "block_no": 16,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 423.19061279296875,
+        "x1": 561.5499877929688,
+        "y1": 433.43426513671875,
+        "text": "\u2022 Increased program sign-ups by 35% in Q1 by mapping the full acquisition funnel (organic search to email",
+        "block_no": 17,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 436.8497314453125,
+        "x1": 572.2723999023438,
+        "y1": 446.9406433105469,
+        "text": "nurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each",
+        "block_no": 18,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 450.3987121582031,
+        "x1": 76.95575714111328,
+        "y1": 460.4896240234375,
+        "text": "stage.",
+        "block_no": 19,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 463.838623046875,
+        "x1": 570.9859008789062,
+        "y1": 474.082275390625,
+        "text": "\u2022 Grew program registrations by 40% and engagement by 50% by tracking website, email, and outreach per-",
+        "block_no": 20,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 477.4967346191406,
+        "x1": 574.1737060546875,
+        "y1": 487.587646484375,
+        "text": "formance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stake-",
+        "block_no": 21,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 491.04571533203125,
+        "x1": 86.04303741455078,
+        "y1": 501.1366271972656,
+        "text": "holders.",
+        "block_no": 22,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 504.4866638183594,
+        "x1": 568.0706176757812,
+        "y1": 514.7302856445312,
+        "text": "\u2022 Cut intake processing time by 40% across 80+ applicants by redesigning a manual, paper-based process",
+        "block_no": 23,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 518.1447143554688,
+        "x1": 424.8359069824219,
+        "y1": 528.235595703125,
+        "text": "into a digital, automated workflow using Python, PostgreSQL, and REST APIs.",
+        "block_no": 24,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 536.565673828125,
+        "x1": 573.615966796875,
+        "y1": 546.8092651367188,
+        "text": "Graduate Marketing & Analytics Consultant | Babson College | Wellesley, Massachusetts | Sep 2023 \u2013",
+        "block_no": 25,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 550.1146240234375,
+        "x1": 87.89458465576172,
+        "y1": 560.3582153320312,
+        "text": "May 2025",
+        "block_no": 26,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 568.7546997070312,
+        "x1": 571.5606689453125,
+        "y1": 578.8455810546875,
+        "text": "\u2022 Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across",
+        "block_no": 27,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.097999572753906,
+        "y0": 582.1946411132812,
+        "x1": 377.34912109375,
+        "y1": 592.438232421875,
+        "text": "12+ campaign datasets , reducing weekly reporting latency by 45% .",
+        "block_no": 28,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 595.8527221679688,
+        "x1": 572.9249877929688,
+        "y1": 605.943603515625,
+        "text": "\u2022 Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track",
+        "block_no": 29,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 609.2936401367188,
+        "x1": 310.388671875,
+        "y1": 619.5372314453125,
+        "text": "conversion metrics across 5 partner brand accounts .",
+        "block_no": 30,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 622.9517211914062,
+        "x1": 574.2672729492188,
+        "y1": 633.0426025390625,
+        "text": "\u2022 Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting quali-",
+        "block_no": 31,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 636.3916625976562,
+        "x1": 318.5595703125,
+        "y1": 646.63525390625,
+        "text": "fied lead conversion by 28% over 4 academic quarters .",
+        "block_no": 32,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 654.921630859375,
+        "x1": 572.2672119140625,
+        "y1": 665.1652221679688,
+        "text": "Marketing Lead (E-commerce & Amazon) | Moksha Creations | Bengaluru, India | Feb 2022 \u2013 Aug 2023",
+        "block_no": 33,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 673.45263671875,
+        "x1": 568.5602416992188,
+        "y1": 683.6962280273438,
+        "text": "\u2022 Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by",
+        "block_no": 34,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 687.1107177734375,
+        "x1": 560.4818115234375,
+        "y1": 697.2015991210938,
+        "text": "consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget",
+        "block_no": 35,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 11.0
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 700.5506591796875,
+        "x1": 172.2904052734375,
+        "y1": 710.7942504882812,
+        "text": "scaled from $5K to $20K .",
+        "block_no": 36,
+        "page_no": 0,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 78.68264770507812,
+        "x1": 558.4234008789062,
+        "y1": 88.9262924194336,
+        "text": "\u2022 Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing",
+        "block_no": 37,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 92.34069061279297,
+        "x1": 567.2582397460938,
+        "y1": 102.43161010742188,
+        "text": "main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day",
+        "block_no": 38,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 11.0
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 105.89073944091797,
+        "x1": 64.60665130615234,
+        "y1": 115.98165893554688,
+        "text": "dip.",
+        "block_no": 39,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 119.33059692382812,
+        "x1": 566.41259765625,
+        "y1": 129.57424926757812,
+        "text": "\u2022 Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running",
+        "block_no": 40,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 132.98870849609375,
+        "x1": 475.5740966796875,
+        "y1": 143.07962036132812,
+        "text": "paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.",
+        "block_no": 41,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 146.42861938476562,
+        "x1": 572.564697265625,
+        "y1": 156.67227172851562,
+        "text": "\u2022 Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and",
+        "block_no": 42,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 160.08673095703125,
+        "x1": 541.5848999023438,
+        "y1": 170.17764282226562,
+        "text": "managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.",
+        "block_no": 43,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 173.63671875,
+        "x1": 572.90185546875,
+        "y1": 183.72763061523438,
+        "text": "\u2022 Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase)",
+        "block_no": 44,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 187.07662963867188,
+        "x1": 516.8541259765625,
+        "y1": 197.32028198242188,
+        "text": "in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.",
+        "block_no": 45,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 200.62564086914062,
+        "x1": 570.5075073242188,
+        "y1": 210.86929321289062,
+        "text": "\u2022 Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine",
+        "block_no": 46,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 214.28375244140625,
+        "x1": 182.25038146972656,
+        "y1": 224.37466430664062,
+        "text": "Optimization (SEO) articles.",
+        "block_no": 47,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 232.70565795898438,
+        "x1": 510.0003356933594,
+        "y1": 242.94931030273438,
+        "text": "Growth Analyst | Petropath Fluids India Pvt. Ltd. | Bengaluru, India | Jan 2021 \u2013 Jan 2022",
+        "block_no": 48,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 251.23562622070312,
+        "x1": 556.742919921875,
+        "y1": 261.4792785644531,
+        "text": "\u2022 Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B",
+        "block_no": 49,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 264.7846374511719,
+        "x1": 572.3265991210938,
+        "y1": 275.0282897949219,
+        "text": "campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.",
+        "block_no": 50,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 278.3346252441406,
+        "x1": 569.5394897460938,
+        "y1": 288.5782775878906,
+        "text": "\u2022 Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti-",
+        "block_no": 51,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 291.8836364746094,
+        "x1": 442.4104919433594,
+        "y1": 302.1272888183594,
+        "text": "mizing performance across 10+ email campaigns for sales and marketing teams.",
+        "block_no": 52,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 305.5417175292969,
+        "x1": 572.4155883789062,
+        "y1": 315.6326599121094,
+        "text": "\u2022 Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce",
+        "block_no": 53,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 318.98162841796875,
+        "x1": 340.9231872558594,
+        "y1": 329.22528076171875,
+        "text": "across 15+ B2B campaigns , lifting pipeline visibility by 30% .",
+        "block_no": 54,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 337.51263427734375,
+        "x1": 557.9346923828125,
+        "y1": 347.75628662109375,
+        "text": "Marketing & SEO Analytics Intern (Amazon) | GAO Tek Inc. | NYC, New York | Oct 2019 \u2013 Dec 2020",
+        "block_no": 55,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 356.0426330566406,
+        "x1": 563.2636108398438,
+        "y1": 366.2862854003906,
+        "text": "\u2022 Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting",
+        "block_no": 56,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.042999267578125,
+        "y0": 369.59161376953125,
+        "x1": 567.5437622070312,
+        "y1": 379.83526611328125,
+        "text": "Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata-",
+        "block_no": 57,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 11.0
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 383.1416320800781,
+        "x1": 66.79937744140625,
+        "y1": 393.3852844238281,
+        "text": "log .",
+        "block_no": 58,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 396.69061279296875,
+        "x1": 570.6520385742188,
+        "y1": 406.93426513671875,
+        "text": "\u2022 Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon-",
+        "block_no": 59,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 410.3487243652344,
+        "x1": 442.4758605957031,
+        "y1": 420.43963623046875,
+        "text": "sored Products ad headlines and analyzing results to identify top-performing copy.",
+        "block_no": 60,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 423.78863525390625,
+        "x1": 574.425048828125,
+        "y1": 434.03228759765625,
+        "text": "\u2022 Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc-",
+        "block_no": 61,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 437.3376159667969,
+        "x1": 213.03587341308594,
+        "y1": 447.5812683105469,
+        "text": "ing manual reporting time by 25% .",
+        "block_no": 62,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 282.5320129394531,
+        "y0": 482.2113342285156,
+        "x1": 329.4681396484375,
+        "y1": 493.437255859375,
+        "text": "Projects",
+        "block_no": 63,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 12.0
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 502.4936218261719,
+        "x1": 572.396484375,
+        "y1": 512.7372436523438,
+        "text": "Marketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |",
+        "block_no": 64,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 11.0
+      },
+      {
+        "x0": 39.2400016784668,
+        "y0": 516.0426635742188,
+        "x1": 202.41831970214844,
+        "y1": 526.2862548828125,
+        "text": "Austin, TX | Apr 2026 \u2013 Present",
+        "block_no": 65,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.60000228881836,
+        "y0": 534.6827392578125,
+        "x1": 551.8471069335938,
+        "y1": 544.7736206054688,
+        "text": "\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing",
+        "block_no": 66,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 548.2317504882812,
+        "x1": 334.53045654296875,
+        "y1": 558.3226318359375,
+        "text": "article per day with automated pre-publication quality gates.",
+        "block_no": 67,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 566.6526489257812,
+        "x1": 544.8439331054688,
+        "y1": 576.896240234375,
+        "text": "Maxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026",
+        "block_no": 68,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 585.292724609375,
+        "x1": 561.3829345703125,
+        "y1": 595.3836059570312,
+        "text": "\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-",
+        "block_no": 69,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 47.40299987792969,
+        "y0": 598.8417358398438,
+        "x1": 436.857666015625,
+        "y1": 608.9326171875,
+        "text": "performing ad prompts into a style library and orchestrating multiple AI providers.",
+        "block_no": 70,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 277.1050109863281,
+        "y0": 643.6063842773438,
+        "x1": 334.8964538574219,
+        "y1": 654.8323364257812,
+        "text": "Education",
+        "block_no": 71,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 12.0
+      },
+      {
+        "x0": 39.600006103515625,
+        "y0": 663.888671875,
+        "x1": 518.738525390625,
+        "y1": 674.1322631835938,
+        "text": "MBA, STEM in Business Analytics | Babson College | Wellesley, MA | Sep 2023 \u2013 May 2025",
+        "block_no": 72,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 677.4376831054688,
+        "x1": 572.4034423828125,
+        "y1": 687.6812744140625,
+        "text": "B.E. in Industrial Engineering and Management | Technical University of Applied Sciences TH-WS | Oct",
+        "block_no": 73,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.8
+      },
+      {
+        "x0": 39.599998474121094,
+        "y0": 690.9866333007812,
+        "x1": 123.29462432861328,
+        "y1": 701.230224609375,
+        "text": "2016 \u2013 Dec 2020",
+        "block_no": 74,
+        "page_no": 1,
+        "font_name": "Helvetica",
+        "font_size": 10.9
       }
     ],
-    "docx_audit": {
-      "has_tables": false,
-      "table_count": 0,
-      "has_text_boxes": false,
-      "text_box_count": 0,
-      "header_footer_text": [],
-      "unapproved_fonts": [],
-      "approved_fonts": [
-        "Calibri"
-      ],
-      "body_font_sizes_pt": [
-        11.0
-      ],
-      "heading_font_sizes_pt": [
-        15.0,
-        14.0,
-        14.0,
-        14.0
-      ],
-      "has_embedded_images": false
-    },
+    "docx_audit": null,
     "detected_fonts": [
-      "Calibri"
+      "Helvetica"
     ],
     "body_font_sizes_pt": [
-      11.0
+      12.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      12.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      11.0,
+      10.8,
+      10.9,
+      12.0,
+      10.8,
+      10.8,
+      10.8,
+      10.9,
+      12.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      12.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      11.0,
+      10.9,
+      10.9,
+      11.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      11.0,
+      10.9,
+      12.0,
+      10.9,
+      10.9,
+      10.9,
+      10.9,
+      10.8,
+      10.8,
+      10.8,
+      10.9
     ],
-    "heading_font_sizes_pt": [
-      15.0,
-      14.0,
-      14.0,
-      14.0
-    ],
+    "heading_font_sizes_pt": [],
     "has_tables_or_textboxes": false,
     "has_embedded_images": false
   },
   "canonical": {
-    "full_name": "Sarah Chen",
-    "first_name": "Sarah",
-    "last_name": "Chen",
-    "headline": "Senior Product Manager",
-    "email": "sarah.chen@example.com",
-    "phone": "(415) 555-0142",
-    "phone_e164": "+14155550142",
-    "linkedin_url": "https://linkedin.com/in/sarahchen",
+    "full_name": "GAGAN BHASKAR NAIK",
+    "first_name": "GAGAN",
+    "last_name": "BHASKAR NAIK",
+    "headline": "Marketing Lead (E-commerce & Amazon",
+    "email": "gagan.97@gmail.com",
+    "phone": "(774) 290-3032",
+    "phone_e164": "+17742903032",
+    "linkedin_url": "https://linkedin.com/in/gaganbnaik",
     "address": {
-      "city": "San Francisco",
-      "region": "CA",
+      "city": "Austin",
+      "region": "TX",
       "country": "US",
-      "full_location_raw": "San Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen",
+      "full_location_raw": "Austin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in (https://www.linkedin.com/in/gaganbnaik)",
       "has_street_address": false
     },
     "country_full": "United States",
-    "summary": null,
+    "summary": "Marketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years organizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS. Led a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting while scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500. Automated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing time by 40% across 80+ applicants.",
     "employments": [
       {
-        "title": "Senior Product Manager",
-        "company": "Zendex Inc.",
-        "start_date_raw": "03/2022",
-        "end_date_raw": "Present",
+        "title": "Marketing Lead (E-commerce & Amazon",
+        "company": "Moksha Creations",
+        "start_date_raw": "Feb 2022",
+        "end_date_raw": "Aug 2023",
         "start_year": 2022,
-        "start_month": 3,
-        "end_year": null,
-        "end_month": null,
-        "is_current": true,
+        "start_month": 2,
+        "end_year": 2023,
+        "end_month": 8,
+        "is_current": false,
         "bullets": [
-          "Led roadmap for enterprise analytics suite, $8M ARR in year one",
-          "Managed team of 4 PMs and 18 engineers across 3 time zones",
-          "Shipped 14 major releases with 99.2% on-time delivery"
+          "Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget scaled from $5K to $20K .",
+          "Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip.",
+          "Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.",
+          "Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.",
+          "Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.",
+          "Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine Optimization (SEO) articles."
+        ]
+      },
+      {
+        "title": "Growth Analyst",
+        "company": "Petropath Fluids India Pvt. Ltd.",
+        "start_date_raw": "Jan 2021",
+        "end_date_raw": "Jan 2022",
+        "start_year": 2021,
+        "start_month": 1,
+        "end_year": 2022,
+        "end_month": 1,
+        "is_current": false,
+        "bullets": [
+          "Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.",
+          "Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti- mizing performance across 10+ email campaigns for sales and marketing teams.",
+          "Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across 15+ B2B campaigns , lifting pipeline visibility by 30% ."
+        ]
+      },
+      {
+        "title": "Marketing & SEO Analytics Intern (Amazon",
+        "company": "GAO Tek Inc.",
+        "start_date_raw": "Oct 2019",
+        "end_date_raw": "Dec 2020",
+        "start_year": 2019,
+        "start_month": 10,
+        "end_year": 2020,
+        "end_month": 12,
+        "is_current": false,
+        "bullets": [
+          "Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata- log .",
+          "Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon- sored Products ad headlines and analyzing results to identify top-performing copy.",
+          "Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc- ing manual reporting time by 25% ."
         ]
       }
     ],
     "educations": [
       {
-        "degree": "M.B.A.",
+        "degree": "Babson College",
         "major": null,
-        "school": "Stanford Graduate School of Business",
-        "end_year": 2019
+        "school": "University",
+        "end_year": 2025
       },
       {
-        "degree": "B.S.",
-        "major": "Computer Science",
-        "school": "UC Berkeley",
-        "end_year": 2015
+        "degree": "Oct",
+        "major": null,
+        "school": "Technical University of Applied Sciences TH-WS",
+        "end_year": 2020
       }
     ],
     "skills": [
       "SQL",
       "Python",
+      "Django",
+      "PostgreSQL",
+      "AWS",
+      "Docker",
+      "Git",
+      "CI/CD",
       "Tableau",
       "Jira",
       "Confluence",
       "Figma",
+      "REST APIs",
+      "Search Engine Optimization (SEO)",
+      "Key Performance Indicators (KPI)",
       "A/B testing",
       "product analytics",
-      "stakeholder management",
-      "OKRs"
+      "Google Analytics 4",
+      "Mailchimp",
+      "HubSpot",
+      "Salesforce",
+      "WordPress"
     ],
     "normalized_skills": [
       {
@@ -264,6 +1152,84 @@
         "weight": 2.0,
         "hierarchy_category": "Information Technology",
         "hierarchy_subcategory": "Programming Languages",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Django",
+        "canonical_id": "SKILL_ID_404",
+        "canonical_name": "Django",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "Web Frameworks",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "PostgreSQL",
+        "canonical_id": "SKILL_ID_405",
+        "canonical_name": "PostgreSQL",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "Databases",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "AWS",
+        "canonical_id": "SKILL_ID_501",
+        "canonical_name": "AWS",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Cloud Computing",
+        "hierarchy_subcategory": "Cloud Platforms",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Docker",
+        "canonical_id": "SKILL_ID_502",
+        "canonical_name": "Docker",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "Containerization",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Git",
+        "canonical_id": "SKILL_ID_503",
+        "canonical_name": "Git",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "Version Control",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "CI/CD",
+        "canonical_id": "SKILL_ID_407",
+        "canonical_name": "CI/CD",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "DevOps",
         "locations": [
           "SKILLS_SECTION"
         ],
@@ -322,6 +1288,45 @@
         "is_single_token_technical": true
       },
       {
+        "raw_text": "REST APIs",
+        "canonical_id": "SKILL_ID_406",
+        "canonical_name": "REST APIs",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "API Architecture",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      },
+      {
+        "raw_text": "Search Engine Optimization (SEO)",
+        "canonical_id": "SKILL_ID_SYNTH_4508",
+        "canonical_name": "Search Engine Optimization (SEO)",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Technology",
+        "hierarchy_subcategory": "Software Development",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      },
+      {
+        "raw_text": "Key Performance Indicators (KPI)",
+        "canonical_id": "SKILL_ID_SYNTH_6590",
+        "canonical_name": "Key Performance Indicators (KPI)",
+        "category": "HARD_SKILL",
+        "weight": 2.0,
+        "hierarchy_category": "Technology",
+        "hierarchy_subcategory": "Software Development",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": false
+      },
+      {
         "raw_text": "A/B testing",
         "canonical_id": "SKILL_ID_409",
         "canonical_name": "A/B testing",
@@ -348,34 +1353,81 @@
         "is_single_token_technical": false
       },
       {
-        "raw_text": "stakeholder management",
-        "canonical_id": "SKILL_ID_701",
-        "canonical_name": "stakeholder management",
-        "category": "SOFT_SKILL",
-        "weight": 0.5,
-        "hierarchy_category": "Interpersonal",
-        "hierarchy_subcategory": "Leadership",
+        "raw_text": "Google Analytics 4",
+        "canonical_id": "SKILL_ID_512",
+        "canonical_name": "Google Analytics 4 (GA4)",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Marketing",
+        "hierarchy_subcategory": "Web Analytics",
         "locations": [
           "SKILLS_SECTION"
         ],
         "is_single_token_technical": false
       },
       {
-        "raw_text": "OKRs",
-        "canonical_id": "SKILL_ID_411",
-        "canonical_name": "OKRs",
-        "category": "HARD_SKILL",
-        "weight": 2.0,
-        "hierarchy_category": "Business",
-        "hierarchy_subcategory": "Strategic Planning",
+        "raw_text": "Mailchimp",
+        "canonical_id": "SKILL_ID_513",
+        "canonical_name": "Mailchimp",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Marketing",
+        "hierarchy_subcategory": "Email Marketing",
         "locations": [
           "SKILLS_SECTION"
         ],
-        "is_single_token_technical": false
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "HubSpot",
+        "canonical_id": "SKILL_ID_516",
+        "canonical_name": "HubSpot",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Marketing",
+        "hierarchy_subcategory": "CRM",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "Salesforce",
+        "canonical_id": "SKILL_ID_517",
+        "canonical_name": "Salesforce",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Sales",
+        "hierarchy_subcategory": "CRM",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
+      },
+      {
+        "raw_text": "WordPress",
+        "canonical_id": "SKILL_ID_514",
+        "canonical_name": "WordPress",
+        "category": "TOOL",
+        "weight": 1.5,
+        "hierarchy_category": "Information Technology",
+        "hierarchy_subcategory": "CMS",
+        "locations": [
+          "SKILLS_SECTION"
+        ],
+        "is_single_token_technical": true
       }
     ],
     "certifications": [],
-    "projects": [],
+    "projects": [
+      "Marketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |",
+      "Austin, TX | Apr 2026 \u2013 Present",
+      "\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing",
+      "article per day with automated pre-publication quality gates.",
+      "Maxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026",
+      "\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-",
+      "performing ad prompts into a style library and orchestrating multiple AI providers."
+    ],
     "mandatory_sections_present": {
       "Contact Information": true,
       "Work Experience": true,
@@ -384,379 +1436,1359 @@
       "Employment Dates": true
     },
     "detected_section_headers": {
-      "Work Experience": "Work Experience",
-      "Education": "Education",
-      "Skills": "Skills"
+      "Professional Summary": "Professional Summary",
+      "Skills": "Skills",
+      "Work Experience": "Professional Experience",
+      "Projects": "Projects",
+      "Education": "Education"
     },
     "section_boundary_failures": [],
     "phantom_token_hazards": [],
     "mixed_date_formats_detected": false,
     "detected_date_formats": [
-      "MM_SLASH_YYYY"
+      "MONTH_YYYY"
     ],
     "extraction_result": {
-      "file_format": "docx",
+      "file_format": "pdf",
       "ocr_triggered": false,
-      "ocr_enabled_by_profile": true,
+      "ocr_enabled_by_profile": false,
       "confidence_multiplier": 1.0,
       "is_unreadable_or_encrypted": false,
-      "linear_stream_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
-      "layout_sorted_text": "Sarah Chen\nSan Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen\nWork Experience\nSenior Product Manager | Zendex Inc. | 03/2022 - Present\n- Led roadmap for enterprise analytics suite, $8M ARR in year one\n- Managed team of 4 PMs and 18 engineers across 3 time zones\n- Shipped 14 major releases with 99.2% on-time delivery\nEducation\nM.B.A. | Stanford Graduate School of Business | 2019\nB.S. in Computer Science | UC Berkeley | 2015\nSkills\nSQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+      "linear_stream_text": "GAGAN BHASKAR NAIK\nAustin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in\nAuthorized to work in the US: F-1 OPT (STEM extension eligible through 2028)\nProfessional Summary\nMarketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years\norganizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS.\nLed a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting\nwhile scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500.\nAutomated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing\ntime by 40% across 80+ applicants.\nSkills\nTechnical Skills: SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma,\nREST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics,\nGoogle Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress\nProfessional Experience\nMarketing Operations Analyst | Grimes King Foundation Inc. | Boston, Massachusetts | May 2025 \u2013\nPresent\n\u2022 Increased program sign-ups by 35% in Q1 by mapping the full acquisition funnel (organic search to email\nnurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each\nstage.\n\u2022 Grew program registrations by 40% and engagement by 50% by tracking website, email, and outreach per-\nformance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stake-\nholders.\n\u2022 Cut intake processing time by 40% across 80+ applicants by redesigning a manual, paper-based process\ninto a digital, automated workflow using Python, PostgreSQL, and REST APIs.\nGraduate Marketing & Analytics Consultant | Babson College | Wellesley, Massachusetts | Sep 2023 \u2013\nMay 2025\n\u2022 Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across\n12+ campaign datasets, reducing weekly reporting latency by 45%.\n\u2022 Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track\nconversion metrics across 5 partner brand accounts.\n\u2022 Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting quali-\nfied lead conversion by 28% over 4 academic quarters.\nMarketing Lead (E-commerce & Amazon) | Moksha Creations | Bengaluru, India | Feb 2022 \u2013 Aug 2023\n\u2022 Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25%) and lifted CTR 24% by\nconsolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget\nscaled from $5K to $20K.\n\u2022 Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% (2.8x) in 8 weeks by iteratively testing\nmain image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day\ndip.\n\u2022 Grew monthly unit sales from 200 to 1,500 (7.5x) across Amazon, Flipkart, and the company site, running\npaid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.\n\u2022 Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and\nmanaging the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.\n\u2022 Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase)\nin Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.\n\u2022 Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine\nOptimization (SEO) articles.\nGrowth Analyst | Petropath Fluids India Pvt. Ltd. | Bengaluru, India | Jan 2021 \u2013 Jan 2022\n\u2022 Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B\ncampaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.\n\u2022 Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti-\nmizing performance across 10+ email campaigns for sales and marketing teams.\n\u2022 Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce\nacross 15+ B2B campaigns, lifting pipeline visibility by 30%.\nMarketing & SEO Analytics Intern (Amazon) | GAO Tek Inc. | NYC, New York | Oct 2019 \u2013 Dec 2020\n\u2022 Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting\nAmazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata-\nlog.\n\u2022 Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon-\nsored Products ad headlines and analyzing results to identify top-performing copy.\n\u2022 Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs, reduc-\ning manual reporting time by 25%.\nProjects\nMarketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |\nAustin, TX | Apr 2026 \u2013 Present\n\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing\narticle per day with automated pre-publication quality gates.\nMaxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026\n\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-\nperforming ad prompts into a style library and orchestrating multiple AI providers.\nEducation\nMBA, STEM in Business Analytics | Babson College | Wellesley, MA | Sep 2023 \u2013 May 2025\nB.E. in Industrial Engineering and Management | Technical University of Applied Sciences TH-WS | Oct\n2016 \u2013 Dec 2020",
+      "layout_sorted_text": "GAGAN BHASKAR NAIK\nAustin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in (https://www.linkedin.com/in/gaganbnaik)\nAuthorized to work in the US: F-1 OPT (STEM extension eligible through 2028)\nProfessional Summary\nMarketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years\norganizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS.\nLed a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting\nwhile scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500.\nAutomated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing\ntime by 40% across 80+ applicants.\nSkills\nTechnical Skills : SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma,\nREST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics,\nGoogle Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress\nProfessional Experience\nMarketing Operations Analyst | Grimes King Foundation Inc. | Boston, Massachusetts | May 2025 \u2013\nPresent\n\u2022 Increased program sign-ups by 35% in Q1 by mapping the full acquisition funnel (organic search to email\nnurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each\nstage.\n\u2022 Grew program registrations by 40% and engagement by 50% by tracking website, email, and outreach per-\nformance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stake-\nholders.\n\u2022 Cut intake processing time by 40% across 80+ applicants by redesigning a manual, paper-based process\ninto a digital, automated workflow using Python, PostgreSQL, and REST APIs.\nGraduate Marketing & Analytics Consultant | Babson College | Wellesley, Massachusetts | Sep 2023 \u2013\nMay 2025\n\u2022 Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across\n12+ campaign datasets , reducing weekly reporting latency by 45% .\n\u2022 Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track\nconversion metrics across 5 partner brand accounts .\n\u2022 Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting quali-\nfied lead conversion by 28% over 4 academic quarters .\nMarketing Lead (E-commerce & Amazon) | Moksha Creations | Bengaluru, India | Feb 2022 \u2013 Aug 2023\n\u2022 Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by\nconsolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget\nscaled from $5K to $20K .\n\u2022 Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing\nmain image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day\ndip.\n\u2022 Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running\npaid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.\n\u2022 Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and\nmanaging the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.\n\u2022 Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase)\nin Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.\n\u2022 Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine\nOptimization (SEO) articles.\nGrowth Analyst | Petropath Fluids India Pvt. Ltd. | Bengaluru, India | Jan 2021 \u2013 Jan 2022\n\u2022 Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B\ncampaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.\n\u2022 Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti-\nmizing performance across 10+ email campaigns for sales and marketing teams.\n\u2022 Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce\nacross 15+ B2B campaigns , lifting pipeline visibility by 30% .\nMarketing & SEO Analytics Intern (Amazon) | GAO Tek Inc. | NYC, New York | Oct 2019 \u2013 Dec 2020\n\u2022 Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting\nAmazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata-\nlog .\n\u2022 Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon-\nsored Products ad headlines and analyzing results to identify top-performing copy.\n\u2022 Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc-\ning manual reporting time by 25% .\nProjects\nMarketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |\nAustin, TX | Apr 2026 \u2013 Present\n\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing\narticle per day with automated pre-publication quality gates.\nMaxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026\n\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-\nperforming ad prompts into a style library and orchestrating multiple AI providers.\nEducation\nMBA, STEM in Business Analytics | Babson College | Wellesley, MA | Sep 2023 \u2013 May 2025\nB.E. in Industrial Engineering and Management | Technical University of Applied Sciences TH-WS | Oct\n2016 \u2013 Dec 2020",
       "dropped_header_footer_text": [],
       "interleaved_lines": [],
       "blocks": [
         {
-          "x0": 72.0,
-          "y0": 72.0,
-          "x1": 540.0,
-          "y1": 86.0,
-          "text": "Sarah Chen",
+          "x0": 236.4510040283203,
+          "y0": 77.9273681640625,
+          "x1": 375.9801330566406,
+          "y1": 89.1532974243164,
+          "text": "GAGAN BHASKAR NAIK",
           "block_no": 0,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 15.0
+          "font_name": "Helvetica",
+          "font_size": 12.0
         },
         {
-          "x0": 72.0,
-          "y0": 88.0,
-          "x1": 540.0,
-          "y1": 102.0,
-          "text": "San Francisco, CA | sarah.chen@example.com | (415) 555-0142 | https://linkedin.com/in/sarahchen",
+          "x0": 71.14399719238281,
+          "y0": 94.33373260498047,
+          "x1": 540.4970092773438,
+          "y1": 104.42465209960938,
+          "text": "Austin, TX | 774-290-3032 | gagan.97@gmail.com | linkedin.com/in/gaganbnaik | gaganbn.in (https://www.linkedin.com/in/gaganbnaik)",
           "block_no": 1,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 11.0
+          "font_name": "Helvetica",
+          "font_size": 10.9
         },
         {
-          "x0": 72.0,
-          "y0": 104.0,
-          "x1": 540.0,
-          "y1": 118.0,
-          "text": "Work Experience",
+          "x0": 116.21699523925781,
+          "y0": 107.88274383544922,
+          "x1": 496.1589660644531,
+          "y1": 117.97366333007812,
+          "text": "Authorized to work in the US: F-1 OPT (STEM extension eligible through 2028)",
           "block_no": 2,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 14.0
+          "font_name": "Helvetica",
+          "font_size": 10.9
         },
         {
-          "x0": 72.0,
-          "y0": 120.0,
-          "x1": 540.0,
-          "y1": 134.0,
-          "text": "Senior Product Manager | Zendex Inc. | 03/2022 - Present",
+          "x0": 241.50900268554688,
+          "y0": 155.6363525390625,
+          "x1": 370.82843017578125,
+          "y1": 166.86228942871094,
+          "text": "Professional Summary",
           "block_no": 3,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 11.0
+          "font_name": "Helvetica",
+          "font_size": 12.0
         },
         {
-          "x0": 72.0,
-          "y0": 136.0,
-          "x1": 540.0,
-          "y1": 150.0,
-          "text": "- Led roadmap for enterprise analytics suite, $8M ARR in year one",
+          "x0": 39.599998474121094,
+          "y0": 176.0277099609375,
+          "x1": 572.3964233398438,
+          "y1": 186.11862182617188,
+          "text": "Marketing Coordinator and Senior Python Developer with an MBA in STEM Business Analytics and 4+ years",
           "block_no": 4,
           "page_no": 0,
-          "font_name": "Calibri",
+          "font_name": "Helvetica",
           "font_size": 11.0
         },
         {
-          "x0": 72.0,
-          "y0": 152.0,
-          "x1": 540.0,
-          "y1": 166.0,
-          "text": "- Managed team of 4 PMs and 18 engineers across 3 time zones",
+          "x0": 39.599998474121094,
+          "y0": 189.57672119140625,
+          "x1": 574.5328369140625,
+          "y1": 199.66763305664062,
+          "text": "organizing e-commerce, B2B, and non-profit growth operations using Python, SQL, PostgreSQL, and AWS.",
           "block_no": 5,
           "page_no": 0,
-          "font_name": "Calibri",
+          "font_name": "Helvetica",
           "font_size": 11.0
         },
         {
-          "x0": 72.0,
-          "y0": 168.0,
-          "x1": 540.0,
-          "y1": 182.0,
-          "text": "- Shipped 14 major releases with 99.2% on-time delivery",
+          "x0": 39.599998474121094,
+          "y0": 203.125732421875,
+          "x1": 572.3984985351562,
+          "y1": 213.21664428710938,
+          "text": "Led a cross-functional team of 5 with copy guidelines, pre-launch quality gates, and weekly executive reporting",
           "block_no": 6,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 11.0
+          "font_name": "Helvetica",
+          "font_size": 10.9
         },
         {
-          "x0": 72.0,
-          "y0": 184.0,
-          "x1": 540.0,
-          "y1": 198.0,
-          "text": "Education",
+          "x0": 39.207000732421875,
+          "y0": 216.67474365234375,
+          "x1": 574.525146484375,
+          "y1": 226.76565551757812,
+          "text": "while scaling monthly marketing budgets from $5K to $20K and growing monthly unit sales from 200 to 1,500.",
           "block_no": 7,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 14.0
+          "font_name": "Helvetica",
+          "font_size": 11.0
         },
         {
-          "x0": 72.0,
-          "y0": 200.0,
-          "x1": 540.0,
-          "y1": 214.0,
-          "text": "M.B.A. | Stanford Graduate School of Business | 2019",
+          "x0": 39.2400016784668,
+          "y0": 230.2237548828125,
+          "x1": 572.3978881835938,
+          "y1": 240.31466674804688,
+          "text": "Automated data workflows using Docker, Git, REST APIs, and CI/CD pipelines to cut applicant intake processing",
           "block_no": 8,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 11.0
+          "font_name": "Helvetica",
+          "font_size": 10.8
         },
         {
-          "x0": 72.0,
-          "y0": 216.0,
-          "x1": 540.0,
-          "y1": 230.0,
-          "text": "B.S. in Computer Science | UC Berkeley | 2015",
+          "x0": 39.599998474121094,
+          "y0": 243.77374267578125,
+          "x1": 211.1128387451172,
+          "y1": 253.86465454101562,
+          "text": "time by 40% across 80+ applicants.",
           "block_no": 9,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 11.0
+          "font_name": "Helvetica",
+          "font_size": 10.9
         },
         {
-          "x0": 72.0,
-          "y0": 232.0,
-          "x1": 540.0,
-          "y1": 246.0,
+          "x0": 290.3810119628906,
+          "y0": 283.55633544921875,
+          "x1": 321.6199645996094,
+          "y1": 294.7822570800781,
           "text": "Skills",
           "block_no": 10,
           "page_no": 0,
-          "font_name": "Calibri",
-          "font_size": 14.0
+          "font_name": "Helvetica",
+          "font_size": 12.0
         },
         {
-          "x0": 72.0,
-          "y0": 248.0,
-          "x1": 540.0,
-          "y1": 262.0,
-          "text": "SQL, Python, Tableau, Jira, Confluence, Figma, A/B testing, product analytics, stakeholder management, OKRs",
+          "x0": 39.262001037597656,
+          "y0": 303.838623046875,
+          "x1": 573.9149169921875,
+          "y1": 314.082275390625,
+          "text": "Technical Skills : SQL, Python, Django, PostgreSQL, AWS, Docker, Git, CI/CD, Tableau, Jira, Confluence, Figma,",
           "block_no": 11,
           "page_no": 0,
-          "font_name": "Calibri",
+          "font_name": "Helvetica",
+          "font_size": 10.8
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 317.4967346191406,
+          "x1": 573.9214477539062,
+          "y1": 327.587646484375,
+          "text": "REST APIs, Search Engine Optimization (SEO), Key Performance Indicators (KPI), A/B testing, product analytics,",
+          "block_no": 12,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.8
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 331.04571533203125,
+          "x1": 350.6293029785156,
+          "y1": 341.1366271972656,
+          "text": "Google Analytics 4, Mailchimp, HubSpot, Salesforce, WordPress",
+          "block_no": 13,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 236.7449951171875,
+          "y0": 370.829345703125,
+          "x1": 375.25799560546875,
+          "y1": 382.0552673339844,
+          "text": "Professional Experience",
+          "block_no": 14,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 12.0
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 391.11163330078125,
+          "x1": 573.6092529296875,
+          "y1": 401.35528564453125,
+          "text": "Marketing Operations Analyst | Grimes King Foundation Inc. | Boston, Massachusetts | May 2025 \u2013",
+          "block_no": 15,
+          "page_no": 0,
+          "font_name": "Helvetica",
           "font_size": 11.0
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 404.6606140136719,
+          "x1": 79.61457824707031,
+          "y1": 414.9042663574219,
+          "text": "Present",
+          "block_no": 16,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 423.19061279296875,
+          "x1": 561.5499877929688,
+          "y1": 433.43426513671875,
+          "text": "\u2022 Increased program sign-ups by 35% in Q1 by mapping the full acquisition funnel (organic search to email",
+          "block_no": 17,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 436.8497314453125,
+          "x1": 572.2723999023438,
+          "y1": 446.9406433105469,
+          "text": "nurture to re-targeting content), pinpointing the two highest-drop-off stages, and rewriting the content at each",
+          "block_no": 18,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 450.3987121582031,
+          "x1": 76.95575714111328,
+          "y1": 460.4896240234375,
+          "text": "stage.",
+          "block_no": 19,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 463.838623046875,
+          "x1": 570.9859008789062,
+          "y1": 474.082275390625,
+          "text": "\u2022 Grew program registrations by 40% and engagement by 50% by tracking website, email, and outreach per-",
+          "block_no": 20,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 477.4967346191406,
+          "x1": 574.1737060546875,
+          "y1": 487.587646484375,
+          "text": "formance against weekly Key Performance Indicators (KPI) in SQL and Python and reporting results to stake-",
+          "block_no": 21,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 491.04571533203125,
+          "x1": 86.04303741455078,
+          "y1": 501.1366271972656,
+          "text": "holders.",
+          "block_no": 22,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 504.4866638183594,
+          "x1": 568.0706176757812,
+          "y1": 514.7302856445312,
+          "text": "\u2022 Cut intake processing time by 40% across 80+ applicants by redesigning a manual, paper-based process",
+          "block_no": 23,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 518.1447143554688,
+          "x1": 424.8359069824219,
+          "y1": 528.235595703125,
+          "text": "into a digital, automated workflow using Python, PostgreSQL, and REST APIs.",
+          "block_no": 24,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 536.565673828125,
+          "x1": 573.615966796875,
+          "y1": 546.8092651367188,
+          "text": "Graduate Marketing & Analytics Consultant | Babson College | Wellesley, Massachusetts | Sep 2023 \u2013",
+          "block_no": 25,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 550.1146240234375,
+          "x1": 87.89458465576172,
+          "y1": 560.3582153320312,
+          "text": "May 2025",
+          "block_no": 26,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 568.7546997070312,
+          "x1": 571.5606689453125,
+          "y1": 578.8455810546875,
+          "text": "\u2022 Architected automated marketing attribution pipelines using Python, Django, PostgreSQL, and AWS across",
+          "block_no": 27,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.097999572753906,
+          "y0": 582.1946411132812,
+          "x1": 377.34912109375,
+          "y1": 592.438232421875,
+          "text": "12+ campaign datasets , reducing weekly reporting latency by 45% .",
+          "block_no": 28,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 595.8527221679688,
+          "x1": 572.9249877929688,
+          "y1": 605.943603515625,
+          "text": "\u2022 Built containerized analytics dashboards and ETL workflows using Docker, Git, and CI/CD pipelines to track",
+          "block_no": 29,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 609.2936401367188,
+          "x1": 310.388671875,
+          "y1": 619.5372314453125,
+          "text": "conversion metrics across 5 partner brand accounts .",
+          "block_no": 30,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 622.9517211914062,
+          "x1": 574.2672729492188,
+          "y1": 633.0426025390625,
+          "text": "\u2022 Led campaign experimentation and A/B testing across paid search and lifecycle email channels, lifting quali-",
+          "block_no": 31,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 636.3916625976562,
+          "x1": 318.5595703125,
+          "y1": 646.63525390625,
+          "text": "fied lead conversion by 28% over 4 academic quarters .",
+          "block_no": 32,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 654.921630859375,
+          "x1": 572.2672119140625,
+          "y1": 665.1652221679688,
+          "text": "Marketing Lead (E-commerce & Amazon) | Moksha Creations | Bengaluru, India | Feb 2022 \u2013 Aug 2023",
+          "block_no": 33,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 673.45263671875,
+          "x1": 568.5602416992188,
+          "y1": 683.6962280273438,
+          "text": "\u2022 Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by",
+          "block_no": 34,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 687.1107177734375,
+          "x1": 560.4818115234375,
+          "y1": 697.2015991210938,
+          "text": "consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget",
+          "block_no": 35,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 11.0
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 700.5506591796875,
+          "x1": 172.2904052734375,
+          "y1": 710.7942504882812,
+          "text": "scaled from $5K to $20K .",
+          "block_no": 36,
+          "page_no": 0,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 78.68264770507812,
+          "x1": 558.4234008789062,
+          "y1": 88.9262924194336,
+          "text": "\u2022 Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing",
+          "block_no": 37,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 92.34069061279297,
+          "x1": 567.2582397460938,
+          "y1": 102.43161010742188,
+          "text": "main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day",
+          "block_no": 38,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 11.0
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 105.89073944091797,
+          "x1": 64.60665130615234,
+          "y1": 115.98165893554688,
+          "text": "dip.",
+          "block_no": 39,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 119.33059692382812,
+          "x1": 566.41259765625,
+          "y1": 129.57424926757812,
+          "text": "\u2022 Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running",
+          "block_no": 40,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 132.98870849609375,
+          "x1": 475.5740966796875,
+          "y1": 143.07962036132812,
+          "text": "paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets.",
+          "block_no": 41,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 146.42861938476562,
+          "x1": 572.564697265625,
+          "y1": 156.67227172851562,
+          "text": "\u2022 Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and",
+          "block_no": 42,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 160.08673095703125,
+          "x1": 541.5848999023438,
+          "y1": 170.17764282226562,
+          "text": "managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week.",
+          "block_no": 43,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 173.63671875,
+          "x1": 572.90185546875,
+          "y1": 183.72763061523438,
+          "text": "\u2022 Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase)",
+          "block_no": 44,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 187.07662963867188,
+          "x1": 516.8541259765625,
+          "y1": 197.32028198242188,
+          "text": "in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow.",
+          "block_no": 45,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 200.62564086914062,
+          "x1": 570.5075073242188,
+          "y1": 210.86929321289062,
+          "text": "\u2022 Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine",
+          "block_no": 46,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 214.28375244140625,
+          "x1": 182.25038146972656,
+          "y1": 224.37466430664062,
+          "text": "Optimization (SEO) articles.",
+          "block_no": 47,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 232.70565795898438,
+          "x1": 510.0003356933594,
+          "y1": 242.94931030273438,
+          "text": "Growth Analyst | Petropath Fluids India Pvt. Ltd. | Bengaluru, India | Jan 2021 \u2013 Jan 2022",
+          "block_no": 48,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 251.23562622070312,
+          "x1": 556.742919921875,
+          "y1": 261.4792785644531,
+          "text": "\u2022 Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B",
+          "block_no": 49,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 264.7846374511719,
+          "x1": 572.3265991210938,
+          "y1": 275.0282897949219,
+          "text": "campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget.",
+          "block_no": 50,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 278.3346252441406,
+          "x1": 569.5394897460938,
+          "y1": 288.5782775878906,
+          "text": "\u2022 Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti-",
+          "block_no": 51,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 291.8836364746094,
+          "x1": 442.4104919433594,
+          "y1": 302.1272888183594,
+          "text": "mizing performance across 10+ email campaigns for sales and marketing teams.",
+          "block_no": 52,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 305.5417175292969,
+          "x1": 572.4155883789062,
+          "y1": 315.6326599121094,
+          "text": "\u2022 Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce",
+          "block_no": 53,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 318.98162841796875,
+          "x1": 340.9231872558594,
+          "y1": 329.22528076171875,
+          "text": "across 15+ B2B campaigns , lifting pipeline visibility by 30% .",
+          "block_no": 54,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 337.51263427734375,
+          "x1": 557.9346923828125,
+          "y1": 347.75628662109375,
+          "text": "Marketing & SEO Analytics Intern (Amazon) | GAO Tek Inc. | NYC, New York | Oct 2019 \u2013 Dec 2020",
+          "block_no": 55,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 356.0426330566406,
+          "x1": 563.2636108398438,
+          "y1": 366.2862854003906,
+          "text": "\u2022 Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting",
+          "block_no": 56,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.042999267578125,
+          "y0": 369.59161376953125,
+          "x1": 567.5437622070312,
+          "y1": 379.83526611328125,
+          "text": "Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata-",
+          "block_no": 57,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 11.0
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 383.1416320800781,
+          "x1": 66.79937744140625,
+          "y1": 393.3852844238281,
+          "text": "log .",
+          "block_no": 58,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 396.69061279296875,
+          "x1": 570.6520385742188,
+          "y1": 406.93426513671875,
+          "text": "\u2022 Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon-",
+          "block_no": 59,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 410.3487243652344,
+          "x1": 442.4758605957031,
+          "y1": 420.43963623046875,
+          "text": "sored Products ad headlines and analyzing results to identify top-performing copy.",
+          "block_no": 60,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 423.78863525390625,
+          "x1": 574.425048828125,
+          "y1": 434.03228759765625,
+          "text": "\u2022 Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc-",
+          "block_no": 61,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 437.3376159667969,
+          "x1": 213.03587341308594,
+          "y1": 447.5812683105469,
+          "text": "ing manual reporting time by 25% .",
+          "block_no": 62,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 282.5320129394531,
+          "y0": 482.2113342285156,
+          "x1": 329.4681396484375,
+          "y1": 493.437255859375,
+          "text": "Projects",
+          "block_no": 63,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 12.0
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 502.4936218261719,
+          "x1": 572.396484375,
+          "y1": 512.7372436523438,
+          "text": "Marketing Blog: AI-Assisted Publishing Pipeline | Personal Project, gbnmarketing.blogspot.com |",
+          "block_no": 64,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 11.0
+        },
+        {
+          "x0": 39.2400016784668,
+          "y0": 516.0426635742188,
+          "x1": 202.41831970214844,
+          "y1": 526.2862548828125,
+          "text": "Austin, TX | Apr 2026 \u2013 Present",
+          "block_no": 65,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.60000228881836,
+          "y0": 534.6827392578125,
+          "x1": 551.8471069335938,
+          "y1": 544.7736206054688,
+          "text": "\u2022 Built an AI-assisted pipeline that turns an outline into a daily content calendar and drafts one marketing",
+          "block_no": 66,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 548.2317504882812,
+          "x1": 334.53045654296875,
+          "y1": 558.3226318359375,
+          "text": "article per day with automated pre-publication quality gates.",
+          "block_no": 67,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 566.6526489257812,
+          "x1": 544.8439331054688,
+          "y1": 576.896240234375,
+          "text": "Maxion: AI Social & Video Ad Creative Tool | Personal Project | Austin, TX | Jun 2026 \u2013 Jul 2026",
+          "block_no": 68,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 585.292724609375,
+          "x1": 561.3829345703125,
+          "y1": 595.3836059570312,
+          "text": "\u2022 Built an AI tool in 2 weeks that generates social posts and short-form video ad creative by turning 13 top-",
+          "block_no": 69,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 47.40299987792969,
+          "y0": 598.8417358398438,
+          "x1": 436.857666015625,
+          "y1": 608.9326171875,
+          "text": "performing ad prompts into a style library and orchestrating multiple AI providers.",
+          "block_no": 70,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 277.1050109863281,
+          "y0": 643.6063842773438,
+          "x1": 334.8964538574219,
+          "y1": 654.8323364257812,
+          "text": "Education",
+          "block_no": 71,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 12.0
+        },
+        {
+          "x0": 39.600006103515625,
+          "y0": 663.888671875,
+          "x1": 518.738525390625,
+          "y1": 674.1322631835938,
+          "text": "MBA, STEM in Business Analytics | Babson College | Wellesley, MA | Sep 2023 \u2013 May 2025",
+          "block_no": 72,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 677.4376831054688,
+          "x1": 572.4034423828125,
+          "y1": 687.6812744140625,
+          "text": "B.E. in Industrial Engineering and Management | Technical University of Applied Sciences TH-WS | Oct",
+          "block_no": 73,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.8
+        },
+        {
+          "x0": 39.599998474121094,
+          "y0": 690.9866333007812,
+          "x1": 123.29462432861328,
+          "y1": 701.230224609375,
+          "text": "2016 \u2013 Dec 2020",
+          "block_no": 74,
+          "page_no": 1,
+          "font_name": "Helvetica",
+          "font_size": 10.9
         }
       ],
-      "docx_audit": {
-        "has_tables": false,
-        "table_count": 0,
-        "has_text_boxes": false,
-        "text_box_count": 0,
-        "header_footer_text": [],
-        "unapproved_fonts": [],
-        "approved_fonts": [
-          "Calibri"
-        ],
-        "body_font_sizes_pt": [
-          11.0
-        ],
-        "heading_font_sizes_pt": [
-          15.0,
-          14.0,
-          14.0,
-          14.0
-        ],
-        "has_embedded_images": false
-      },
+      "docx_audit": null,
       "detected_fonts": [
-        "Calibri"
+        "Helvetica"
       ],
       "body_font_sizes_pt": [
-        11.0
+        12.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        12.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        11.0,
+        10.8,
+        10.9,
+        12.0,
+        10.8,
+        10.8,
+        10.8,
+        10.9,
+        12.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        12.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        10.9,
+        10.9,
+        11.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        11.0,
+        10.9,
+        12.0,
+        10.9,
+        10.9,
+        10.9,
+        10.9,
+        10.8,
+        10.8,
+        10.8,
+        10.9
       ],
-      "heading_font_sizes_pt": [
-        15.0,
-        14.0,
-        14.0,
-        14.0
-      ],
+      "heading_font_sizes_pt": [],
       "has_tables_or_textboxes": false,
       "has_embedded_images": false
     }
   },
   "emulators": {
     "WORKDAY": {
-      "name": "Sarah Chen",
-      "email": "sarah.chen@example.com",
-      "phone": "(415) 555-0142",
+      "name": "GAGAN BHASKAR NAIK",
+      "email": "gagan.97@gmail.com",
+      "phone": "(774) 290-3032",
       "country": "United States",
       "experience": [
         {
-          "jobTitle": "Senior Product Manager",
-          "company": "Zendex Inc.",
-          "startDate": "2022-03-01",
-          "endDate": null,
-          "currentlyWorkHere": true,
-          "description": "Led roadmap for enterprise analytics suite, $8M ARR in year one. Managed team of 4 PMs and 18 engineers across 3 time zones. Shipped 14 major releases with 99.2% on-time delivery."
+          "jobTitle": "Marketing Lead (E-commerce & Amazon",
+          "company": "Moksha Creations",
+          "startDate": "2022-02-01",
+          "endDate": "2023-08-01",
+          "currentlyWorkHere": false,
+          "description": "Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget scaled from $5K to $20K . Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip. Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets. Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week. Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow. Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine Optimization (SEO) articles."
+        },
+        {
+          "jobTitle": "Growth Analyst",
+          "company": "Petropath Fluids India Pvt. Ltd.",
+          "startDate": "2021-01-01",
+          "endDate": "2022-01-01",
+          "currentlyWorkHere": false,
+          "description": "Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget. Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti- mizing performance across 10+ email campaigns for sales and marketing teams. Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across 15+ B2B campaigns , lifting pipeline visibility by 30% ."
+        },
+        {
+          "jobTitle": "Marketing & SEO Analytics Intern (Amazon",
+          "company": "GAO Tek Inc.",
+          "startDate": "2019-10-01",
+          "endDate": "2020-12-01",
+          "currentlyWorkHere": false,
+          "description": "Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata- log . Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon- sored Products ad headlines and analyzing results to identify top-performing copy. Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc- ing manual reporting time by 25% ."
         }
       ],
       "education": [
         {
-          "degreeLevel": "Master's",
-          "schoolName": "Stanford Graduate School of Business",
-          "graduationYear": 2019
+          "degreeLevel": "Bachelor's",
+          "schoolName": "University",
+          "graduationYear": 2025
         },
         {
-          "degreeLevel": "Bachelor's",
-          "schoolName": "UC Berkeley",
-          "graduationYear": 2015
+          "degreeLevel": "Oct",
+          "schoolName": "Technical University of Applied Sciences TH-WS",
+          "graduationYear": 2020
         }
       ],
       "skills": [
         "SQL",
         "Python",
+        "Django",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Git",
+        "CI/CD",
         "Tableau",
         "Jira",
         "Confluence",
-        "Figma"
+        "Figma",
+        "Mailchimp",
+        "HubSpot",
+        "Salesforce",
+        "WordPress"
       ]
     },
     "GREENHOUSE": {
-      "first_name": "Sarah",
-      "last_name": "Chen",
+      "first_name": "GAGAN",
+      "last_name": "BHASKAR NAIK",
       "email_addresses": [
-        "sarah.chen@example.com"
+        "gagan.97@gmail.com"
       ],
       "phone_numbers": [
         {
-          "value": "+14155550142",
+          "value": "+17742903032",
           "type": "mobile"
         }
       ],
       "addresses": [
         {
-          "city": "San Francisco",
-          "region": "CA",
+          "city": "Austin",
+          "region": "TX",
           "country": "US"
         }
       ],
       "employments": [
         {
-          "title": "Senior Product Manager",
-          "company_name": "Zendex Inc.",
-          "start_month": 3,
+          "title": "Marketing Lead (E-commerce & Amazon",
+          "company_name": "Moksha Creations",
+          "start_month": 2,
           "start_year": 2022,
-          "end_month": null,
-          "end_year": null,
-          "is_current": true,
+          "end_month": 8,
+          "end_year": 2023,
+          "is_current": false,
           "description_bullets": [
-            "Led roadmap for enterprise analytics suite, $8M ARR in year one",
-            "Managed team of 4 PMs and 18 engineers across 3 time zones",
-            "Shipped 14 major releases with 99.2% on-time delivery"
+            "Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget scaled from $5K to $20K ",
+            "Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip",
+            "Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets",
+            "Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week",
+            "Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow",
+            "Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine Optimization (SEO) articles"
+          ]
+        },
+        {
+          "title": "Growth Analyst",
+          "company_name": "Petropath Fluids India Pvt. Ltd.",
+          "start_month": 1,
+          "start_year": 2021,
+          "end_month": 1,
+          "end_year": 2022,
+          "is_current": false,
+          "description_bullets": [
+            "Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget",
+            "Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti- mizing performance across 10+ email campaigns for sales and marketing teams",
+            "Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across 15+ B2B campaigns , lifting pipeline visibility by 30% "
+          ]
+        },
+        {
+          "title": "Marketing & SEO Analytics Intern (Amazon",
+          "company_name": "GAO Tek Inc.",
+          "start_month": 10,
+          "start_year": 2019,
+          "end_month": 12,
+          "end_year": 2020,
+          "is_current": false,
+          "description_bullets": [
+            "Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata- log ",
+            "Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon- sored Products ad headlines and analyzing results to identify top-performing copy",
+            "Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc- ing manual reporting time by 25% "
           ]
         }
       ],
       "educations": [
         {
-          "degree": "M.B.A.",
-          "school": "Stanford Graduate School of Business",
-          "end_year": 2019
+          "degree": "Babson College",
+          "school": "University",
+          "end_year": 2025
         },
         {
-          "degree": "B.S.",
-          "major": "Computer Science",
-          "school": "UC Berkeley",
-          "end_year": 2015
+          "degree": "Oct",
+          "school": "Technical University of Applied Sciences TH-WS",
+          "end_year": 2020
         }
       ],
       "skills": [
         "SQL",
         "Python",
+        "Django",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Git",
+        "CI/CD",
         "Tableau",
         "Jira",
         "Confluence",
         "Figma",
+        "REST APIs",
+        "Search Engine Optimization (SEO)",
+        "Key Performance Indicators (KPI)",
         "A/B testing",
         "product analytics",
-        "stakeholder management",
-        "OKRs"
+        "Google Analytics 4",
+        "Mailchimp",
+        "HubSpot",
+        "Salesforce",
+        "WordPress"
       ]
     },
     "LEVER": {
-      "name": "Sarah Chen",
+      "name": "GAGAN BHASKAR NAIK",
       "contact": {
-        "email": "sarah.chen@example.com",
-        "phone": "(415) 555-0142",
+        "email": "gagan.97@gmail.com",
+        "phone": "(774) 290-3032",
         "links": [
-          "https://linkedin.com/in/sarahchen"
+          "https://linkedin.com/in/gaganbnaik"
         ]
       },
-      "headline": "Senior Product Manager",
+      "headline": "Marketing Lead (E-commerce & Amazon",
       "positions": [
         {
-          "title": "Senior Product Manager",
-          "org": "Zendex Inc.",
-          "start": "2022-03",
-          "end": "Present",
-          "summary": "Led roadmap for enterprise analytics suite, $8M ARR in year one\nManaged team of 4 PMs and 18 engineers across 3 time zones\nShipped 14 major releases with 99.2% on-time delivery"
+          "title": "Marketing Lead (E-commerce & Amazon",
+          "org": "Moksha Creations",
+          "start": "2022-02",
+          "end": "2023-08",
+          "summary": "Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget scaled from $5K to $20K \nLifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip\nGrew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets\nGrew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week\nBuilt the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow\nGrew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine Optimization (SEO) articles"
+        },
+        {
+          "title": "Growth Analyst",
+          "org": "Petropath Fluids India Pvt. Ltd.",
+          "start": "2021-01",
+          "end": "2022-01",
+          "summary": "Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget\nGenerated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti- mizing performance across 10+ email campaigns for sales and marketing teams\nEngineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across 15+ B2B campaigns , lifting pipeline visibility by 30% "
+        },
+        {
+          "title": "Marketing & SEO Analytics Intern (Amazon",
+          "org": "GAO Tek Inc.",
+          "start": "2019-10",
+          "end": "2020-12",
+          "summary": "Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata- log \nImproved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon- sored Products ad headlines and analyzing results to identify top-performing copy\nAutomated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc- ing manual reporting time by 25% "
         }
       ],
       "schools": [
         {
-          "name": "Stanford Graduate School of Business",
-          "degree": "M.B.A.",
-          "end": "2019"
+          "name": "University",
+          "degree": "Babson College",
+          "end": "2025"
         },
         {
-          "name": "UC Berkeley",
-          "degree": "B.S. Computer Science",
-          "end": "2015"
+          "name": "Technical University of Applied Sciences TH-WS",
+          "degree": "Oct",
+          "end": "2020"
         }
       ],
       "tags": [
         "SQL",
         "Python",
-        "Tableau",
-        "Jira"
+        "Django",
+        "PostgreSQL"
       ]
     },
     "TALEO": {
       "candidateProfile": {
-        "fullName": "Sarah Chen",
-        "primaryEmail": "sarah.chen@example.com",
-        "primaryPhone": "(415) 555-0142",
+        "fullName": "GAGAN BHASKAR NAIK",
+        "primaryEmail": "gagan.97@gmail.com",
+        "primaryPhone": "(774) 290-3032",
         "asciiStrictMode": true
       },
       "workHistory": [
         {
-          "positionTitle": "Senior Product Manager",
-          "employerName": "Zendex Inc.",
-          "startDate": "2022-03",
-          "endDate": "Present",
-          "rawTextBlock": "Led roadmap for enterprise analytics suite, $8M ARR in year one | Managed team of 4 PMs and 18 engineers across 3 time zones | Shipped 14 major releases with 99.2% on-time delivery"
+          "positionTitle": "Marketing Lead (E-commerce & Amazon",
+          "employerName": "Moksha Creations",
+          "startDate": "2022-02",
+          "endDate": "2023-08",
+          "rawTextBlock": "Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget scaled from $5K to $20K . | Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip. | Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets. | Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week. | Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow. | Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine Optimization (SEO) articles."
+        },
+        {
+          "positionTitle": "Growth Analyst",
+          "employerName": "Petropath Fluids India Pvt. Ltd.",
+          "startDate": "2021-01",
+          "endDate": "2022-01",
+          "rawTextBlock": "Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget. | Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti- mizing performance across 10+ email campaigns for sales and marketing teams. | Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across 15+ B2B campaigns , lifting pipeline visibility by 30% ."
+        },
+        {
+          "positionTitle": "Marketing & SEO Analytics Intern (Amazon",
+          "employerName": "GAO Tek Inc.",
+          "startDate": "2019-10",
+          "endDate": "2020-12",
+          "rawTextBlock": "Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata- log . | Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon- sored Products ad headlines and analyzing results to identify top-performing copy. | Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc- ing manual reporting time by 25% ."
         }
       ],
       "exactMatchedTokens": [
         "SQL",
         "Python",
+        "Django",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "Git",
+        "CI/CD",
         "Tableau",
         "Jira",
         "Confluence",
-        "Figma"
+        "Figma",
+        "Mailchimp",
+        "HubSpot",
+        "Salesforce",
+        "WordPress"
       ]
     },
     "ICIMS": {
       "applicant": {
-        "firstName": "Sarah",
-        "lastName": "Chen",
-        "email": "sarah.chen@example.com",
-        "phone": "+14155550142",
-        "location": "San Francisco, CA"
+        "firstName": "GAGAN",
+        "lastName": "BHASKAR NAIK",
+        "email": "gagan.97@gmail.com",
+        "phone": "+17742903032",
+        "location": "Austin, TX"
       },
       "roles": [
         {
-          "title": "Senior Product Manager",
-          "company_name": "Zendex Inc.",
-          "start_month": 3,
+          "title": "Marketing Lead (E-commerce & Amazon",
+          "company_name": "Moksha Creations",
+          "start_month": 2,
           "start_year": 2022,
-          "end_month": null,
-          "end_year": null,
-          "is_current": true,
+          "end_month": 8,
+          "end_year": 2023,
+          "is_current": false,
           "description_bullets": [
-            "Led roadmap for enterprise analytics suite, $8M ARR in year one",
-            "Managed team of 4 PMs and 18 engineers across 3 time zones",
-            "Shipped 14 major releases with 99.2% on-time delivery"
+            "Cut Amazon Sponsored Products cost per order by 28% (ACOS from 35% to 25% ) and lifted CTR 24% by consolidating 14\u201316 campaigns into 5\u20136 in two rounds over two weeks, as the monthly marketing budget scaled from $5K to $20K ",
+            "Lifted the hero ASIN\u2019s unit session percentage from 1.2% to 3.4% ( 2.8x ) in 8 weeks by iteratively testing main image angles, benefit-led infographics, title copy, and A+ content, and pulling a variant after a 10-day dip",
+            "Grew monthly unit sales from 200 to 1,500 ( 7.5x ) across Amazon, Flipkart, and the company site, running paid ads, listing optimization, and lifecycle email against weekly sales and ACOS targets",
+            "Grew engagement by 230% by running paid Instagram and Facebook campaigns in Meta Ads Manager and managing the brand\u2019s social channels, alongside 3 social posts, 2 blogs, and 2 lifecycle emails a week",
+            "Built the company\u2019s first automated lifecycle email flows (replenishment, abandoned-cart, and post-purchase) in Mailchimp integrated with WooCommerce, reaching 40% open rates on the replenishment flow",
+            "Grew organic search clicks from under 50 to 500 per month in 4\u20135 months by publishing 12 Search Engine Optimization (SEO) articles"
+          ]
+        },
+        {
+          "title": "Growth Analyst",
+          "company_name": "Petropath Fluids India Pvt. Ltd.",
+          "start_month": 1,
+          "start_year": 2021,
+          "end_month": 1,
+          "end_year": 2022,
+          "is_current": false,
+          "description_bullets": [
+            "Improved MQL-to-SQL conversion by 34% by building a channel-level attribution model across 15+ B2B campaigns (LinkedIn, email, website, paid search) to identify top-converting channels and reallocate budget",
+            "Generated $3M+ in annual sales pipeline at a 35% average open rate and 12% CTR by tracking and opti- mizing performance across 10+ email campaigns for sales and marketing teams",
+            "Engineered SQL reporting queries joining CRM touchpoints with campaign tables in HubSpot and Salesforce across 15+ B2B campaigns , lifting pipeline visibility by 30% "
+          ]
+        },
+        {
+          "title": "Marketing & SEO Analytics Intern (Amazon",
+          "company_name": "GAO Tek Inc.",
+          "start_month": 10,
+          "start_year": 2019,
+          "end_month": 12,
+          "end_year": 2020,
+          "is_current": false,
+          "description_bullets": [
+            "Grew organic search traffic by 35% by researching competitors and keywords, then auditing and rewriting Amazon SEO and listing copy (titles, bullets, backend keywords, A+ content) across a 500+ product cata- log ",
+            "Improved click-through rates by 18% by writing and iteratively testing Google Shopping and Amazon Spon- sored Products ad headlines and analyzing results to identify top-performing copy",
+            "Automated weekly keyword rank and competitor pricing trackers in Excel and SQL across 500+ SKUs , reduc- ing manual reporting time by 25% "
           ]
         }
       ],
@@ -770,12 +2802,36 @@
           "categoryWeight": 2.0
         },
         {
-          "skill": "Tableau",
+          "skill": "Django",
           "categoryWeight": 2.0
         },
         {
-          "skill": "Jira",
+          "skill": "PostgreSQL",
           "categoryWeight": 2.0
+        },
+        {
+          "skill": "AWS",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Docker",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Git",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "CI/CD",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Tableau",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Jira",
+          "categoryWeight": 1.5
         },
         {
           "skill": "Confluence",
@@ -783,6 +2839,18 @@
         },
         {
           "skill": "Figma",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "REST APIs",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Search Engine Optimization (SEO)",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Key Performance Indicators (KPI)",
           "categoryWeight": 1.5
         },
         {
@@ -794,11 +2862,23 @@
           "categoryWeight": 1.5
         },
         {
-          "skill": "stakeholder management",
+          "skill": "Google Analytics 4",
           "categoryWeight": 1.5
         },
         {
-          "skill": "OKRs",
+          "skill": "Mailchimp",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "HubSpot",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "Salesforce",
+          "categoryWeight": 1.5
+        },
+        {
+          "skill": "WordPress",
           "categoryWeight": 1.5
         }
       ]

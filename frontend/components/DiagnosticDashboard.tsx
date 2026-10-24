@@ -10,6 +10,7 @@ import {
   Gauge,
   ShieldAlert,
   ShieldCheck,
+  Sparkles,
   XCircle,
 } from "lucide-react";
 import {
@@ -25,6 +26,7 @@ interface DiagnosticDashboardProps {
   knockoutRules: KnockoutRulesInput;
   onUpdateKnockoutRules: (rules: KnockoutRulesInput) => void;
   rrfResults: RRFCandidateResult[];
+  onNavigateToRemediation?: () => void;
 }
 
 function CircularGauge({
@@ -104,6 +106,7 @@ export default function DiagnosticDashboard({
   knockoutRules,
   onUpdateKnockoutRules,
   rrfResults,
+  onNavigateToRemediation,
 }: DiagnosticDashboardProps) {
   const [auditFilter, setAuditFilter] = useState<"ALL" | "PASS" | "FAIL">("ALL");
 
@@ -124,6 +127,35 @@ export default function DiagnosticDashboard({
 
   return (
     <div className="space-y-6">
+      {/* ATS Remediation Callout Banner */}
+      {onNavigateToRemediation && (
+        <div className="bg-gradient-to-r from-indigo-950/70 via-slate-900 to-indigo-950/70 border border-indigo-500/40 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-300">
+              <Sparkles className="w-5 h-5 text-indigo-400" />
+            </div>
+            <div>
+              <div className="text-sm font-bold text-white flex items-center gap-2">
+                Reverse-Engineered LaTeX (.tex) &amp; Master Profile (.md) Remediation Studio
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  Tab 04
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Automatically fix formatting hazards, inject missing JD skills grounded in your real profile (.md), and export an ATS-compliant PDF.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onNavigateToRemediation}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition"
+          >
+            Open Remediation Studio
+            <span className="font-mono text-indigo-200">→</span>
+          </button>
+        </div>
+      )}
+
       {/* TOP ROW: 3 Core Diagnostic Gauges + Composite Platform Score Card */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <CircularGauge

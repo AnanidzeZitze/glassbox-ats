@@ -4,7 +4,7 @@
  */
 
 export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api/v1";
+  process.env.NEXT_PUBLIC_API_BASE_URL || "/api/v1";
 
 export type ATSPlatform = "WORKDAY" | "GREENHOUSE" | "LEVER" | "TALEO" | "ICIMS";
 
@@ -567,24 +567,21 @@ export async function parseResumeXRay(
   file?: File,
   ocrEnabled: boolean = true
 ): Promise<ParseXRayResponse> {
-  try {
-    const formData = new FormData();
-    if (file) {
-      formData.append("file", file);
-    }
-    formData.append("ocr_enabled", String(ocrEnabled));
-
-    const res = await fetch(`${API_BASE_URL}/parse-xray`, {
-      method: "POST",
-      body: formData,
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
-    return (await res.json()) as ParseXRayResponse;
-  } catch {
-    return SARAH_CHEN_XRAY_FIXTURE;
+  const formData = new FormData();
+  if (file) {
+    formData.append("file", file);
   }
+  formData.append("ocr_enabled", String(ocrEnabled));
+
+  const res = await fetch(`${API_BASE_URL}/parse-xray`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    throw new Error(errBody.detail || `Failed to parse resume (HTTP ${res.status})`);
+  }
+  return (await res.json()) as ParseXRayResponse;
 }
 
 export async function computeATSScore(params: {
@@ -594,146 +591,21 @@ export async function computeATSScore(params: {
   knockout?: KnockoutRulesInput;
 }): Promise<ComputeScoreResponse> {
   const knockout = params.knockout || DEFAULT_KNOCKOUT_RULES;
-  try {
-    const res = await fetch(`${API_BASE_URL}/compute-score`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        resume: params.resume,
-        jd: params.jd,
-        platform: params.platform,
-        knockout,
-      }),
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
-    return (await res.json()) as ComputeScoreResponse;
-  } catch {
-    // Deterministic local fallback matching Section 5.4 Senior Python Developer benchmark
-    const isLever = params.platform === "LEVER";
-    const isGreenhouse = params.platform === "GREENHOUSE";
-    const hasInterleaving =
-      (params.resume.extraction_result?.interleaved_lines?.length || 0) > 0;
-    const parseRatio = hasInterleaving ? 0.54 : 1.0;
-
-    const scoreBreakdown: ATSScoreBreakdown = {
+  const res = await fetch(`${API_BASE_URL}/compute-score`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      resume: params.resume,
+      jd: params.jd,
       platform: params.platform,
-      manual_scorecard_mode: isGreenhouse,
-      must_have_match_rate: 1.0,
-      preferred_match_rate: isLever ? 0.125 : 0.0,
-      keyword_match_pct: isLever ? 0.7375 : 0.7,
-      placement_ratio: 0.85,
-      section_completeness_ratio: 1.0,
-      parse_success_ratio: parseRatio,
-      relevance_ratio: isLever ? 0.9 : 0.7,
-      keyword_match_weighted: isLever ? 29.5 : 35.0,
-      placement_weighted: isLever ? 12.75 : 8.5,
-      sections_weighted: isLever ? 15.0 : 20.0,
-      parse_success_weighted: Number((parseRatio * 15.0).toFixed(2)),
-      relevance_weighted: isLever ? 13.5 : 3.5,
-      total_score: isGreenhouse
-        ? null
-        : isLever
-        ? Number((70.75 + parseRatio * 15.0).toFixed(2))
-        : Number((67.0 + parseRatio * 15.0).toFixed(2)),
-      matched_must_have: params.jd.must_have_skills,
-      missing_must_have: [],
-      matched_preferred: [],
-      semantic_neighbor_matches: isLever ? ["Kubernetes (via container orchestration)"] : [],
-    };
-
-    const auditParams: AuditParameterResult[] = [
-      { param_id: 1, name: "Single-column layout", category: "Layout & Formatting", status: hasInterleaving ? "FAIL" : "PASS", passed: !hasInterleaving, message: hasInterleaving ? "Multi-column X-coordinate interleaving detected." : "Zero multi-column X-coordinate interleaving detected." },
-      { param_id: 2, name: "Zero tables or floating text boxes", category: "Layout & Formatting", status: "PASS", passed: true, message: "No XML tables (<w:tbl>) or floating text boxes (<w:txbxContent>) found." },
-      { param_id: 3, name: "Approved file format", category: "Layout & Formatting", status: "PASS", passed: true, message: "Native text-layer PDF or DOCX verified." },
-      { param_id: 4, name: "Contact info in main document body", category: "Contact Information", status: hasInterleaving ? "FAIL" : "PASS", passed: !hasInterleaving, message: hasInterleaving ? "Contact info clipped in top 1-inch header." : "Contact info safely inside main document body." },
-      { param_id: 5, name: "Professional email format", category: "Contact Information", status: "PASS", passed: true, message: "Professional email verified (sarah.chen@example.com)." },
-      { param_id: 6, name: "Phone number present and parseable", category: "Contact Information", status: "PASS", passed: true, message: "Phone number parsed ((415) 555-0142)." },
-      { param_id: 7, name: "Customized LinkedIn URL present", category: "Contact Information", status: "PASS", passed: true, message: "Customized LinkedIn URL verified." },
-      { param_id: 8, name: "Location formatted strictly as City, State", category: "Contact Information", status: "PASS", passed: true, message: "Location formatted as San Francisco, CA." },
-      { param_id: 9, name: "Zero embedded photos or PII", category: "Compliance & Hygiene", status: "PASS", passed: true, message: "Zero embedded headshots, DOB, marital status, or nationality." },
-      { param_id: 10, name: "Web-safe font family", category: "Typography", status: "PASS", passed: true, message: "Approved web-safe fonts verified (Calibri, Arial)." },
-      { param_id: 11, name: "Standard body (10-12pt) and heading (14-16pt) font sizes", category: "Typography", status: "PASS", passed: true, message: "Font sizes within 10-12pt body and 14-16pt heading ranges." },
-      { param_id: 12, name: "Standard bullet glyphs only", category: "Typography", status: hasInterleaving ? "FAIL" : "PASS", passed: !hasInterleaving, message: hasInterleaving ? "Decorative Unicode arrow (U+27A2) detected." : "All bullet points use standard ATS-safe glyphs." },
-      { param_id: 13, name: "Standard Summary section header", category: "Professional Summary", status: "PASS", passed: true, message: "Summary section labeled 'Professional Summary'." },
-      { param_id: 14, name: "Summary contains exact target job title", category: "Professional Summary", status: "PASS", passed: true, message: `Summary includes target title '${params.jd.target_title}'.` },
-      { param_id: 15, name: "Summary contains 2-3 core must-have JD skills", category: "Professional Summary", status: "PASS", passed: true, message: "Summary contains 3 core must-have skills (Python, Django, PostgreSQL)." },
-      { param_id: 16, name: "Summary length between 3 and 5 sentences", category: "Professional Summary", status: "PASS", passed: true, message: "Summary has 3 sentences (within 3-5 target)." },
-      { param_id: 17, name: "Zero first-person pronouns", category: "Content Tone", status: "PASS", passed: true, message: "Zero first-person pronouns (I, me, my, we, our) found." },
-      { param_id: 18, name: "Dedicated Skills section with standard header", category: "Skills Section", status: "PASS", passed: true, message: "Skills section header 'Skills' verified." },
-      { param_id: 19, name: "Both spelled-out terms and acronyms included", category: "Skills Section", status: "PASS", passed: true, message: "Acronym + spelled-out term pairing verified." },
-      { param_id: 20, name: "Hard skills and tools prioritized over soft skills", category: "Skills Section", status: "PASS", passed: true, message: "Hard skills/tools outnumber soft skills." },
-      { param_id: 21, name: "Standard Work Experience section header", category: "Work Experience", status: "PASS", passed: true, message: "Experience section labeled 'Work Experience'." },
-      { param_id: 22, name: "Reverse chronological order verified", category: "Work Experience", status: "PASS", passed: true, message: "All roles ordered in reverse chronological sequence." },
-      { param_id: 23, name: "Distinct job title, company, and dates on every role", category: "Work Experience", status: "PASS", passed: true, message: "Every role has parseable title, company, and dates." },
-      { param_id: 24, name: "Consistent date format across all entries", category: "Work Experience", status: "PASS", passed: true, message: "Consistent Month YYYY date formatting verified." },
-      { param_id: 25, name: "Clean employment timeline without unexplained gaps", category: "Work Experience", status: "PASS", passed: true, message: "Clean timeline with zero unexplained gaps or overlaps." },
-      { param_id: 26, name: "Bullet density between 3 and 6 bullets per role", category: "Work Experience", status: "PASS", passed: true, message: "All roles contain 3 to 6 bullets." },
-      { param_id: 27, name: "Action-verb initiation (>= 90% of bullets)", category: "Impact & Bullet Quality", status: "PASS", passed: true, message: "100% of bullets start with a strong spaCy POS-verified action verb." },
-      { param_id: 28, name: "Quantified impact (>= 50% of bullets contain metrics)", category: "Impact & Bullet Quality", status: "PASS", passed: true, message: "100% of bullets include quantified numeric metrics ($8M, 18 engineers, 99.2%)." },
-      { param_id: 29, name: "Contextual keyword embedding in experience bullets", category: "Keyword Optimization", status: "PASS", passed: true, message: "Core JD keywords embedded inside experience bullets." },
-      { param_id: 30, name: "Anti-stuffing guardrail (75% - 85% target zone, < 90% cap)", category: "Keyword Optimization", status: "PASS", passed: true, message: "Match rate 80.0% is inside optimal 75%-85% target zone." },
-    ];
-
-    const passedCount = auditParams.filter((p) => p.status === "PASS").length;
-    const failCount = auditParams.filter((p) => p.status === "FAIL").length;
-
-    const authOk = !knockout.requires_work_auth || knockout.candidate_has_work_auth;
-    const clearOk =
-      knockout.requires_clearance === "None" ||
-      knockout.candidate_clearance === knockout.requires_clearance;
-    const onsiteOk = knockout.candidate_max_onsite_days >= knockout.required_onsite_days;
-
-    const koChecks: KnockoutCheckItem[] = [
-      {
-        id: "work_auth",
-        label: "US Work Authorization",
-        required_value: knockout.requires_work_auth ? "Authorized without sponsorship" : "Any",
-        candidate_value: knockout.candidate_has_work_auth ? "Verified Authorized" : "Requires Sponsorship",
-        passed: authOk,
-        disqualifier_reason: authOk ? null : "Auto-rejected by mandatory Work Authorization gate.",
-      },
-      {
-        id: "clearance",
-        label: "Security Clearance",
-        required_value: knockout.requires_clearance,
-        candidate_value: knockout.candidate_clearance,
-        passed: clearOk,
-        disqualifier_reason: clearOk ? null : `Missing required ${knockout.requires_clearance} clearance.`,
-      },
-      {
-        id: "onsite_days",
-        label: "Hybrid / Onsite Attendance",
-        required_value: `${knockout.required_onsite_days} days/wk onsite`,
-        candidate_value: `Up to ${knockout.candidate_max_onsite_days} days/wk`,
-        passed: onsiteOk,
-        disqualifier_reason: onsiteOk ? null : "Onsite availability below minimum hybrid requirement.",
-      },
-      {
-        id: "degree_tier",
-        label: "Minimum Education Tier",
-        required_value: knockout.required_degree_tier,
-        candidate_value: knockout.candidate_degree_tier,
-        passed: true,
-        disqualifier_reason: null,
-      },
-    ];
-
-    return {
-      score_breakdown: scoreBreakdown,
-      audit_report: {
-        total_parameters: 30,
-        passed_count: passedCount,
-        warn_count: 0,
-        fail_count: failCount,
-        overall_audit_score: Number(((passedCount / 30) * 100).toFixed(2)),
-        parameters: auditParams,
-      },
-      passed_all_knockouts: koChecks.every((c) => c.passed),
-      knockout_checks: koChecks,
-    };
+      knockout,
+    }),
+  });
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    throw new Error(errBody.detail || `Failed to compute ATS score (HTTP ${res.status})`);
   }
+  return (await res.json()) as ComputeScoreResponse;
 }
 
 export async function runHybridRRFSearch(
@@ -769,80 +641,16 @@ export async function tailorExperienceBullets(params: {
   resume: CanonicalResume;
   jd: JDRequirementInput;
 }): Promise<TailorBulletsResponse> {
-  try {
-    const res = await fetch(`${API_BASE_URL}/tailor-bullets`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(params),
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
-    return (await res.json()) as TailorBulletsResponse;
-  } catch {
-    const emp = params.resume.employments[0] || {
-      title: "Senior Product Manager",
-      company: "Zendex Inc.",
-      start_year: 2022,
-      start_month: 3,
-      is_current: true,
-      bullets: [
-        "Led roadmap for enterprise analytics suite, $8M ARR in year one",
-        "Managed team of 4 PMs and 18 engineers across 3 time zones",
-        "Shipped 14 major releases with 99.2% on-time delivery",
-      ],
-    };
-
-    const diffs: TailorBulletDiffItem[] = emp.bullets.map((b, idx) => {
-      const injected =
-        idx === 0
-          ? ["Python", "PostgreSQL"]
-          : idx === 1
-          ? ["AWS", "Docker"]
-          : ["CI/CD", "REST APIs"];
-      return {
-        diff_id: `diff-0-${idx}`,
-        role_title: emp.title,
-        company: emp.company,
-        start_date: `${emp.start_year}-0${emp.start_month}`,
-        end_date: "Present",
-        original_bullet: b,
-        tailored_bullet: `${b.replace(/\.$/, "")} leveraging ${injected.join(" and ")}`,
-        injected_keywords: injected,
-        action_verb_verified: true,
-        quantified_metric_preserved: "Verified intact against master_resume_json",
-        hallucination_guard_passed: true,
-      };
-    });
-
-    const latex = `\\documentclass[11pt,letterpaper]{article}
-\\usepackage[margin=0.75in]{geometry}
-\\usepackage{enumitem}
-\\pagenumbering{gobble}
-\\begin{document}
-\\begin{center}
-  {\\Large \\textbf{${params.resume.full_name}}}\\\\
-  ${params.resume.email || "sarah.chen@example.com"} | ${params.resume.phone || "(415) 555-0142"} | ${params.resume.linkedin_url || "https://linkedin.com/in/sarahchen"}
-\\end{center}
-\\section*{Work Experience}
-\\textbf{${emp.title}} \\hfill 2022-03 -- Present\\\\
-\\textit{${emp.company}}
-\\begin{itemize}[noitemsep]
-${diffs.map((d) => `  \\item ${d.tailored_bullet.replace("$", "\\$").replace("%", "\\%")}`).join("\n")}
-\\end{itemize}
-\\section*{Skills}
-${params.resume.skills.join(", ")}
-\\end{document}`;
-
-    return {
-      candidate_name: params.resume.full_name,
-      validator_passed: true,
-      validation_summary:
-        "Pydantic @model_validator(mode='after') verified YYYY-MM date ordering and 0 hallucinated employers, skills, or metrics against master_resume_json.",
-      diffs,
-      latex_source: latex,
-    };
+  const res = await fetch(`${API_BASE_URL}/tailor-bullets`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(params),
+  });
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    throw new Error(errBody.detail || `Failed to tailor bullets (HTTP ${res.status})`);
   }
+  return (await res.json()) as TailorBulletsResponse;
 }
 
 export const PRESET_JDS: Record<string, JDRequirementInput> = {
@@ -1084,4 +892,80 @@ export async function runLL144BiasAudit(): Promise<NYCLocalLaw144AuditReport> {
     };
   }
 }
+
+export interface LatexHazard {
+  hazard_type: string;
+  severity: "CRITICAL" | "WARNING" | "INFO";
+  description: string;
+  line_num?: number | null;
+}
+
+export interface ParseTexResponse {
+  canonical: CanonicalResume;
+  hazards: LatexHazard[];
+}
+
+export interface RemediateTexResponse {
+  baseline_score: number;
+  remediated_score: number;
+  target_platform: ATSPlatform;
+  updated_tex: string;
+  diffs: TailorBulletDiffItem[];
+  newly_added_skills: string[];
+  hazards_detected: LatexHazard[];
+  evidence_trace: Record<string, any>;
+  updated_canonical: CanonicalResume;
+}
+
+export async function parseTexResume(rawTex: string): Promise<ParseTexResponse> {
+  const res = await fetch(`${API_BASE_URL}/parse-tex`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ raw_tex: rawTex }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return (await res.json()) as ParseTexResponse;
+}
+
+export async function remediateTexWithContext(
+  resumeTex: string,
+  masterProfileMd: string,
+  rawJdText: string,
+  platform: ATSPlatform = "WORKDAY"
+): Promise<RemediateTexResponse> {
+  const res = await fetch(`${API_BASE_URL}/remediate-tex-md`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      resume_tex: resumeTex,
+      master_profile_md: masterProfileMd,
+      raw_jd_text: rawJdText,
+      platform,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return (await res.json()) as RemediateTexResponse;
+}
+
+export async function fetchEvidenceTrace(
+  resume: CanonicalResume,
+  jd?: JDRequirementInput
+): Promise<Record<string, any>> {
+  const res = await fetch(`${API_BASE_URL}/evidence-trace`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ resume, jd }),
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`);
+  }
+  return await res.json();
+}
+
 

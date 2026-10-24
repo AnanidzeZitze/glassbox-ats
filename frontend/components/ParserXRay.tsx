@@ -14,8 +14,6 @@ import {
 import {
   ATSPlatform,
   ParseXRayResponse,
-  SARAH_CHEN_XRAY_FIXTURE,
-  TWO_COLUMN_HAZARD_XRAY_FIXTURE,
   parseResumeXRay,
 } from "@/services/api";
 
@@ -116,28 +114,17 @@ export default function ParserXRay({
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => onUpdateXRayData(SARAH_CHEN_XRAY_FIXTURE)}
-              className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition border ${
+            <span
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-medium border ${
                 interleavedCount === 0
                   ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                  : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                  : "bg-rose-500/20 text-rose-300 border-rose-500/40"
               }`}
             >
-              Clean Single-Column (Sarah Chen)
-            </button>
-            <button
-              type="button"
-              onClick={() => onUpdateXRayData(TWO_COLUMN_HAZARD_XRAY_FIXTURE)}
-              className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition border ${
-                interleavedCount > 0
-                  ? "bg-rose-500/20 text-rose-300 border-rose-500/40"
-                  : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-              }`}
-            >
-              Simulate 2-Col Interleaved Hazard
-            </button>
+              {interleavedCount === 0
+                ? "Single-Column Layout Verified"
+                : `${interleavedCount} Interleaved Line Hazard(s)`}
+            </span>
           </div>
         </div>
 

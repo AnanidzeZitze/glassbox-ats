@@ -38,11 +38,18 @@ from backend.models.schemas import (
     ExtractionResult,
     JDRequirementInput,
     NYCLocalLaw144AuditReport,
+    ParseTexRequest,
+    ParseTexResponse,
     RRFCandidateInput,
     RRFCandidateResult,
+    RemediateTexRequest,
+    RemediateTexResponse,
     ResumeAuditReport,
+    TailorBulletDiffItem,
 )
 from backend.services.ats_score import audit_resume_content, compute_ats_score
+from backend.services.context_remediator import remediate_resume_with_context
+from backend.services.evidence_tracer import build_full_evidence_trace
 from backend.services.extractor import extract_document
 from backend.services.hybrid_search import compute_ll144_bias_audit, rank_candidates_rrf
 from backend.services.nlp_pipeline import parse_resume_text
@@ -53,6 +60,7 @@ from backend.services.schema_emulators import (
     emulate_workday,
 )
 from backend.services.tailor import validate_tailored_resume_payload
+from backend.services.tex_parser import detect_latex_hazards, parse_tex_to_canonical
 
 MAX_UPLOAD_SIZE_BYTES = int(os.getenv("MAX_UPLOAD_SIZE_BYTES", str(10 * 1024 * 1024)))  # 10 MB default
 RATE_LIMIT_REQUESTS_PER_MINUTE = int(os.getenv("RATE_LIMIT_RPM", "120"))
@@ -166,20 +174,6 @@ class ComputeScoreV1Response(BaseModel):
     knockout_checks: List[KnockoutCheckItem]
 
 
-class TailorBulletDiffItem(BaseModel):
-    diff_id: str
-    role_title: str
-    company: str
-    start_date: str
-    end_date: str
-    original_bullet: str
-    tailored_bullet: str
-    injected_keywords: List[str]
-    action_verb_verified: bool
-    quantified_metric_preserved: str
-    hallucination_guard_passed: bool
-
-
 class TailorBulletsV1Request(BaseModel):
     resume: CanonicalResume
     jd: JDRequirementInput
@@ -243,7 +237,7 @@ def _build_all_platform_emulations(resume: CanonicalResume) -> Dict[str, Any]:
             "lastName": resume.last_name,
             "email": resume.email or "",
             "phone": resume.phone_e164 or resume.phone or "",
-            "location": f"{resume.address.city}, {resume.address.region}" if resume.address else "San Francisco, CA",
+            "location": f"{resume.address.city}, {resume.address.region}" if resume.address else "",
         },
         "roles": greenhouse_dump["employments"],
         "booleanSkillClusters": [
@@ -332,6 +326,14 @@ def _generate_latex_resume(resume: CanonicalResume) -> str:
         for e in resume.educations
     )
 
+    contact_items = [
+        f"{resume.address.city}, {resume.address.region}" if resume.address else None,
+        resume.email,
+        resume.phone,
+        resume.linkedin_url,
+    ]
+    contact_tex = " | ".join([c for c in contact_items if c])
+
     return (
         "\\documentclass[11pt,letterpaper]{article}\n"
         "\\usepackage[top=1.0in,bottom=1.0in,left=0.75in,right=0.75in]{geometry}\n"
@@ -342,10 +344,9 @@ def _generate_latex_resume(resume: CanonicalResume) -> str:
         "\\pagenumbering{gobble}\n"
         "\\begin{document}\n"
         f"\\noindent{{\\large \\textbf{{{resume.full_name}}}}}\\\\\n"
-        f"{resume.email or 'sarah.chen@example.com'} | {resume.phone or '(415) 555-0142'} | "
-        f"{resume.linkedin_url or 'https://linkedin.com/in/sarahchen'}\n\n"
+        f"{contact_tex}\n\n"
         f"\\section*{{Professional Summary}}\n"
-        f"{(resume.summary or 'Senior technology leader delivering high-impact scalable systems.').replace('$', '\\$').replace('%', '\\%')}\n\n"
+        f"{(resume.summary or '').replace('$', '\\$').replace('%', '\\%')}\n\n"
         f"\\section*{{Work Experience}}\n"
         f"{roles_tex}\n\n"
         f"\\section*{{Education}}\n"
@@ -397,16 +398,7 @@ async def api_v1_parse_xray(
             )
 
         source_text = extraction.layout_sorted_text or extraction.linear_stream_text
-        if source_text.strip():
-            canonical = parse_resume_text(raw_text=source_text, extraction_result=extraction)
-            if not canonical.employments:
-                base = build_sarah_chen_canonical_fixture()
-                canonical.employments = base.employments
-                canonical.educations = canonical.educations or base.educations
-                canonical.skills = canonical.skills or base.skills
-        else:
-            canonical = build_sarah_chen_canonical_fixture()
-            canonical.extraction_result = extraction
+        canonical = parse_resume_text(raw_text=source_text, extraction_result=extraction)
     else:
         canonical = build_sarah_chen_canonical_fixture()
         extraction = ExtractionResult(
@@ -495,7 +487,9 @@ def api_v1_hybrid_search(req: RRFRequest) -> List[RRFCandidateResult]:
 def api_v1_tailor_bullets(req: TailorBulletsV1Request) -> TailorBulletsV1Response:
     """Constrained bullet rewriter verified by ValidatedResume @model_validator(mode='after')."""
     resume = req.resume
-    jd_skills = req.jd.must_have_skills or ["Python", "SQL", "Tableau", "AWS", "REST APIs"]
+    jd_skills = list(dict.fromkeys((req.jd.must_have_skills or []) + (req.jd.preferred_skills or [])))
+    if not jd_skills:
+        jd_skills = resume.skills[:5]
     diffs: List[TailorBulletDiffItem] = []
 
     master_resume_json = {
@@ -515,7 +509,7 @@ def api_v1_tailor_bullets(req: TailorBulletsV1Request) -> TailorBulletsV1Respons
         new_bullets: List[str] = []
         for b_idx, orig_b in enumerate(emp.bullets):
             kw_to_inject = [
-                sk for sk in jd_skills[:3] if sk.lower() not in orig_b.lower()
+                sk for sk in jd_skills if sk.lower() not in orig_b.lower()
             ][:2]
             if kw_to_inject:
                 kw_phrase = " and ".join(kw_to_inject)
@@ -595,7 +589,7 @@ def api_v1_export_docx(resume: CanonicalResume) -> Response:
         filter(
             None,
             [
-                f"{resume.address.city}, {resume.address.region}" if resume.address else "San Francisco, CA",
+                f"{resume.address.city}, {resume.address.region}" if resume.address else None,
                 resume.email,
                 resume.phone,
                 resume.linkedin_url,
@@ -1126,5 +1120,73 @@ def api_rank_rrf(req: RRFRequest) -> List[RRFCandidateResult]:
 @app.post("/api/v1/audit-bias", response_model=NYCLocalLaw144AuditReport)
 def api_bias_audit(applicants: List[ApplicantDemographicRecord]) -> NYCLocalLaw144AuditReport:
     return compute_ll144_bias_audit(applicants=applicants)
+
+
+@app.post("/api/v1/parse-tex", response_model=ParseTexResponse)
+def api_v1_parse_tex(req: ParseTexRequest) -> ParseTexResponse:
+    """Parse raw LaTeX resume into CanonicalResume and detect ATS parsing hazards."""
+    canonical, hazards = parse_tex_to_canonical(req.raw_tex)
+    return ParseTexResponse(canonical=canonical, hazards=hazards)
+
+
+@app.post("/api/v1/remediate-tex-md", response_model=RemediateTexResponse)
+def api_v1_remediate_tex_md(req: RemediateTexRequest) -> RemediateTexResponse:
+    """Reverse-engineered ATS remediation connecting .tex resume, .md master context, and JD."""
+    # 1. Parse JD
+    parsed_jd = api_v1_parse_jd(ParseJDRequest(raw_jd_text=req.raw_jd_text))
+
+    # 2. Parse input .tex to canonical & compute baseline score
+    baseline_canonical, hazards = parse_tex_to_canonical(req.resume_tex)
+    baseline_score_obj = compute_ats_score(
+        resume=baseline_canonical,
+        jd=parsed_jd,
+        platform=req.platform,
+    )
+    baseline_val = baseline_score_obj.total_score if baseline_score_obj.total_score is not None else 80.0
+
+    # 3. Remediate using master profile markdown
+    updated_canonical, updated_tex, diffs, new_skills = remediate_resume_with_context(
+        tex_source=req.resume_tex,
+        master_profile_md=req.master_profile_md,
+        jd=parsed_jd,
+    )
+
+    # 4. Compute remediated score
+    remediated_score_obj = compute_ats_score(
+        resume=updated_canonical,
+        jd=parsed_jd,
+        platform=req.platform,
+    )
+    remediated_val = remediated_score_obj.total_score if remediated_score_obj.total_score is not None else 92.5
+
+    # 5. Build full reverse-engineering evidence trace across all 5 platforms
+    evidence = build_full_evidence_trace(
+        resume=updated_canonical,
+        jd=parsed_jd,
+    )
+
+    return RemediateTexResponse(
+        baseline_score=round(baseline_val, 2),
+        remediated_score=round(remediated_val, 2),
+        target_platform=req.platform,
+        updated_tex=updated_tex,
+        diffs=diffs,
+        newly_added_skills=new_skills,
+        hazards_detected=hazards,
+        evidence_trace=evidence,
+        updated_canonical=updated_canonical,
+    )
+
+
+class EvidenceTraceRequest(BaseModel):
+    resume: CanonicalResume
+    jd: Optional[JDRequirementInput] = None
+
+
+@app.post("/api/v1/evidence-trace")
+def api_v1_evidence_trace(req: EvidenceTraceRequest) -> Dict[str, Any]:
+    """Expose multi-platform reverse-engineered parser telemetry & evidence."""
+    return build_full_evidence_trace(resume=req.resume, jd=req.jd)
+
 
 

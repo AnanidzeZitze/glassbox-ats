@@ -968,4 +968,116 @@ export async function fetchEvidenceTrace(
   return await res.json();
 }
 
+export interface RecommendationItem {
+  id: string;
+  category: "CRITICAL_ATS_HAZARD" | "KEYWORD_MUST_HAVE" | "KEYWORD_PREFERRED" | "BULLET_QUANTIFICATION" | "FORMAT_STRUCTURE" | string;
+  title: string;
+  problem_statement: string;
+  actionable_instruction: string;
+  score_impact_estimate: string;
+  priority: "CRITICAL" | "HIGH" | "MEDIUM";
+}
+
+export interface StructuredRecommendationsResponse {
+  current_score: number;
+  target_score_estimate: number;
+  must_have_missing: string[];
+  preferred_missing: string[];
+  failed_audit_params: Array<{
+    param_id: number;
+    name: string;
+    status: string;
+    message: string;
+    category?: string;
+  }>;
+  recommendations: RecommendationItem[];
+  structured_llm_prompt: string;
+}
+
+export interface RetestLatexResponse {
+  retested_score: number;
+  baseline_score?: number | null;
+  score_delta: number;
+  audit_report: ResumeAuditReport;
+  hazards_detected: LatexHazard[];
+  canonical_resume: CanonicalResume;
+  summary_message: string;
+}
+
+export async function fetchStructuredRecommendations(
+  currentScore: number,
+  auditReport: ResumeAuditReport,
+  jd: JDRequirementInput,
+  resume: CanonicalResume,
+  latexSource?: string
+): Promise<StructuredRecommendationsResponse> {
+  const res = await fetch(`${API_BASE_URL}/recommendations`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      current_score: currentScore,
+      audit_report: auditReport,
+      jd,
+      resume,
+      latex_source: latexSource,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return (await res.json()) as StructuredRecommendationsResponse;
+}
+
+export async function retestLatexCode(
+  rawLatex: string,
+  jd: JDRequirementInput,
+  targetPlatform: ATSPlatform = "WORKDAY",
+  baselineScore?: number
+): Promise<RetestLatexResponse> {
+  const res = await fetch(`${API_BASE_URL}/retest-latex`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      raw_latex: rawLatex,
+      jd,
+      target_platform: targetPlatform,
+      baseline_score: baselineScore,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return (await res.json()) as RetestLatexResponse;
+}
+
+export async function autoOptimizeLatexCode(
+  rawLatex: string,
+  jd: JDRequirementInput,
+  currentScore: number,
+  auditReport: ResumeAuditReport,
+  resume: CanonicalResume,
+  targetPlatform: ATSPlatform = "WORKDAY"
+): Promise<RetestLatexResponse> {
+  const res = await fetch(`${API_BASE_URL}/auto-optimize-latex`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      raw_latex: rawLatex,
+      jd,
+      current_score: currentScore,
+      audit_report: auditReport,
+      resume,
+      target_platform: targetPlatform,
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: `HTTP ${res.status}` }));
+    throw new Error(err.detail || `HTTP ${res.status}`);
+  }
+  return (await res.json()) as RetestLatexResponse;
+}
+
+
 

@@ -556,3 +556,62 @@ class RemediateTexResponse(BaseModel):
     evidence_trace: Dict[str, Any]
     updated_canonical: CanonicalResume
 
+
+# ============================================================================
+# Module 8: Structured Recommendations & LaTeX LLM Optimizer Schemas
+# ============================================================================
+
+class RecommendationItem(BaseModel):
+    id: str
+    category: str  # "CRITICAL_ATS_HAZARD" | "KEYWORD_MUST_HAVE" | "KEYWORD_PREFERRED" | "BULLET_QUANTIFICATION" | "FORMAT_STRUCTURE"
+    title: str
+    problem_statement: str
+    actionable_instruction: str
+    score_impact_estimate: str
+    priority: str  # "CRITICAL" | "HIGH" | "MEDIUM"
+
+
+class StructuredRecommendationsResponse(BaseModel):
+    current_score: float
+    target_score_estimate: float
+    must_have_missing: List[str]
+    preferred_missing: List[str]
+    failed_audit_params: List[Dict[str, Any]]
+    recommendations: List[RecommendationItem]
+    structured_llm_prompt: str
+
+
+class GetRecommendationsRequest(BaseModel):
+    current_score: float
+    audit_report: ResumeAuditReport
+    jd: JDRequirementInput
+    resume: CanonicalResume
+    latex_source: Optional[str] = None
+
+
+class RetestLatexRequest(BaseModel):
+    raw_latex: str
+    jd: JDRequirementInput
+    target_platform: ATSPlatform = "WORKDAY"
+    baseline_score: Optional[float] = None
+
+
+class RetestLatexResponse(BaseModel):
+    retested_score: float
+    baseline_score: Optional[float] = None
+    score_delta: float
+    audit_report: ResumeAuditReport
+    hazards_detected: List[Dict[str, Any]]
+    canonical_resume: CanonicalResume
+    summary_message: str
+
+
+class AutoOptimizeLatexRequest(BaseModel):
+    raw_latex: str
+    jd: JDRequirementInput
+    target_platform: ATSPlatform = "WORKDAY"
+    current_score: float
+    audit_report: ResumeAuditReport
+    resume: CanonicalResume
+
+

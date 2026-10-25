@@ -25,9 +25,8 @@ import {
 } from "lucide-react";
 import ParserXRay from "@/components/ParserXRay";
 import DiagnosticDashboard from "@/components/DiagnosticDashboard";
-import TailoringStudio from "@/components/TailoringStudio";
+import LatexOptimizerStudio from "@/components/LatexOptimizerStudio";
 import KanbanBoard from "@/components/KanbanBoard";
-import TexRemediationStudio from "@/components/TexRemediationStudio";
 import {
   ATSPlatform,
   ComputeScoreResponse,
@@ -47,7 +46,7 @@ import {
   parseResumeXRay,
 } from "@/services/api";
 
-type StudioView = "XRAY" | "DIAGNOSTIC" | "TAILOR" | "TEX_REMEDIATE" | "KANBAN";
+type StudioView = "XRAY" | "DIAGNOSTIC" | "LATEX_OPTIMIZER" | "KANBAN";
 
 const EMPTY_JD: JDRequirementInput = {
   target_title: "",
@@ -72,18 +71,13 @@ const WORKFLOW_STEPS: {
     title: "Diagnostic & 30-Pt Audit",
   },
   {
-    id: "TAILOR",
+    id: "LATEX_OPTIMIZER",
     step: "03",
-    title: "Diff Editor & Safe Export",
-  },
-  {
-    id: "TEX_REMEDIATE",
-    step: "04",
-    title: "LaTeX & Context Remediator",
+    title: "LaTeX Optimizer & PDF Studio",
   },
   {
     id: "KANBAN",
-    step: "05",
+    step: "04",
     title: "Application Pipeline",
   },
 ];
@@ -529,9 +523,7 @@ export default function GlassBoxStudioPage() {
                       ? Eye
                       : item.id === "DIAGNOSTIC"
                       ? Activity
-                      : item.id === "TAILOR"
-                      ? GitCompare
-                      : item.id === "TEX_REMEDIATE"
+                      : item.id === "LATEX_OPTIMIZER"
                       ? Code2
                       : Kanban;
 
@@ -705,7 +697,7 @@ export default function GlassBoxStudioPage() {
 
       {/* Main Studio Workspace */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
-        {!xrayData && activeView !== "TEX_REMEDIATE" ? (
+        {!xrayData && activeView !== "LATEX_OPTIMIZER" ? (
           /* ==================================================================
              CLEAN EMPTY-STATE LAUNCHPAD: 1. Feed JD + 2. Upload Resume PDF
              ================================================================== */
@@ -1002,24 +994,30 @@ export default function GlassBoxStudioPage() {
                 knockoutRules={knockoutRules}
                 onUpdateKnockoutRules={setKnockoutRules}
                 rrfResults={rrfResults}
-                onNavigateToRemediation={() => setActiveView("TEX_REMEDIATE")}
+                onNavigateToRemediation={() => setActiveView("LATEX_OPTIMIZER")}
               />
             )}
 
-            {activeView === "TAILOR" && tailorData && xrayData && (
-              <TailoringStudio
-                resume={xrayData.canonical}
+            {activeView === "LATEX_OPTIMIZER" && (
+              <LatexOptimizerStudio
+                resume={xrayData?.canonical || SARAH_CHEN_XRAY_FIXTURE.canonical}
                 jd={jd}
-                tailorData={tailorData}
-                onApproveBullet={handleApproveBullet}
-                onRegenerateTailoring={handleRegenerateTailoring}
-              />
-            )}
-
-            {activeView === "TEX_REMEDIATE" && (
-              <TexRemediationStudio
-                initialJdText={rawJdText}
+                currentScore={scoreData?.score_breakdown.total_score ?? 78.5}
+                auditReport={
+                  scoreData?.audit_report || {
+                    total_parameters: 30,
+                    passed_count: 22,
+                    warn_count: 5,
+                    fail_count: 3,
+                    overall_audit_score: 75.0,
+                    parameters: [],
+                  }
+                }
                 selectedPlatform={selectedPlatform}
+                onSelectPlatform={setSelectedPlatform}
+                onUpdateCanonicalResume={(updated) => {
+                  setXRayData((prev) => (prev ? { ...prev, canonical: updated } : prev));
+                }}
               />
             )}
 

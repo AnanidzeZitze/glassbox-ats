@@ -34,17 +34,23 @@ from backend.models.schemas import (
     ATSPlatform,
     ATSScoreBreakdown,
     ApplicantDemographicRecord,
+    AutoOptimizeLatexRequest,
     CanonicalResume,
     ExtractionResult,
+    GetRecommendationsRequest,
     JDRequirementInput,
     NYCLocalLaw144AuditReport,
     ParseTexRequest,
     ParseTexResponse,
     RRFCandidateInput,
     RRFCandidateResult,
+    RecommendationItem,
     RemediateTexRequest,
     RemediateTexResponse,
     ResumeAuditReport,
+    RetestLatexRequest,
+    RetestLatexResponse,
+    StructuredRecommendationsResponse,
     TailorBulletDiffItem,
 )
 from backend.services.ats_score import audit_resume_content, compute_ats_score
@@ -53,6 +59,14 @@ from backend.services.evidence_tracer import build_full_evidence_trace
 from backend.services.extractor import extract_document
 from backend.services.hybrid_search import compute_ll144_bias_audit, rank_candidates_rrf
 from backend.services.nlp_pipeline import parse_resume_text
+from backend.services.recommendations import (
+    auto_apply_latex_optimizations,
+    generate_structured_recommendations,
+)
+from backend.services.tex_parser import (
+    detect_latex_hazards,
+    parse_tex_to_canonical,
+)
 from backend.services.schema_emulators import (
     build_sarah_chen_canonical_fixture,
     emulate_greenhouse,
@@ -1187,6 +1201,77 @@ class EvidenceTraceRequest(BaseModel):
 def api_v1_evidence_trace(req: EvidenceTraceRequest) -> Dict[str, Any]:
     """Expose multi-platform reverse-engineered parser telemetry & evidence."""
     return build_full_evidence_trace(resume=req.resume, jd=req.jd)
+
+
+@app.post("/api/v1/recommendations", response_model=StructuredRecommendationsResponse)
+def api_v1_get_recommendations(req: GetRecommendationsRequest) -> StructuredRecommendationsResponse:
+    """Generate structured optimization recommendations and an LLM prompt from the 30-Point Audit."""
+    return generate_structured_recommendations(
+        current_score=req.current_score,
+        audit_report=req.audit_report,
+        jd=req.jd,
+        resume=req.resume,
+        latex_source=req.latex_source,
+    )
+
+
+@app.post("/api/v1/retest-latex", response_model=RetestLatexResponse)
+def api_v1_retest_latex(req: RetestLatexRequest) -> RetestLatexResponse:
+    """Parse, audit, score, and validate modified LaTeX code against target ATS platform."""
+    # 1. Parse LaTeX to CanonicalResume and detect LaTeX AST hazards
+    retested_canonical, hazards = parse_tex_to_canonical(req.raw_latex)
+
+    # 2. Re-run 30-Point Audit
+    retested_audit = audit_resume_content(retested_canonical)
+
+    # 3. Compute new ATS Score
+    score_obj = compute_ats_score(
+        resume=retested_canonical,
+        jd=req.jd,
+        platform=req.target_platform,
+    )
+    new_score = score_obj.total_score if score_obj.total_score is not None else 85.0
+    baseline = req.baseline_score or 70.0
+    delta = round(new_score - baseline, 1)
+
+    summary = (
+        f"Re-test complete: ATS score changed from {baseline:.1f} to {new_score:.1f} "
+        f"({'+' if delta >= 0 else ''}{delta:.1f} pts). "
+        f"{retested_audit.passed_count}/30 audit parameters passed."
+    )
+
+    return RetestLatexResponse(
+        retested_score=round(new_score, 1),
+        baseline_score=round(baseline, 1),
+        score_delta=delta,
+        audit_report=retested_audit,
+        hazards_detected=hazards,
+        canonical_resume=retested_canonical,
+        summary_message=summary,
+    )
+
+
+@app.post("/api/v1/auto-optimize-latex", response_model=RetestLatexResponse)
+def api_v1_auto_optimize_latex(req: AutoOptimizeLatexRequest) -> RetestLatexResponse:
+    """Built-in clean-room auto-optimizer that fixes AST hazards, margins, and missing skills."""
+    recs = generate_structured_recommendations(
+        current_score=req.current_score,
+        audit_report=req.audit_report,
+        jd=req.jd,
+        resume=req.resume,
+        latex_source=req.raw_latex,
+    )
+    optimized_tex = auto_apply_latex_optimizations(req.raw_latex, recs, req.jd)
+
+    return api_v1_retest_latex(
+        RetestLatexRequest(
+            raw_latex=optimized_tex,
+            jd=req.jd,
+            target_platform=req.target_platform,
+            baseline_score=req.current_score,
+        )
+    )
+
 
 
 
